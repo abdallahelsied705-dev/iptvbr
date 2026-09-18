@@ -27,7 +27,7 @@ export function Hero() {
         </div>
         <div className="hero-visual hero-visual-premium">
           <div className="hero-media-card">
-            <Image src="/images/hero/iptvbr-premium-living-room.webp" alt="Sala moderna com televisão e ambiente de streaming" width={1536} height={1024} priority sizes="(max-width: 900px) 100vw, 55vw" />
+            <Image src="/images/hero/iptvbr-premium-room.svg" alt="Sala moderna com televisão e ambiente de streaming" width={1200} height={800} priority sizes="(max-width: 900px) 100vw, 55vw" />
             <div className="hero-media-shade" />
             <div className="hero-media-top"><span>IPTVBR</span><span className="live-dot"><i /> LIVE EXPERIENCE</span></div>
             <div className="hero-media-bottom"><span>PORTUGAL</span><strong>Escolhe. Liga. Assiste.</strong><p>Guias, dispositivos, apps e suporte num único percurso.</p></div>
