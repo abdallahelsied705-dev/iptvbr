@@ -90,7 +90,7 @@ export const metadata: Metadata = {
 };
 
 function SectionLabel({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
-  return <span className={\`ref-label \${dark ? "ref-label-dark" : ""}\`}>{children}</span>;
+  return <span className={`ref-label ${dark ? "ref-label-dark" : ""}`}>{children}</span>;
 }
 
 export default function HomePage() {
@@ -177,7 +177,7 @@ export default function HomePage() {
           <div className="ref-feature-grid">
             {featureCards.map((feature) => (
               <article key={feature.title} className="ref-feature-card">
-                <div className="ref-feature-image" style={{ backgroundImage: \`linear-gradient(180deg, rgba(0,0,0,.03) 20%, rgba(0,0,0,.82) 100%), url("/images/hero/iptvbr-hero-background.webp")\`, backgroundPosition: feature.imagePos }} />
+                <div className="ref-feature-image" style={{ backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.03) 20%, rgba(0,0,0,.82) 100%), url("/images/hero/iptvbr-hero-background.webp")`, backgroundPosition: feature.imagePos }} />
                 <div className="ref-feature-icon">{feature.icon}</div>
                 <div className="ref-feature-body"><h3>{feature.title}</h3><p>{feature.text}</p><Link href="/guias/">Explorar <ChevronDown size={15} /></Link></div>
               </article>
