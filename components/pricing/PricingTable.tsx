@@ -1,14 +1,23 @@
 "use client";
 
-import Link from "next/link";
 import { useMemo, useState } from "react";
+import Link from "next/link";
+import { BadgeCheck, Check, MessageCircle, MonitorSmartphone, Plus, TvMinimal } from "lucide-react";
 import { buildPlanWhatsAppMessage, formatEuro, getPricingPlans, type DeviceCount } from "@/config/pricing";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const deviceOptions: { value: DeviceCount; label: string; note: string }[] = [
   { value: 1, label: "1 dispositivo", note: "Para uso individual" },
-  { value: 2, label: "2 dispositivos", note: "Para dois ecrãs em simultâneo" },
-  { value: 3, label: "3 dispositivos", note: "Para famílias e vários ecrãs" },
+  { value: 2, label: "2 dispositivos", note: "Para dois ecrãs" },
+  { value: 3, label: "3 dispositivos", note: "Para família e vários ecrãs" },
+];
+
+const features = [
+  { icon: <Check />, text: "Qualidade HD / Full HD / 4K quando disponível" },
+  { icon: <TvMinimal />, text: "Canais e conteúdos organizados por categorias" },
+  { icon: <MonitorSmartphone />, text: "Compatibilidade com vários dispositivos" },
+  { icon: <BadgeCheck />, text: "Configuração orientada para o teu equipamento" },
+  { icon: <MessageCircle />, text: "Suporte e pedido diretamente pelo WhatsApp" },
 ];
 
 export function PricingTable({ compact = false }: { compact?: boolean }) {
@@ -16,73 +25,74 @@ export function PricingTable({ compact = false }: { compact?: boolean }) {
   const [devices, setDevices] = useState<DeviceCount>(1);
 
   return (
-    <div className={`pricing-system ${compact ? "pricing-system-compact" : ""}`}>
-      <div className="pricing-toolbar">
-        <div>
-          <span className="card-kicker">Configuração</span>
-          <h3>Quantos dispositivos queres usar?</h3>
-          <p>Escolhe o número de dispositivos em simultâneo e os valores são atualizados automaticamente.</p>
-        </div>
-        <div className="device-switcher" role="tablist" aria-label="Número de dispositivos">
-          {deviceOptions.map((option) => (
-            <button
-              key={option.value}
-              type="button"
-              role="tab"
-              aria-selected={devices === option.value}
-              className={`device-switch ${devices === option.value ? "is-active" : ""}`}
-              onClick={() => setDevices(option.value)}
-            >
-              <strong>{option.label}</strong>
-              <small>{option.note}</small>
-            </button>
-          ))}
-        </div>
+    <div className={"reference-pricing " + (compact ? "reference-pricing-compact" : "")}>
+      <div className="reference-device-tabs" role="tablist" aria-label="Número de dispositivos">
+        {deviceOptions.map((option) => (
+          <button
+            key={option.value}
+            type="button"
+            role="tab"
+            aria-selected={devices === option.value}
+            className={devices === option.value ? "is-active" : ""}
+            onClick={() => setDevices(option.value)}
+          >
+            <span className="reference-device-tab-icon">
+              {option.value === 1 ? <TvMinimal size={18} /> : <MonitorSmartphone size={18} />}
+            </span>
+            <span><strong>{option.label}</strong><small>{option.note}</small></span>
+          </button>
+        ))}
       </div>
 
-      <div className="pricing-table-grid">
+      <div className="reference-pricing-grid">
         {plans.map((plan) => {
           const price = plan.prices[devices];
           const monthly = price / Math.max(plan.months, 1);
+          const message = buildPlanWhatsAppMessage(plan, devices);
           return (
-            <article className={`price-plan-card ${plan.badge === "Mais procurado" ? "is-featured" : ""}`} key={`${plan.duration}-${devices}`}>
-              {plan.badge ? <span className="price-plan-badge">{plan.badge}</span> : null}
-              <div className="price-plan-topline">
-                <span>{plan.duration}</span>
-                <span>{devices} {devices === 1 ? "dispositivo" : "dispositivos"}</span>
+            <article className={"reference-price-card " + (plan.badge === "Mais procurado" ? "is-featured" : "")} key={plan.duration}>
+              <div className="reference-price-head">
+                <span>{plan.badge || "Plano IPTV"}</span>
+                <small>{devices} {devices === 1 ? "dispositivo" : "dispositivos"}</small>
               </div>
-              <h4>{formatEuro(price)}</h4>
-              <p className="price-monthly">≈ {formatEuro(monthly)} / mês</p>
-              <ul className="price-feature-list">
-                <li>Atendimento direto pelo WhatsApp</li>
-                <li>Configuração orientada para o teu dispositivo</li>
-                <li>Pedido de pagamento enviado após a escolha</li>
-                <li>Sem checkout complicado no site</li>
-              </ul>
+
+              <h3>{plan.duration}</h3>
+
+              <div className="reference-price-band">
+                <strong>{formatEuro(price).replace(" ", " ")}</strong>
+                <span>{plan.months > 1 ? "≈ " + formatEuro(monthly) + " / mês" : "Preço total"}</span>
+              </div>
+
+              <div className="reference-price-content">
+                <ul>
+                  {features.map((feature) => (
+                    <li key={feature.text}>
+                      <span>{feature.icon}</span>
+                      <span>{feature.text}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <Link
-                className="button button-primary pricing-whatsapp-cta"
-                href={buildWhatsAppUrl(buildPlanWhatsAppMessage(plan, devices))}
+                className="reference-price-cta"
+                href={buildWhatsAppUrl(message)}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <span className="whatsapp-button-icon" aria-hidden="true">◔</span>
-                Escolher este plano
+                <span>Escolher plano</span>
+                <span><Plus size={17} strokeWidth={2.6} /></span>
               </Link>
-              <p className="price-plan-helper">A mensagem abrirá no WhatsApp com plano, duração e número de dispositivos.</p>
+
+              <p className="reference-price-note">Pedido preparado com a duração e o número de dispositivos selecionados.</p>
             </article>
           );
         })}
       </div>
 
-      <div className="pricing-footnote">
-        <div>
-          <span className="pricing-footnote-icon">✓</span>
-          <div>
-            <strong>Compra orientada pelo WhatsApp</strong>
-            <p>Depois de escolheres o plano, a mensagem pré-preenchida abre diretamente no WhatsApp para confirmar os detalhes e receber o link de pagamento.</p>
-          </div>
-        </div>
-        <Link className="button button-ghost" href="/suporte/">Precisas de ajuda?</Link>
+      <div className="reference-pricing-foot">
+        <div><BadgeCheck size={18} /><span>Confirma os detalhes pelo WhatsApp antes do pagamento.</span></div>
+        <Link href="/suporte/">Precisas de ajuda?</Link>
       </div>
     </div>
   );
