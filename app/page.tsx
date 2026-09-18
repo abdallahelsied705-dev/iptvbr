@@ -1,192 +1,47 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Hero } from "@/components/hero/Hero";
 import { Section } from "@/components/ui/Section";
-import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
-import { ReferencePricing } from "@/components/pricing/ReferencePricing";
+import { Reveal } from "@/components/ui/Reveal";
+import { PricingMatrix } from "@/components/pricing/PricingMatrix";
+import { DeviceShowcase } from "@/components/devices/DeviceShowcase";
 import { ReviewShowcase } from "@/components/reviews/ReviewShowcase";
+import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
 import { getChildRoutes, getRoute } from "@/config/routes";
 import { buildMetadata } from "@/lib/seo/metadata";
 
-const journey = [
-  { step: "01", title: "Descobrir", text: "Começa pelo essencial: o que é IPTV, como funciona e que fatores deves validar.", href: "/guias/o-que-e-iptv/" },
-  { step: "02", title: "Escolher", text: "Compara planos, dispositivos, aplicações e condições comerciais sem depender de slogans.", href: "/comparar/como-escolher-iptv-portugal/" },
-  { step: "03", title: "Configurar", text: "Encontra o guia certo para o teu dispositivo e a aplicação que estás a utilizar.", href: "/guias/como-instalar-iptv/" },
-  { step: "04", title: "Resolver", text: "Quando algo falhar, começa pelo diagnóstico certo antes de alterar várias configurações.", href: "/suporte/" },
+const steps = [
+  { n: "01", title: "Escolhe o plano", text: "Seleciona a duração e o número de dispositivos que queres usar.", icon: "✓" },
+  { n: "02", title: "Fala connosco", text: "O WhatsApp recebe automaticamente os detalhes da tua escolha.", icon: "↗" },
+  { n: "03", title: "Recebe a orientação", text: "Confirmamos as condições e explicamos os próximos passos.", icon: "→" },
 ];
-
-const deviceRoutes = getChildRoutes("/dispositivos/").slice(0, 6);
 const appRoutes = getChildRoutes("/apps/").slice(0, 4);
 const guideRoutes = getChildRoutes("/guias/").slice(0, 4);
 
-export function generateMetadata(): Metadata {
-  const route = getRoute("/");
-  return route ? buildMetadata(route) : {};
-}
+export function generateMetadata(): Metadata { const route = getRoute("/"); return route ? buildMetadata(route) : {}; }
 
 export default function HomePage() {
-  return (
-    <main id="main-content" className="home-page">
-      <Hero />
+  return <main id="main-content">
+    <Hero />
 
-      <div className="container home-launchbar" aria-label="Ações rápidas">
-        <div><span className="launch-dot" /> Novo · experiência IPTVBR renovada para Portugal</div>
-        <Link href="/precos/">Ver planos <span aria-hidden="true">→</span></Link>
-        <WhatsAppButton message="Olá, quero conhecer os planos IPTVBR e saber como funciona em Portugal." />
-      </div>
+    <section className="stats-band"><div className="container stats-grid"><Reveal><span>01</span><strong>Planos flexíveis</strong><p>Escolhe duração e dispositivos.</p></Reveal><Reveal delay={80}><span>02</span><strong>WhatsApp direto</strong><p>Pedido preparado automaticamente.</p></Reveal><Reveal delay={160}><span>03</span><strong>Guias pt-PT</strong><p>Instalação e suporte por dispositivo.</p></Reveal><Reveal delay={240}><span>04</span><strong>Experiência premium</strong><p>Navegação pensada para conversão.</p></Reveal></div></section>
 
-      <section className="trust-strip trust-strip-strong" aria-label="Princípios da IPTVBR">
-        <div className="container trust-strip-inner">
-          <span><b>pt-PT</b> conteúdo local</span>
-          <span><b>Dispositivos</b> por contexto</span>
-          <span><b>WhatsApp</b> contacto direto</span>
-          <span><b>SEO</b> arquitetura organizada</span>
-        </div>
-      </section>
+    <Section eyebrow="PLANOS IPTV" title="Escolhe a combinação certa para a tua casa." description="Alterna entre 1 e 4 dispositivos. O preço e a mensagem de WhatsApp são atualizados no momento." className="pricing-section-home">
+      <Reveal><PricingMatrix /></Reveal>
+    </Section>
 
-      <section className="section home-banner-section">
-        <div className="container">
-          <Link className="home-banner" href="/dispositivos/">
-            <div className="home-banner-copy">
-              <p className="eyebrow">Onde queres assistir?</p>
-              <h2>Escolhe o dispositivo. Nós mostramos o caminho.</h2>
-              <p>Fire TV, Smart TV, Samsung, LG, Android TV, Google TV e mais — com páginas específicas para instalação e suporte.</p>
-              <span className="banner-link">Explorar dispositivos →</span>
-            </div>
-            <div className="home-banner-image">
-              <Image src="/images/hero/iptvbr-living-room.webp" alt="Ambiente premium de streaming em casa" width={1536} height={1024} sizes="(max-width: 720px) 100vw, 50vw" />
-            </div>
-          </Link>
-        </div>
-      </section>
+    <section className="visual-break"><div className="visual-break-image" /><div className="container visual-break-content"><span className="eyebrow">UMA EXPERIÊNCIA COMPLETA</span><h2>Mais do que um plano. Um percurso.</h2><p>Do primeiro clique ao suporte, tudo foi organizado para reduzir dúvidas e tornar cada decisão evidente.</p><Link className="button button-light" href="/guias/">Explorar os guias</Link></div></section>
 
-      <Section
-        eyebrow="Uma jornada simples"
-        title="Da descoberta ao suporte, sem páginas soltas."
-        description="O site foi desenhado como uma rede de conteúdo: cada etapa aponta para a próxima decisão ou tarefa útil."
-      >
-        <div className="journey-grid journey-grid-premium">
-          {journey.map((item) => (
-            <Link className="journey-card" href={item.href} key={item.step}>
-              <span className="journey-step">{item.step}</span>
-              <div className="journey-icon" aria-hidden="true">{item.step === "01" ? "◈" : item.step === "02" ? "⌁" : item.step === "03" ? "△" : "✦"}</div>
-              <h3>{item.title}</h3>
-              <p>{item.text}</p>
-              <span className="card-link">Continuar →</span>
-            </Link>
-          ))}
-        </div>
-      </Section>
+    <Section eyebrow="DISPOSITIVOS" title="Vê no equipamento que já tens." description="Encontra rapidamente o percurso certo para TV, streaming stick, telemóvel ou computador." className="section-surface"><Reveal><DeviceShowcase /></Reveal></Section>
 
-      <Section
-        eyebrow="Planos IPTV"
-        title="Uma área de preços que cresce com o negócio."
-        description="A apresentação foi preparada para mostrar os planos de forma clara. Valores comerciais só devem ser tratados como oferta quando estiverem validados."
-        className="section-surface pricing-home-section"
-      >
-        <ReferencePricing />
-      </Section>
+    <Section eyebrow="3 PASSOS" title="Do plano ao primeiro acesso." description="Um fluxo simples, sem formulários desnecessários." className="steps-section"><div className="steps-grid">{steps.map((step, i) => <Reveal delay={i*90} key={step.n}><article className="step-card"><span className="step-icon">{step.icon}</span><small>{step.n}</small><h3>{step.title}</h3><p>{step.text}</p></article></Reveal>)}</div></Section>
 
-      <Section
-        eyebrow="Onde queres assistir?"
-        title="Começa pelo teu dispositivo."
-        description="As páginas por dispositivo ligam compatibilidade, aplicações, instalação e resolução de problemas num só percurso."
-      >
-        <div className="device-grid device-grid-premium">
-          {deviceRoutes.map((route, index) => (
-            <Link className="device-card" href={route.slug} key={route.slug}>
-              <span className="device-visual" aria-hidden="true"><span>{["TV", "▣", "S", "LG", "A", "G"][index] ?? "TV"}</span></span>
-              <div>
-                <span className="card-kicker">Dispositivo</span>
-                <h3>{route.title.replace("IPTV no ", "").replace("IPTV na ", "")}</h3>
-                <p>{route.description}</p>
-              </div>
-              <span className="device-arrow" aria-hidden="true">↗</span>
-            </Link>
-          ))}
-        </div>
-      </Section>
+    <Section eyebrow="APLICAÇÕES" title="Escolhe a app que combina com o teu dispositivo." description="Guias dedicados para instalar e configurar aplicações populares." className="section-surface"><Reveal><div className="app-showcase-grid">{appRoutes.map((route, i) => <Link href={route.slug} className="app-card-premium" key={route.slug}><span className="app-number">0{i+1}</span><div><strong>{route.title}</strong><p>{route.description}</p></div><span>↗</span></Link>)}</div></Reveal></Section>
 
-      <section className="split-feature split-feature-premium">
-        <div className="container split-feature-grid">
-          <div className="split-copy">
-            <p className="eyebrow">Experiência de marca</p>
-            <h2>Uma página inicial com mais ritmo, mais imagem e caminhos mais claros.</h2>
-            <p className="section-lead">Hero visual, banners, planos, dispositivos, guias e contacto direto foram organizados para criar uma experiência de streaming moderna sem perder a arquitetura SEO.</p>
-            <div className="feature-pills">
-              <Link href="/apps/">Explorar aplicações</Link>
-              <Link href="/guias/">Ver todos os guias</Link>
-              <Link href="/suporte/">Abrir suporte</Link>
-            </div>
-          </div>
-          <div className="signal-panel signal-panel-premium" aria-label="Fluxo de configuração IPTV">
-            <div className="signal-head"><span>FLUXO IPTVBR</span><b>01—04</b></div>
-            <div className="signal-track" />
-            <div className="signal-node active"><span>1</span><strong>Dispositivo</strong><small>Onde vais assistir</small></div>
-            <div className="signal-node"><span>2</span><strong>Aplicação</strong><small>Escolher o player</small></div>
-            <div className="signal-node"><span>3</span><strong>Configuração</strong><small>Instalar e testar</small></div>
-            <div className="signal-node"><span>4</span><strong>Suporte</strong><small>Diagnosticar e resolver</small></div>
-          </div>
-        </div>
-      </section>
+    <Section eyebrow="GUIAS & SUPORTE" title="Quando tens uma dúvida, começa pelo caminho certo." description="Conteúdo útil para instalar, configurar e resolver problemas comuns." ><Reveal><div className="guide-grid-premium">{guideRoutes.map((route, i) => <Link href={route.slug} className="guide-card-premium" key={route.slug}><span>{String(i+1).padStart(2,"0")}</span><h3>{route.title}</h3><p>{route.description}</p><strong>Ver guia →</strong></Link>)}</div></Reveal></Section>
 
-      <Section
-        eyebrow="Aplicações"
-        title="Encontra a app certa para o teu fluxo."
-        description="Cada página de aplicação deve explicar o contexto de utilização e encaminhar para instalação e troubleshooting."
-        className="section-surface"
-      >
-        <div className="compact-grid compact-grid-premium">
-          {appRoutes.map((route) => (
-            <Link className="compact-card" href={route.slug} key={route.slug}>
-              <span className="app-logo-placeholder" aria-hidden="true">▶</span>
-              <span className="card-kicker">Aplicação</span>
-              <h3>{route.title}</h3>
-              <p>{route.description}</p>
-              <span className="card-link">Abrir guia →</span>
-            </Link>
-          ))}
-        </div>
-      </Section>
+    <section className="review-section"><div className="container"><Reveal><div className="review-section-head"><div><span className="eyebrow">AVALIAÇÕES</span><h2>Uma área pronta para prova social real.</h2></div><p>Os cartões atuais são exemplos de estrutura. Substitui pelos testemunhos verificados dos teus clientes.</p></div><ReviewShowcase /></Reveal></div></section>
 
-      <Section
-        eyebrow="Guias"
-        title="Respostas antes de precisares de suporte."
-        description="Conteúdo prático para entender conceitos, instalar aplicações e diagnosticar reprodução."
-      >
-        <div className="guide-grid guide-grid-premium">
-          {guideRoutes.map((route, index) => (
-            <Link className="guide-card" href={route.slug} key={route.slug}>
-              <span className="guide-number">0{index + 1}</span>
-              <div><span className="card-kicker">Guia prático</span><h3>{route.title}</h3><p>{route.description}</p></div>
-              <span className="guide-arrow">↗</span>
-            </Link>
-          ))}
-        </div>
-      </Section>
-
-      <section className="section section-surface review-section">
-        <div className="container">
-          <ReviewShowcase />
-        </div>
-      </section>
-
-      <Section eyebrow="Transparência" title="Informação comercial sem promessas inventadas.">
-        <div className="transparency-grid">
-          <article className="transparency-card"><span className="transparency-mark">01</span><h3>Dados verificados</h3><p>Preços, teste, compatibilidade, limites de dispositivos e condições comerciais só entram como factos quando estiverem confirmados.</p></article>
-          <article className="transparency-card"><span className="transparency-mark">02</span><h3>Benchmark não é oferta</h3><p>Referências de mercado ajudam a orientar a estratégia, mas não são apresentadas ao visitante como uma oferta IPTVBR.</p></article>
-          <article className="transparency-card"><span className="transparency-mark">03</span><h3>Direitos de conteúdo</h3><p>A tecnologia IPTV é tratada separadamente das autorizações necessárias para distribuir conteúdos protegidos.</p></article>
-        </div>
-      </Section>
-
-      <section className="section section-cta">
-        <div className="container cta-panel cta-panel-hero cta-panel-premium">
-          <div><p className="eyebrow">Fala connosco</p><h2>Queres confirmar preço, compatibilidade ou configuração?</h2><p className="muted">O caminho comercial atual começa pelo WhatsApp, onde as condições podem ser confirmadas antes do pagamento.</p></div>
-          <div className="hero-actions"><WhatsAppButton message="Olá, gostaria de confirmar os planos, preços e compatibilidade do IPTVBR." /><Link className="button button-secondary" href="/suporte/">Visitar suporte</Link></div>
-        </div>
-      </section>
-
-    </main>
-  );
+    <section className="final-cta"><div className="container final-cta-inner"><div><span className="eyebrow">FALAR AGORA</span><h2>Tens o dispositivo. Nós ajudamos no próximo passo.</h2><p>Envia a tua dúvida ou escolhe um plano e o WhatsApp abre com os dados já preenchidos.</p></div><div className="hero-actions"><WhatsAppButton message="Olá! Quero ajuda para escolher o melhor plano IPTVBR para o meu dispositivo." /><Link href="/suporte/" className="button button-secondary">Abrir suporte</Link></div></div></section>
+  </main>;
 }
