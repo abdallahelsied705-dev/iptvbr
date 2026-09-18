@@ -609,3 +609,62 @@ p { margin-top: 0; }
   .floating-whatsapp-label { display: none; }
   .floating-whatsapp { width: 54px; height: 54px; padding: 0; justify-content: center; }
 }
+
+/* Commercial pricing UX refresh */
+.pricing-system { display: grid; gap: 24px; }
+.pricing-system-compact { gap: 18px; }
+.pricing-toolbar { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(420px, 1.2fr); gap: 24px; align-items: end; }
+.pricing-toolbar h3 { margin: 5px 0 0; font-size: clamp(1.35rem, 2.4vw, 2rem); letter-spacing: -.045em; }
+.pricing-toolbar p { margin: 8px 0 0; max-width: 54ch; color: var(--muted); font-size: .84rem; line-height: 1.65; }
+.device-switcher { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding: 7px; border: 1px solid rgba(103,209,255,.12); border-radius: 20px; background: rgba(4,13,24,.72); }
+.device-switch { min-height: 74px; padding: 12px 14px; border: 1px solid transparent; border-radius: 15px; background: transparent; color: var(--muted); text-align: left; cursor: pointer; transition: transform .2s ease, border-color .2s ease, background-color .2s ease, color .2s ease; }
+.device-switch strong { display: block; color: inherit; font-size: .78rem; }
+.device-switch small { display: block; margin-top: 4px; color: var(--faint); font-size: .62rem; line-height: 1.45; }
+.device-switch:hover { transform: translateY(-2px); color: var(--text); }
+.device-switch.is-active { border-color: rgba(103,209,255,.27); background: linear-gradient(180deg, rgba(31,182,255,.13), rgba(31,182,255,.055)); color: var(--text); box-shadow: 0 12px 30px rgba(0,0,0,.18); }
+.device-switch.is-active small { color: #abdff6; }
+.pricing-table-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.price-plan-card { position: relative; display: flex; flex-direction: column; min-height: 470px; padding: 24px; overflow: hidden; border: 1px solid rgba(103,209,255,.11); border-radius: 24px; background: radial-gradient(circle at 90% 0%, rgba(31,182,255,.09), transparent 12rem), linear-gradient(180deg, rgba(255,255,255,.035), rgba(255,255,255,.012)), #101b2d; box-shadow: 0 18px 50px rgba(0,0,0,.18); transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.price-plan-card::after { content: ""; position: absolute; right: -40px; bottom: -70px; width: 170px; height: 170px; border-radius: 50%; background: rgba(31,182,255,.05); filter: blur(12px); pointer-events: none; }
+.price-plan-card:hover { transform: translateY(-7px); border-color: rgba(103,209,255,.27); box-shadow: 0 28px 70px rgba(0,0,0,.28); }
+.price-plan-card.is-featured { border-color: rgba(103,209,255,.42); box-shadow: 0 26px 80px rgba(31,182,255,.10); }
+.price-plan-badge { position: absolute; top: 15px; right: 15px; padding: 7px 10px; border-radius: 999px; background: rgba(31,182,255,.14); color: var(--accent-strong); font-size: .58rem; font-weight: 900; letter-spacing: .08em; text-transform: uppercase; }
+.price-plan-topline { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font-size: .73rem; font-weight: 800; }
+.price-plan-topline span:last-child { color: var(--faint); font-size: .62rem; }
+.price-plan-card h4 { margin: 24px 0 2px; font-size: clamp(2.55rem, 4vw, 3.5rem); letter-spacing: -.065em; line-height: .95; }
+.price-monthly { margin: 0; color: var(--accent-strong); font-size: .74rem; font-weight: 850; }
+.price-feature-list { display: grid; gap: 10px; margin: 24px 0; padding: 0; list-style: none; color: var(--muted); font-size: .73rem; line-height: 1.55; }
+.price-feature-list li { position: relative; padding-left: 21px; }
+.price-feature-list li::before { content: "✓"; position: absolute; left: 0; color: var(--success); font-weight: 900; }
+.pricing-whatsapp-cta { width: 100%; margin-top: auto; min-height: 48px; }
+.whatsapp-button-icon { display: inline-grid; place-items: center; width: 19px; height: 19px; margin-right: 7px; border: 2px solid currentColor; border-radius: 50%; font-size: .6rem; }
+.price-plan-helper { margin: 10px 0 0; color: var(--faint); font-size: .61rem; line-height: 1.5; }
+.pricing-footnote { display: flex; justify-content: space-between; gap: 18px; align-items: center; padding: 17px 19px; border: 1px solid rgba(103,209,255,.11); border-radius: 18px; background: rgba(255,255,255,.018); }
+.pricing-footnote > div { display: flex; gap: 12px; align-items: flex-start; }
+.pricing-footnote-icon { display: grid; place-items: center; width: 28px; height: 28px; flex: 0 0 28px; border-radius: 10px; background: rgba(93,224,163,.09); color: var(--success); font-size: .7rem; font-weight: 900; }
+.pricing-footnote strong { display: block; font-size: .78rem; }
+.pricing-footnote p { margin: 4px 0 0; max-width: 78ch; color: var(--muted); font-size: .7rem; line-height: 1.55; }
+.pricing-market-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pricing-market-strip > div { min-height: 104px; padding: 17px; border: 1px solid rgba(103,209,255,.11); border-radius: 18px; background: rgba(255,255,255,.018); }
+.pricing-market-strip strong { display: block; margin-top: 3px; color: var(--text); font-size: 1.3rem; }
+.pricing-market-strip span:last-child { color: var(--muted); font-size: .68rem; }
+.pricing-home-bottom { display: flex; justify-content: flex-start; }
+.pricing-page-stage { position: relative; padding: 34px 0 84px; background: radial-gradient(circle at 80% 25%, rgba(31,182,255,.08), transparent 24rem), #081322; }
+.pricing-page-stage::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(180deg, rgba(7,17,31,.18), rgba(7,17,31,.86)), url('/images/hero/iptvbr-living-room.webp'); background-position: center, 90% center; background-size: cover, 650px auto; background-repeat: no-repeat; background-blend-mode: normal, normal; opacity: .12; pointer-events: none; }
+.pricing-page-stage > .container { position: relative; z-index: 1; }
+.pricing-page-stage-head { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(300px, .85fr); gap: 30px; align-items: end; margin-bottom: 28px; }
+.pricing-page-stage-head h2 { margin: 8px 0 0; max-width: 15ch; font-size: clamp(2.2rem, 4.5vw, 4.2rem); letter-spacing: -.065em; line-height: .98; }
+.pricing-page-stage-head p { margin: 12px 0 0; max-width: 62ch; color: var(--muted); font-size: .9rem; line-height: 1.65; }
+.pricing-page-stage-proof { display: grid; gap: 9px; justify-items: end; }
+.pricing-page-stage-proof span { display: inline-flex; align-items: center; min-width: 180px; justify-content: center; padding: 10px 13px; border: 1px solid rgba(103,209,255,.14); border-radius: 999px; background: rgba(7,17,31,.72); color: var(--muted); font-size: .68rem; font-weight: 800; }
+.pricing-page-stage-proof span::before { content: "✓"; margin-right: 7px; color: var(--success); }
+.pricing-page-stage-proof small { max-width: 300px; color: var(--faint); font-size: .62rem; line-height: 1.5; text-align: right; }
+@media (max-width: 1050px) { .pricing-toolbar { grid-template-columns: 1fr; } .pricing-table-grid { grid-template-columns: repeat(2, 1fr); } .pricing-page-stage-head { grid-template-columns: 1fr; } .pricing-page-stage-proof { justify-items: start; grid-template-columns: repeat(3, 1fr); align-items: center; } .pricing-page-stage-proof small { grid-column: 1 / -1; max-width: none; text-align: left; } }
+@media (max-width: 720px) { .device-switcher { grid-template-columns: 1fr; } .device-switch { min-height: 62px; } .pricing-table-grid { grid-template-columns: 1fr; } .price-plan-card { min-height: 430px; } .pricing-footnote { flex-direction: column; align-items: stretch; } .pricing-footnote .button { width: 100%; } .pricing-market-strip { grid-template-columns: 1fr; } .pricing-page-stage { padding-top: 22px; } .pricing-page-stage-proof { grid-template-columns: 1fr; } .pricing-page-stage-proof span { width: 100%; } }
+.whatsapp-icon-svg { border: 0; }
+.whatsapp-icon-svg svg { width: 20px; height: 20px; display: block; }
+.floating-whatsapp-icon { border: 0; }
+.floating-whatsapp-icon svg { width: 22px; height: 22px; display: block; }
+.pricing-system-compact .price-plan-card { min-height: 420px; }
+.pricing-system-compact .price-feature-list { gap: 8px; margin: 19px 0; }
+.pricing-system-compact .pricing-footnote { margin-top: -2px; }
