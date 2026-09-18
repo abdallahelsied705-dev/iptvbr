@@ -27,8 +27,6 @@ import {
 import { Hero } from "@/components/hero/Hero";
 import { PricingMatrix } from "@/components/pricing/PricingMatrix";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
-import { buildMetadata } from "@/lib/seo/metadata";
-import { getRoute } from "@/config/routes";
 
 const devices = [
   { label: "Fire TV", icon: <Tv size={27} /> },
@@ -99,11 +97,7 @@ const featureCards = [
   },
 ];
 
-export function generateMetadata(): Metadata {
-  const route = getRoute("/");
-  return route ? buildMetadata(route) : {};
-}
-
+export const metadata: Metadata = {\n  title: "IPTVBR — IPTV em Portugal",\n  description: "Planos IPTV, dispositivos, aplicações e guias em português de Portugal.",\n};\n
 function SectionLabel({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
   return <span className={`ref-label ${dark ? "ref-label-dark" : ""}`}>{children}</span>;
 }
