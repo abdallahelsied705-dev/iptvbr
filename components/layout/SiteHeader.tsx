@@ -1,27 +1,31 @@
 import Link from "next/link";
 import { navigation } from "@/config/navigation";
 import { MobileMenu } from "@/components/navigation/MobileMenu";
-import { Logo } from "@/components/brand/Logo";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
+
+function Logo() {
+  return <span className="brand-logo"><span className="brand-logo-mark">▶</span><span className="brand-logo-word">IPTV<span>BR</span></span><small>PORTUGAL</small></span>;
+}
 
 export function SiteHeader() {
   return (
-    <header className="site-header">
-      <div className="top-announcement"><div className="container top-announcement-inner"><span><i /> IPTVBR Portugal · conteúdo em pt-PT</span><Link href="/precos/">Ver planos →</Link></div></div>
+    <header className="site-header site-header-premium">
       <a className="skip-link" href="#main-content">Saltar para o conteúdo</a>
       <div className="container header-inner">
-        <Logo />
+        <Link className="brand" href="/" aria-label="IPTVBR — Início"><Logo /></Link>
         <nav aria-label="Navegação principal" className="desktop-navigation">
           <ul className="nav-list">
-            {navigation.map((item) => (
-              <li key={item.href} className={item.children ? "nav-has-children" : undefined}>
-                <Link href={item.href}>{item.label}{item.children ? <span className="nav-caret" aria-hidden="true">⌄</span> : null}</Link>
-                {item.children ? <div className="nav-dropdown">{item.children.map((child) => <Link href={child.href} key={child.href}>{child.label}</Link>)}</div> : null}
-              </li>
+            <li><Link href="/iptv-portugal/">IPTV Portugal</Link></li>
+            <li><Link href="/precos/">Preços</Link></li>
+            {navigation.filter(item => ["/dispositivos/","/apps/"].includes(item.href)).map((item) => (
+              <li key={item.href} className="nav-has-children"><Link href={item.href}>{item.label}<span className="nav-caret">⌄</span></Link><div className="nav-dropdown">{item.children?.map((child) => <Link href={child.href} key={child.href}>{child.label}</Link>)}</div></li>
             ))}
+            <li><Link href="/guias/">Guias</Link></li>
+            <li><Link href="/blog/">Blog</Link></li>
+            <li><Link href="/suporte/">Suporte</Link></li>
           </ul>
         </nav>
-        <div className="desktop-header-cta"><WhatsAppButton message="Olá, quero falar sobre os planos IPTVBR em Portugal." /></div>
+        <div className="desktop-header-cta"><WhatsAppButton message="Olá! Quero falar com a IPTVBR sobre um plano em Portugal." /></div>
         <MobileMenu />
       </div>
     </header>
