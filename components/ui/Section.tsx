@@ -14,6 +14,7 @@ export function Section({
   description?: string;
   children?: ReactNode;
   className?: string;
+  id?: string;
 }) {
   return (
     <section id={id} className={`section ${className}`.trim()}>
