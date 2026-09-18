@@ -187,10 +187,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      <Link className="floating-whatsapp" href="https://wa.me/212710141872?text=Ol%C3%A1%2C%20quero%20saber%20mais%20sobre%20o%20IPTVBR%20em%20Portugal." aria-label="Falar com o IPTVBR no WhatsApp" target="_blank" rel="noopener noreferrer">
-        <span className="floating-whatsapp-icon" aria-hidden="true">◔</span>
-        <span className="floating-whatsapp-label">WhatsApp</span>
-      </Link>
     </main>
   );
 }
