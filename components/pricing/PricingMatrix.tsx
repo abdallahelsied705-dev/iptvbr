@@ -4,17 +4,17 @@ import { useMemo, useState } from "react";
 import { buildWhatsAppUrl } from "@/lib/whatsapp";
 
 const plans = [
-  { id: "1", duration: "1 mês", base: 14.99, tag: "Flexível", note: "Para começar" },
-  { id: "3", duration: "3 meses", base: 29.99, tag: "Equilíbrio", note: "Mais liberdade" },
-  { id: "6", duration: "6 meses", base: 44.99, tag: "Mais escolhido", note: "Boa relação preço / duração" },
-  { id: "12", duration: "12 meses", base: 59.99, tag: "Melhor valor", note: "Menor custo mensal" },
+  { id: "1", duration: "1 mês", base: 15, tag: "Flexível", note: "Para começar" },
+  { id: "3", duration: "3 meses", base: 29, tag: "Equilíbrio", note: "Mais liberdade" },
+  { id: "6", duration: "6 meses", base: 49, tag: "Mais escolhido", note: "Boa relação preço / duração" },
+  { id: "12", duration: "12 meses", base: 69, tag: "Melhor valor", note: "Menor custo mensal" },
 ];
-const deviceMultipliers: Record<number, number> = { 1: 1, 2: 1.62, 3: 2.08, 4: 2.52 };
+const deviceMultipliers: Record<number, number> = { 1: 1, 2: 1.6, 3: 2.05, 4: 2.45 };
 const deviceLabels: Record<number, string> = { 1: "1 dispositivo", 2: "2 dispositivos", 3: "3 dispositivos", 4: "4 dispositivos" };
 
 export function PricingMatrix() {
   const [devices, setDevices] = useState(1);
-  const adjusted = useMemo(() => plans.map((plan) => ({ ...plan, price: Number((plan.base * deviceMultipliers[devices]).toFixed(2)) })), [devices]);
+  const adjusted = useMemo(() => plans.map((plan) => ({ ...plan, price: Math.round(plan.base * deviceMultipliers[devices]) })), [devices]);
   const buildMessage = (duration: string, price: number) => `Olá! 👋\n\nTenho interesse no plano IPTVBR:\n\n📦 Plano: ${duration}\n📺 Dispositivos: ${devices}\n💰 Preço: €${price.toFixed(2)}\n\nGostaria de receber o link de pagamento.`;
 
   return (
