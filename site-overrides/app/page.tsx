@@ -1,46 +1,32 @@
 import type { Metadata, ReactNode } from "next";
 import Link from "next/link";
 import {
-  Apple,
   BadgeCheck,
-  BadgePercent,
   Check,
+  CheckCircle2,
   ChevronDown,
-  Clapperboard,
-  Clock3,
-  Gamepad2,
-  Headphones,
-  Laptop,
   MessageCircle,
   MonitorSmartphone,
-  Radio,
-  RadioTower,
-  ShieldCheck,
-  Smartphone,
-  Tv,
+  Play,
   TvMinimal,
-  UserRound,
-  Video,
-  WalletCards,
-  X,
 } from "lucide-react";
 import { Hero } from "@/components/hero/Hero";
 import { PricingMatrix } from "@/components/pricing/PricingMatrix";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
 
 const devices = [
-  { label: "Fire TV", icon: <Tv size={27} /> },
+  { label: "Fire TV", icon: <TvMinimal size={27} /> },
   { label: "Android TV", icon: <TvMinimal size={27} /> },
-  { label: "Apple TV", icon: <Apple size={27} /> },
-  { label: "Samsung Smart TV", icon: <Tv size={27} /> },
-  { label: "LG webOS", icon: <Tv size={27} /> },
+  { label: "Apple TV", icon: <TvMinimal size={27} /> },
+  { label: "Samsung Smart TV", icon: <TvMinimal size={27} /> },
+  { label: "LG webOS", icon: <TvMinimal size={27} /> },
   { label: "Roku", icon: <MonitorSmartphone size={27} /> },
-  { label: "Chromecast", icon: <Radio size={27} /> },
-  { label: "NVIDIA Shield", icon: <Gamepad2 size={27} /> },
-  { label: "Windows", icon: <Laptop size={27} /> },
-  { label: "Android", icon: <Smartphone size={27} /> },
+  { label: "Chromecast", icon: <MessageCircle size={27} /> },
+  { label: "NVIDIA Shield", icon: <MonitorSmartphone size={27} /> },
+  { label: "Windows", icon: <MonitorSmartphone size={27} /> },
+  { label: "Android", icon: <MonitorSmartphone size={27} /> },
   { label: "Formuler", icon: <TvMinimal size={27} /> },
-  { label: "Mobile", icon: <Smartphone size={27} /> },
+  { label: "Mobile", icon: <MonitorSmartphone size={27} /> },
 ];
 
 const faq = [
@@ -60,25 +46,25 @@ const faq = [
 
 const featureCards = [
   {
-    icon: <Video size={24} />,
+    icon: <TvMinimal size={24} />,
     title: "Experiência IPTV completa",
     text: "Uma experiência pensada para televisão, filmes, séries e conteúdos ao vivo, com uma interface simples.",
     imagePos: "36% 30%",
   },
   {
-    icon: <Clapperboard size={24} />,
+    icon: <TvMinimal size={24} />,
     title: "Filmes e séries",
     text: "Explora uma biblioteca organizada e encontra rapidamente o conteúdo que procuras.",
     imagePos: "73% 25%",
   },
   {
-    icon: <RadioTower size={24} />,
+    icon: <MonitorSmartphone size={24} />,
     title: "Canais ao vivo",
     text: "Acede ao teu percurso de visualização com categorias e guias preparados para diferentes dispositivos.",
     imagePos: "72% 74%",
   },
   {
-    icon: <Gamepad2 size={24} />,
+    icon: <MonitorSmartphone size={24} />,
     title: "Desporto em direto",
     text: "Segue conteúdos desportivos e mantém o foco na experiência de visualização.",
     imagePos: "54% 85%",
@@ -90,16 +76,20 @@ const featureCards = [
     imagePos: "15% 70%",
   },
   {
-    icon: <Headphones size={24} />,
+    icon: <MessageCircle size={24} />,
     title: "Suporte direto",
     text: "Quando precisares de ajuda, o contacto segue diretamente para o WhatsApp.",
     imagePos: "84% 62%",
   },
 ];
 
-export const metadata: Metadata = {\n  title: "IPTVBR — IPTV em Portugal",\n  description: "Planos IPTV, dispositivos, aplicações e guias em português de Portugal.",\n};\n
+export const metadata: Metadata = {
+  title: "IPTVBR — IPTV em Portugal",
+  description: "Planos IPTV, dispositivos, aplicações e guias em português de Portugal.",
+};
+
 function SectionLabel({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
-  return <span className={`ref-label ${dark ? "ref-label-dark" : ""}`}>{children}</span>;
+  return <span className={\`ref-label \${dark ? "ref-label-dark" : ""}\`}>{children}</span>;
 }
 
 export default function HomePage() {
@@ -109,9 +99,9 @@ export default function HomePage() {
 
       <section className="ref-stats" aria-label="Destaques">
         <div className="container ref-stats-grid">
-          <div><Tv size={35} /><strong>Vários dispositivos</strong><span>TV, streaming e mobile</span></div>
-          <div><RadioTower size={35} /><strong>Experiência ao vivo</strong><span>Canais e conteúdos</span></div>
-          <div><Clapperboard size={35} /><strong>Filmes e séries</strong><span>Conteúdo organizado</span></div>
+          <div><TvMinimal size={35} /><strong>Vários dispositivos</strong><span>TV, streaming e mobile</span></div>
+          <div><MonitorSmartphone size={35} /><strong>Experiência ao vivo</strong><span>Canais e conteúdos</span></div>
+          <div><TvMinimal size={35} /><strong>Filmes e séries</strong><span>Conteúdo organizado</span></div>
           <div><BadgeCheck size={35} /><strong>Suporte direto</strong><span>Atendimento em português</span></div>
         </div>
       </section>
@@ -159,9 +149,9 @@ export default function HomePage() {
           <h2>O que deves procurar num serviço IPTV.</h2>
           <p className="ref-dark-intro">Uma comparação visual simples para tornar a decisão mais fácil.</p>
           <div className="ref-compare-grid">
-            <article><h3>Televisão tradicional</h3><ul><li><X /> Menos flexibilidade</li><li><X /> Pacotes pouco ajustáveis</li><li><X /> Dependência de equipamento</li><li><X /> Experiência mais rígida</li></ul></article>
+            <article><h3>Televisão tradicional</h3><ul><li><CheckCircle2 /> Menos flexibilidade</li><li><CheckCircle2 /> Pacotes pouco ajustáveis</li><li><CheckCircle2 /> Dependência de equipamento</li><li><CheckCircle2 /> Experiência mais rígida</li></ul></article>
             <article className="ref-compare-featured"><h3>IPTVBR <span>PT-PT</span></h3><ul><li><Check /> Configuração por dispositivo</li><li><Check /> Percurso de compra simples</li><li><Check /> Guias e suporte direto</li><li><Check /> Planos apresentados com clareza</li></ul></article>
-            <article><h3>Serviços pouco claros</h3><ul><li><X /> Informação incompleta</li><li><X /> Pacotes difíceis de comparar</li><li><X /> Suporte pouco evidente</li><li><X /> Processo confuso</li></ul></article>
+            <article><h3>Serviços pouco claros</h3><ul><li><CheckCircle2 /> Informação incompleta</li><li><CheckCircle2 /> Pacotes difíceis de comparar</li><li><CheckCircle2 /> Suporte pouco evidente</li><li><CheckCircle2 /> Processo confuso</li></ul></article>
           </div>
         </div>
       </section>
@@ -172,9 +162,9 @@ export default function HomePage() {
           <h2>IPTV explicado de forma simples.</h2>
           <p className="ref-section-intro">Tudo o que precisas de saber antes de escolher um plano.</p>
           <div className="ref-explained-grid">
-            <article><Tv size={34} /><h3>O que é IPTV?</h3><p>IPTV significa televisão entregue através de uma ligação à internet. A forma de utilização depende do serviço, aplicação e dispositivo.</p></article>
-            <article><RadioTower size={34} /><h3>Como funciona?</h3><p>O conteúdo é entregue através de uma ligação de dados e apresentado numa aplicação compatível com o equipamento escolhido.</p></article>
-            <article><ShieldCheck size={34} /><h3>O que procurar?</h3><p>Procura informação clara, compatibilidade, guias de instalação, canais de apoio e condições comerciais fáceis de compreender.</p><Link href="/guias/" className="ref-button">Ler os guias <ChevronDown size={16} /></Link></article>
+            <article><TvMinimal size={34} /><h3>O que é IPTV?</h3><p>IPTV significa televisão entregue através de uma ligação à internet. A forma de utilização depende do serviço, aplicação e dispositivo.</p></article>
+            <article><MonitorSmartphone size={34} /><h3>Como funciona?</h3><p>O conteúdo é entregue através de uma ligação de dados e apresentado numa aplicação compatível com o equipamento escolhido.</p></article>
+            <article><BadgeCheck size={34} /><h3>O que procurar?</h3><p>Procura informação clara, compatibilidade, guias de instalação, canais de apoio e condições comerciais fáceis de compreender.</p><Link href="/guias/" className="ref-button">Ler os guias <ChevronDown size={16} /></Link></article>
           </div>
         </div>
       </section>
@@ -186,7 +176,7 @@ export default function HomePage() {
           <div className="ref-feature-grid">
             {featureCards.map((feature) => (
               <article key={feature.title} className="ref-feature-card">
-                <div className="ref-feature-image" style={{ backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.03) 20%, rgba(0,0,0,.82) 100%), url("/images/hero/iptvbr-hero-background.webp")`, backgroundPosition: feature.imagePos }} />
+                <div className="ref-feature-image" style={{ backgroundImage: \`linear-gradient(180deg, rgba(0,0,0,.03) 20%, rgba(0,0,0,.82) 100%), url("/images/hero/iptvbr-hero-background.webp")\`, backgroundPosition: feature.imagePos }} />
                 <div className="ref-feature-icon">{feature.icon}</div>
                 <div className="ref-feature-body"><h3>{feature.title}</h3><p>{feature.text}</p><Link href="/guias/">Explorar <ChevronDown size={15} /></Link></div>
               </article>
@@ -215,9 +205,9 @@ export default function HomePage() {
           <SectionLabel dark>ESCOLHA INFORMADA</SectionLabel>
           <h2>Uma experiência pensada para ser clara.</h2>
           <div className="ref-why-grid">
-            <article><span><WalletCards /></span><h3>Informação transparente</h3><p>Preços, dispositivos e passos apresentados num só percurso.</p></article>
+            <article><span><BadgeCheck /></span><h3>Informação transparente</h3><p>Preços, dispositivos e passos apresentados num só percurso.</p></article>
             <article><span><MonitorSmartphone /></span><h3>Vários dispositivos</h3><p>Encontra o caminho certo para TV, streaming, mobile e computador.</p></article>
-            <article><span><Clock3 /></span><h3>Processo simples</h3><p>Menos passos desnecessários entre a escolha e o próximo passo.</p></article>
+            <article><span><CheckCircle2 /></span><h3>Processo simples</h3><p>Menos passos desnecessários entre a escolha e o próximo passo.</p></article>
             <article><span><MessageCircle /></span><h3>Contacto direto</h3><p>O WhatsApp é o canal principal para dúvidas e orientação.</p></article>
           </div>
         </div>
@@ -230,17 +220,17 @@ export default function HomePage() {
             <h2>Não percas os teus conteúdos favoritos.</h2>
             <p>A estrutura da experiência foi pensada para destacar conteúdos ao vivo, entretenimento e diferentes dispositivos sem complicar a navegação.</p>
             <div className="ref-mini-cards">
-              <div><Video /><strong>Streams ao vivo</strong><span>Experiência simples</span></div>
-              <div><Clock3 /><strong>Disponibilidade</strong><span>Quando precisares</span></div>
-              <div><BadgePercent /><strong>Planos flexíveis</strong><span>Escolhe a configuração</span></div>
+              <div><MonitorSmartphone /><strong>Streams ao vivo</strong><span>Experiência simples</span></div>
+              <div><CheckCircle2 /><strong>Disponibilidade</strong><span>Quando precisares</span></div>
+              <div><BadgeCheck /><strong>Planos flexíveis</strong><span>Escolhe a configuração</span></div>
             </div>
             <div className="ref-sports-price"><strong>A partir dos preços atuais</strong><span>Consulta todos os planos e dispositivos.</span><Link href="#planos" className="ref-button">Ver planos <ChevronDown size={16} /></Link></div>
           </div>
           <div className="ref-sports-art" aria-hidden="true">
             <div className="ref-sports-art-ring" />
-            <div className="ref-sports-art-tile tile-a"><Tv /></div>
-            <div className="ref-sports-art-tile tile-b"><Video /></div>
-            <div className="ref-sports-art-tile tile-c"><Gamepad2 /></div>
+            <div className="ref-sports-art-tile tile-a"><TvMinimal /></div>
+            <div className="ref-sports-art-tile tile-b"><MonitorSmartphone /></div>
+            <div className="ref-sports-art-tile tile-c"><MonitorSmartphone /></div>
             <div className="ref-sports-art-tile tile-d"><MonitorSmartphone /></div>
           </div>
         </div>
@@ -263,7 +253,7 @@ export default function HomePage() {
           <SectionLabel>EXPERIÊNCIA</SectionLabel>
           <h2>Uma área preparada para avaliações reais.</h2>
           <div className="ref-review-card">
-            <div className="ref-review-user"><span><UserRound /></span><div><strong>Cliente IPTVBR</strong><small>Portugal</small></div><b>★★★★★</b></div>
+            <div className="ref-review-user"><span><MessageCircle /></span><div><strong>Cliente IPTVBR</strong><small>Portugal</small></div><b>★★★★★</b></div>
             <p>“O percurso é simples, os guias estão organizados e consigo perceber rapidamente qual é o caminho certo para o meu dispositivo.”</p>
             <div className="ref-review-footer"><span><BadgeCheck size={15} /> Estrutura pronta para avaliações verificadas</span><span>‹ &nbsp; • &nbsp; • &nbsp; ›</span></div>
           </div>
