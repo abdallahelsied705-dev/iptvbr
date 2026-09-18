@@ -1,95 +1,163 @@
-import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import {
+  BadgeCheck,
+  CheckCircle2,
+  MessageCircle,
+  MonitorSmartphone,
+  Play,
+  TvMinimal,
+} from "lucide-react";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
 
-function Icon({ children }: { children: ReactNode }) {
-  return <span className="hero-v4-icon" aria-hidden="true">{children}</span>;
-}
-function PlayIcon() {
-  return <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M8 5.5v13L19 12 8 5.5Z" fill="currentColor" /></svg>;
-}
-function CheckIcon() {
-  return <svg viewBox="0 0 24 24" width="17" height="17" fill="none"><path d="m5 12 4 4L19 6" stroke="currentColor" strokeWidth="2.1" strokeLinecap="round" strokeLinejoin="round"/></svg>;
-}
-function DeviceIcon() {
-  return <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><rect x="3" y="4" width="13" height="9" rx="2" stroke="currentColor" strokeWidth="1.7"/><path d="M7 18h5m-7 2h9M19 8v8m-3-4h6" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round"/></svg>;
-}
-function ChatIcon() {
-  return <svg viewBox="0 0 24 24" width="18" height="18" fill="none"><path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.5 8.5 0 0 1-3.5-.8L4 19.5l1.3-3.5A7.4 7.4 0 0 1 4.5 12 7.5 7.5 0 1 1 20 11.5Z" stroke="currentColor" strokeWidth="1.7" strokeLinejoin="round"/><path d="M8 12h.01M12 12h.01M16 12h.01" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"/></svg>;
+function Benefit({
+  icon,
+  title,
+  detail,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  detail: string;
+}) {
+  return (
+    <div className="hero-pro-benefit">
+      <span className="hero-pro-benefit-icon" aria-hidden="true">{icon}</span>
+      <span className="hero-pro-benefit-copy">
+        <strong>{title}</strong>
+        <small>{detail}</small>
+      </span>
+    </div>
+  );
 }
 
 export function Hero() {
   return (
-    <section className="hero hero-homepage hero-v4" aria-labelledby="hero-title">
-      <div className="hero-v4-media" aria-hidden="true">
+    <section className="hero hero-pro" aria-labelledby="hero-title">
+      <div className="hero-pro-bg" aria-hidden="true">
         <Image
           src="/images/hero/iptvbr-hero-background.webp"
           alt=""
           fill
           priority
           sizes="100vw"
-          className="hero-v4-image"
+          className="hero-pro-bg-image"
         />
-        <div className="hero-v4-scrim" />
-        <div className="hero-v4-glow" />
+        <div className="hero-pro-overlay" />
       </div>
 
-      <div className="container hero-v4-inner">
-        <div className="hero-v4-content">
-          <div className="hero-v4-kicker"><span /> IPTVBR <b>Portugal</b></div>
-          <p className="hero-v4-eyebrow">Entretenimento digital, pensado para ti</p>
-          <h1 id="hero-title">O teu entretenimento.<br /><em>Sem complicações.</em></h1>
-          <p className="hero-v4-lead">
-            Escolhe o plano, vê os dispositivos compatíveis e encontra o guia certo.
-            Tudo num percurso simples, com apoio direto pelo WhatsApp.
+      <div className="container hero-pro-inner">
+        <div className="hero-pro-copy">
+          <div className="hero-pro-badge">
+            <span className="hero-pro-badge-dot" />
+            IPTVBR <b>Portugal</b>
+          </div>
+
+          <p className="hero-pro-eyebrow">Entretenimento digital para Portugal</p>
+
+          <h1 id="hero-title">
+            O teu entretenimento.
+            <span>Num só lugar.</span>
+          </h1>
+
+          <p className="hero-pro-lead">
+            Planos, dispositivos, aplicações e guias num percurso simples.
+            Escolhe como queres ver e fala connosco diretamente pelo WhatsApp.
           </p>
 
-          <div className="hero-v4-actions">
-            <Link className="button button-primary button-large hero-v4-primary" href="#planos">
-              <PlayIcon /> Ver planos
+          <div className="hero-pro-actions">
+            <Link className="button button-primary hero-pro-primary" href="#planos">
+              <Play size={18} strokeWidth={2.4} aria-hidden="true" />
+              Ver planos
             </Link>
             <WhatsAppButton message="Olá! Quero conhecer os planos IPTVBR para Portugal." />
           </div>
 
-          <div className="hero-v4-benefits" aria-label="Vantagens">
-            <div><Icon><CheckIcon /></Icon><span><strong>Planos flexíveis</strong><small>1 a 3 dispositivos</small></span></div>
-            <div><Icon><DeviceIcon /></Icon><span><strong>Multi-dispositivo</strong><small>TV, mobile, streaming e PC</small></span></div>
-            <div><Icon><ChatIcon /></Icon><span><strong>Suporte direto</strong><small>Atendimento pelo WhatsApp</small></span></div>
+          <div className="hero-pro-divider" />
+
+          <div className="hero-pro-benefits" aria-label="Principais vantagens">
+            <Benefit
+              icon={<CheckCircle2 size={18} strokeWidth={2} />}
+              title="Planos flexíveis"
+              detail="1 a 3 dispositivos"
+            />
+            <Benefit
+              icon={<MonitorSmartphone size={18} strokeWidth={2} />}
+              title="Multi-dispositivo"
+              detail="TV, mobile, streaming e PC"
+            />
+            <Benefit
+              icon={<MessageCircle size={18} strokeWidth={2} />}
+              title="Suporte direto"
+              detail="Atendimento pelo WhatsApp"
+            />
           </div>
         </div>
 
-        <div className="hero-v4-showcase" aria-label="Destaques IPTVBR">
-          <div className="hero-v4-panel">
-            <div className="hero-v4-panel-top">
-              <div><span className="hero-v4-dot" /> Disponível em Portugal</div>
-              <span className="hero-v4-panel-tag">PT-PT</span>
+        <div className="hero-pro-visual" aria-label="Informação do serviço">
+          <div className="hero-pro-visual-glow" aria-hidden="true" />
+
+          <div className="hero-pro-card">
+            <div className="hero-pro-card-head">
+              <div className="hero-pro-card-brand">
+                <span className="hero-pro-card-mark"><TvMinimal size={16} strokeWidth={2.2} /></span>
+                <span>
+                  <strong>IPTVBR</strong>
+                  <small>ENTRETENIMENTO EM PORTUGAL</small>
+                </span>
+              </div>
+              <span className="hero-pro-live">
+                <span /> DISPONÍVEL
+              </span>
             </div>
-            <div className="hero-v4-panel-main">
-              <span className="hero-v4-panel-eyebrow">A partir de</span>
-              <strong>€14,99</strong>
-              <span className="hero-v4-panel-copy">plano de referência · 1 dispositivo</span>
+
+            <div className="hero-pro-card-body">
+              <span className="hero-pro-card-kicker">A PARTIR DE</span>
+              <strong className="hero-pro-price">€14,99</strong>
+              <p>Configuração de referência · 1 dispositivo</p>
+
+              <div className="hero-pro-card-rule" />
+
+              <div className="hero-pro-card-list">
+                <div>
+                  <BadgeCheck size={17} aria-hidden="true" />
+                  <span><b>Guias pt-PT</b><small>Instalação e configuração</small></span>
+                </div>
+                <div>
+                  <BadgeCheck size={17} aria-hidden="true" />
+                  <span><b>Vários dispositivos</b><small>Escolhe a tua configuração</small></span>
+                </div>
+                <div>
+                  <BadgeCheck size={17} aria-hidden="true" />
+                  <span><b>WhatsApp</b><small>Pedido e suporte direto</small></span>
+                </div>
+              </div>
             </div>
-            <div className="hero-v4-panel-divider" />
-            <div className="hero-v4-panel-grid">
-              <div><b>1–3</b><span>dispositivos</span></div>
-              <div><b>Guias</b><span>pt-PT</span></div>
-              <div><b>WhatsApp</b><span>suporte</span></div>
+
+            <div className="hero-pro-card-bottom">
+              <span><i /> PT-PT</span>
+              <span>1–3 dispositivos</span>
+              <span>Suporte direto</span>
             </div>
           </div>
-
-          <div className="hero-v4-float hero-v4-float-top"><span className="hero-v4-status-dot" /> Atendimento <b>WhatsApp</b></div>
-          <div className="hero-v4-float hero-v4-float-bottom"><span>4K</span><div><b>Qualidade</b><small>quando disponível</small></div></div>
         </div>
       </div>
 
-      <div className="container hero-v4-bottom">
-        <div className="hero-v4-bottom-item"><span>01</span><div><b>Escolhe o plano</b><small>Duração e dispositivos</small></div></div>
-        <div className="hero-v4-bottom-line" />
-        <div className="hero-v4-bottom-item"><span>02</span><div><b>Fala connosco</b><small>Pedido preparado no WhatsApp</small></div></div>
-        <div className="hero-v4-bottom-line" />
-        <div className="hero-v4-bottom-item"><span>03</span><div><b>Segue o guia</b><small>Instalação e configuração</small></div></div>
-        <div className="hero-v4-bottom-note">IPTVBR <span>•</span> Portugal</div>
+      <div className="container hero-pro-bottom">
+        <div>
+          <span>01</span>
+          <b>Escolhe o plano</b>
+          <small>Duração e dispositivos</small>
+        </div>
+        <div>
+          <span>02</span>
+          <b>Fala connosco</b>
+          <small>Pedido preparado no WhatsApp</small>
+        </div>
+        <div>
+          <span>03</span>
+          <b>Instala e começa</b>
+          <small>Segue o guia do teu dispositivo</small>
+        </div>
       </div>
     </section>
   );
