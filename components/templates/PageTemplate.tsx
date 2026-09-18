@@ -1,4 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
+import { BadgeCheck, BookOpen, CheckCircle2, ChevronRight, MessageCircle, MonitorSmartphone, ShieldCheck, TvMinimal } from "lucide-react";
 import { getChildRoutes, getRoute, type RouteDefinition } from "@/config/routes";
 import { getContentRecord } from "@/config/content";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
@@ -7,14 +9,9 @@ import { Button } from "@/components/ui/Button";
 import { articleSchema, breadcrumbSchema, webPageSchema } from "@/lib/schema";
 import { getRecommendedLinks } from "@/lib/links";
 import { FAQ } from "@/components/faq/FAQ";
-import { BusinessStatus } from "@/components/content/BusinessStatus";
-import { VerifiedBusinessFacts } from "@/components/content/VerifiedBusinessFacts";
 import { HubGrid } from "@/components/content/HubGrid";
 import { PricingTable } from "@/components/pricing/PricingTable";
 import { ContentFramework } from "@/components/content/ContentFramework";
-import { ContentBriefMeta } from "@/components/content/ContentBriefMeta";
-import { ReleaseStatus } from "@/components/content/ReleaseStatus";
-import { getContentBrief } from "@/config/content-briefs";
 
 function typeLabel(route: RouteDefinition) {
   switch (route.type) {
@@ -40,13 +37,19 @@ function primaryDestination(route: RouteDefinition) {
       ? { label: "Explorar legalidade", href: "/legalidade/" }
       : { label: "Contactar", href: "/contacto/" };
     case "blog": return { label: "Explorar o blog", href: "/blog/" };
-    default: return { label: "Ver opções", href: "/precos/" };
+    default: return { label: "Ver preços", href: "/precos/" };
   }
 }
 
+const quickBenefits = [
+  { icon: <TvMinimal />, title: "Vários dispositivos", text: "TV, Smart TV, streaming e mobile" },
+  { icon: <BookOpen />, title: "Guias pt-PT", text: "Passos claros de instalação" },
+  { icon: <ShieldCheck />, title: "Informação clara", text: "Condições apresentadas sem ruído" },
+  { icon: <MessageCircle />, title: "Suporte direto", text: "Contacto simples pelo WhatsApp" },
+];
+
 export function PageTemplate({ route }: { route: RouteDefinition }) {
   const content = getContentRecord(route);
-  const brief = getContentBrief(route);
   const children = getChildRoutes(route.slug);
   const recommendedLinks = getRecommendedLinks(route, 6);
   const parent = route.parent && route.parent !== "/" ? getRoute(route.parent) : undefined;
@@ -57,49 +60,68 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
   const schemas = isArticle
     ? [articleSchema(route), breadcrumbSchema(route, parent)]
     : [webPageSchema(route), breadcrumbSchema(route, parent)];
-  const related = (children.length ? children : recommendedLinks.map((item) => getRoute(item.href)).filter((item): item is RouteDefinition => Boolean(item))).slice(0, 6);
+  const related = (children.length
+    ? children
+    : recommendedLinks.map((item) => getRoute(item.href)).filter((item): item is RouteDefinition => Boolean(item))
+  ).slice(0, 6);
 
   return (
-    <main id="main-content">
+    <main id="main-content" className="inner-page">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }} />
 
-      <section className="page-hero">
-        <div className="container narrow">
-          <nav className="breadcrumbs" aria-label="Breadcrumb">
-            <Link href="/">Início</Link>
-            {parent ? <><span aria-hidden="true">/</span><Link href={parent.slug}>{parent.title}</Link></> : null}
-            <span aria-hidden="true">/</span>
-            <span aria-current="page">{route.title}</span>
-          </nav>
-          <div className="page-hero-chip">{typeLabel(route)}</div>
-          <h1>{route.title}</h1>
-          <p className="hero-lead">{content.intro}</p>
-          <ContentBriefMeta min={brief.targetWords[0]} max={brief.targetWords[1]} />
-          {route.type === "money" && !isPricingPage && !isCommercialPricingPage ? <BusinessStatus /> : null}
-          {route.type === "money" && !isPricingPage && !isCommercialPricingPage ? <VerifiedBusinessFacts /> : null}
-          {route.type === "money" && !isPricingPage && !isCommercialPricingPage ? <ReleaseStatus /> : null}
-          <div className="hero-actions">
-            <Button href={primary.href} variant="primary">{primary.label}</Button>
-            <WhatsAppButton message={content.ctaMessage} />
+      <section className="ref-inner-hero">
+        <div className="container ref-inner-hero-grid">
+          <div className="ref-inner-hero-copy">
+            <nav className="breadcrumbs" aria-label="Breadcrumb">
+              <Link href="/">Início</Link>
+              {parent ? <><span aria-hidden="true">/</span><Link href={parent.slug}>{parent.title}</Link></> : null}
+              <span aria-hidden="true">/</span>
+              <span aria-current="page">{route.title}</span>
+            </nav>
+
+            <span className="ref-page-chip">{typeLabel(route)}</span>
+            <h1>{route.title}</h1>
+            <p className="ref-inner-lead">{content.intro}</p>
+
+            <div className="ref-inner-actions">
+              <Button href={primary.href} variant="primary">{primary.label}</Button>
+              <WhatsAppButton message={content.ctaMessage} />
+            </div>
+          </div>
+
+          <div className="ref-inner-visual" aria-hidden="true">
+            <div className="ref-inner-visual-glow" />
+            <Image
+              src="/images/hero/iptvbr-premium-room.svg"
+              alt=""
+              width={620}
+              height={420}
+              priority
+              className="ref-inner-visual-image"
+            />
+            <div className="ref-inner-visual-badge"><CheckCircle2 size={15} /> IPTVBR · Portugal</div>
           </div>
         </div>
       </section>
 
+      <section className="ref-inner-benefits" aria-label="Principais benefícios">
+        <div className="container ref-inner-benefits-grid">
+          {quickBenefits.map((item) => (
+            <div className="ref-inner-benefit-card" key={item.title}>
+              <span>{item.icon}</span>
+              <div><strong>{item.title}</strong><small>{item.text}</small></div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {isPricingPage ? (
-        <section className="pricing-page-stage">
+        <section className="ref-pricing-page">
           <div className="container">
-            <div className="pricing-page-stage-head">
-              <div>
-                <span className="page-hero-chip">Planos IPTV Portugal</span>
-                <h2>Escolhe a duração e o número de dispositivos.</h2>
-                <p>O valor é atualizado em tempo real. Ao clicar em comprar, o WhatsApp abre com uma mensagem já preenchida com o plano escolhido.</p>
-              </div>
-              <div className="pricing-page-stage-proof">
-                <span>1 dispositivo</span>
-                <span>2 dispositivos</span>
-                <span>3 dispositivos</span>
-                <small>Preços definidos para a estrutura comercial atual da IPTVBR.</small>
-              </div>
+            <div className="ref-pricing-heading">
+              <span className="ref-label">IPTVBR · PLANOS</span>
+              <h2>Preços IPTV em Portugal</h2>
+              <p>Escolhe o período e o número de dispositivos. Os preços abaixo utilizam a configuração comercial atual do site.</p>
             </div>
             <PricingTable />
           </div>
@@ -107,50 +129,84 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
       ) : null}
 
       {isCommercialPricingPage ? (
-        <Section eyebrow="Planos e preços" title="Escolhe o período e o número de dispositivos." description="Seleciona a configuração e fala connosco diretamente pelo WhatsApp para confirmar o pedido e receber o link de pagamento." className="section-surface">
-          <PricingTable compact />
-        </Section>
+        <section className="ref-pricing-page">
+          <div className="container">
+            <div className="ref-pricing-heading">
+              <span className="ref-label">PLANOS IPTVBR</span>
+              <h2>Escolhe a configuração certa para ti.</h2>
+              <p>Compara os períodos disponíveis e abre o WhatsApp com o plano escolhido já identificado.</p>
+            </div>
+            <PricingTable compact />
+          </div>
+        </section>
       ) : null}
 
-      <ContentFramework takeaways={content.takeaways} steps={content.steps} entities={content.entities} />
+      {!isPricingPage && !isCommercialPricingPage ? (
+        <>
+          <section className="ref-content-intro">
+            <div className="container ref-content-intro-grid">
+              <div>
+                <span className="ref-label">GUIA IPTV</span>
+                <h2>Informação organizada para encontrares rapidamente o que precisas.</h2>
+              </div>
+              <p>{content.sections[0]?.paragraphs[0] || content.intro}</p>
+            </div>
+          </section>
+          <ContentFramework takeaways={content.takeaways} steps={content.steps} entities={content.entities} />
+        </>
+      ) : null}
+
+      {isPricingPage ? (
+        <section className="ref-light-section">
+          <div className="container ref-three-grid">
+            <article><BadgeCheck /><h3>Preços apresentados com clareza</h3><p>Consulta a duração, dispositivos e preço antes de avançar.</p></article>
+            <article><MonitorSmartphone /><h3>Vários dispositivos</h3><p>Seleciona a configuração que corresponde à forma como utilizas o serviço.</p></article>
+            <article><MessageCircle /><h3>Pedido orientado</h3><p>O WhatsApp abre com uma mensagem preparada para acelerar o próximo passo.</p></article>
+          </div>
+        </section>
+      ) : null}
 
       {children.length > 0 ? (
         <Section
           eyebrow={route.type === "blog" ? "Explorar" : "Percurso"}
           title={route.type === "blog" ? "Conteúdo organizado por tema." : "Escolhe a próxima etapa."}
-          description={route.type === "blog" ? "Artigos editoriais ligados a dispositivos, aplicações, tecnologia e suporte." : "Os conteúdos abaixo pertencem diretamente a esta área da arquitetura e mantêm o percurso simples."}
-          className="section-surface"
+          description={route.type === "blog" ? "Artigos editoriais ligados a dispositivos, aplicações, tecnologia e suporte." : "Páginas relacionadas para continuares a navegar dentro do mesmo tema."}
+          className="section-surface ref-related-section"
         >
           <HubGrid routes={children.slice(0, 8)} />
         </Section>
       ) : null}
 
-      <div className="container content-layout">
+      <div className="container ref-reading-layout">
         <article>
           {content.sections.map((section, index) => (
-            <section className="prose-section" key={`${section.heading}-${index}`}>
-              <p className="section-index">0{index + 1}</p>
+            <section className="ref-prose-section" key={section.heading + "-" + index}>
+              <span className="ref-section-number">0{index + 1}</span>
               <h2>{section.heading}</h2>
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
               {section.links?.length ? (
-                <div className="link-grid">
-                  {section.links.map((link) => <Link className="pill-link" key={link.href} href={link.href}>{link.label} <span aria-hidden="true">→</span></Link>)}
+                <div className="ref-link-grid">
+                  {section.links.map((link) => (
+                    <Link className="ref-link-card" key={link.href} href={link.href}>
+                      <span>{link.label}</span><ChevronRight size={16} />
+                    </Link>
+                  ))}
                 </div>
               ) : null}
             </section>
           ))}
         </article>
 
-        <aside className="page-aside">
-          <div className="aside-card">
-            <span className="card-kicker">A seguir</span>
+        <aside className="ref-reading-aside">
+          <div className="ref-aside-card">
+            <span className="ref-label">A SEGUIR</span>
             <h2>Continua pelo caminho certo.</h2>
-            <div className="aside-links">
+            <div>
               {related.slice(0, 4).map((item) => (
                 <Link href={item.slug} key={item.slug}>
-                  <span>{typeLabel(item)}</span>
+                  <small>{typeLabel(item)}</small>
                   <strong>{item.title}</strong>
-                  <i aria-hidden="true">↗</i>
+                  <ChevronRight size={15} />
                 </Link>
               ))}
             </div>
@@ -158,26 +214,30 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
         </aside>
       </div>
 
-      <Section eyebrow="Perguntas frequentes" title="Respostas curtas para esta etapa." description="FAQ para apoiar a leitura e reduzir fricção durante a jornada." className="section-surface">
+      <Section eyebrow="Perguntas frequentes" title="Respostas curtas para as tuas dúvidas." description="FAQ organizado para apoiar a leitura e facilitar o próximo passo." className="section-surface ref-faq-section">
         <FAQ items={content.faq} />
       </Section>
 
       {related.length ? (
-        <Section eyebrow={route.type === "blog" ? "Em destaque" : "Rede interna"} title={route.type === "blog" ? "Conteúdo para continuar a explorar." : "Conteúdos relacionados"} description={route.type === "blog" ? "Artigos, guias e páginas de apoio são ligados por tema e etapa da jornada." : "A arquitetura liga páginas do mesmo cluster e passos naturais da jornada."}>
+        <Section
+          eyebrow="Conteúdo relacionado"
+          title="Continua a explorar IPTVBR."
+          description="Guias, dispositivos, aplicações e páginas de apoio ligados ao mesmo cluster."
+        >
           <HubGrid routes={related} />
         </Section>
       ) : null}
 
-      <section className="section section-cta">
-        <div className="container cta-panel">
+      <section className="ref-final-cta">
+        <div className="container ref-final-cta-inner">
           <div>
-            <p className="eyebrow">Próximo passo</p>
-            <h2>Precisas de ajuda para decidir o próximo passo?</h2>
-            <p className="muted">O fluxo atual direciona o utilizador para o WhatsApp, onde as condições comerciais podem ser confirmadas antes do pagamento.</p>
+            <span className="ref-label">PRÓXIMO PASSO</span>
+            <h2>Precisas de ajuda para escolher?</h2>
+            <p>Fala diretamente connosco e recebe orientação sobre a próxima etapa.</p>
           </div>
-          <div className="hero-actions">
+          <div className="ref-final-actions">
             <WhatsAppButton message={content.ctaMessage} />
-            <Button href="/suporte/" variant="secondary">Ir para o suporte</Button>
+            <Button href="/precos/" variant="primary">Ver preços</Button>
           </div>
         </div>
       </section>
