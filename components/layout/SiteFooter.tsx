@@ -1,17 +1,6 @@
 import Link from "next/link";
-import { Logo } from "@/components/brand/Logo";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
 
 export function SiteFooter() {
-  return (
-    <footer className="site-footer">
-      <div className="container footer-grid">
-        <div className="footer-brand-block"><Logo /><p className="muted">Informação IPTV em português de Portugal, organizada por intenção, dispositivo e etapa da jornada.</p><WhatsAppButton message="Olá, gostaria de falar com a IPTVBR em Portugal." /></div>
-        <div><h2>Explorar</h2><Link href="/iptv-portugal/">IPTV Portugal</Link><Link href="/precos/">Preços</Link><Link href="/dispositivos/">Dispositivos</Link><Link href="/apps/">Aplicações</Link></div>
-        <div><h2>Aprender</h2><Link href="/guias/">Guias</Link><Link href="/comparar/">Comparações</Link><Link href="/suporte/">Suporte</Link><Link href="/legalidade/">Legalidade</Link></div>
-        <div><h2>Informação</h2><Link href="/sobre-nos/">Sobre nós</Link><Link href="/contacto/">Contacto</Link><Link href="/termos/">Termos</Link><Link href="/politica-privacidade/">Privacidade</Link></div>
-      </div>
-      <div className="container footer-bottom"><span>© {new Date().getFullYear()} IPTVBR</span><span>Dados comerciais sujeitos a verificação antes de serem apresentados como factos.</span></div>
-    </footer>
-  );
+  return <footer className="site-footer site-footer-premium"><div className="container footer-cta"><div><span className="eyebrow">ESTÁS PRONTO?</span><h2>Começa pelo plano que faz sentido para ti.</h2><p>Escolhe duração e número de dispositivos. O pedido segue diretamente para o WhatsApp.</p></div><WhatsAppButton message="Olá! Quero ajuda para escolher um plano IPTVBR." /></div><div className="container footer-grid"><div className="footer-brand-block"><Link className="brand" href="/"><span className="brand-logo"><span className="brand-logo-mark">▶</span><span className="brand-logo-word">IPTV<span>BR</span></span><small>PORTUGAL</small></span></Link><p className="muted">Conteúdo, guias e suporte IPTV em português de Portugal.</p></div><div><h2>Explorar</h2><Link href="/iptv-portugal/">IPTV Portugal</Link><Link href="/precos/">Preços</Link><Link href="/dispositivos/">Dispositivos</Link><Link href="/apps/">Apps</Link></div><div><h2>Ajuda</h2><Link href="/guias/">Guias</Link><Link href="/suporte/">Suporte</Link><Link href="/comparar/">Comparações</Link><Link href="/contacto/">Contacto</Link></div><div><h2>Legal</h2><Link href="/legalidade/">Legalidade</Link><Link href="/termos/">Termos</Link><Link href="/politica-privacidade/">Privacidade</Link><Link href="/politica-reembolso/">Reembolsos</Link></div></div><div className="container footer-bottom"><span>© {new Date().getFullYear()} IPTVBR</span><span>Informação e condições comerciais sujeitas a confirmação.</span></div></footer>;
 }
