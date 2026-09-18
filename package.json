@@ -1,9 +1,57 @@
 {
-  "name":"iptvbr",
-  "version":"0.1.0",
-  "private":true,
-  "scripts":{"dev":"next dev","build":"next build","start":"next start"},
-  "dependencies":{"next":"16.3.3","react":"19.2.0","react-dom":"19.2.0","zod":"4.1.8"},
-  "devDependencies":{"@types/node":"24.5.2","@types/react":"19.2.13","@types/react-dom":"19.2.2","eslint":"9.36.0","eslint-config-next":"16.3.3","typescript":"5.9.2","vitest":"3.2.4","@playwright/test":"1.63.0"},
-  "engines":{"node":"22.x"},"packageManager":"npm@10.9.2"
+  "name": "iptvbr",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "node build.mjs",
+    "start": "next start",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "verify:architecture": "node scripts/verify-architecture.mjs",
+    "verify:content": "node scripts/verify-content.mjs",
+    "verify:briefs": "node scripts/verify-content-briefs.mjs",
+    "test": "vitest run",
+    "verify:launch": "node scripts/verify-launch.mjs",
+    "verify:longform": "node scripts/verify-longform.mjs",
+    "verify:content-language": "node scripts/verify-content-language.mjs",
+    "verify:business-truth": "node scripts/verify-business-truth.mjs",
+    "verify:seo-ops": "node scripts/verify-seo-ops.mjs",
+    "verify:seo-metadata": "node scripts/verify-seo-metadata.mjs",
+    "verify:release-report": "node scripts/generate-release-report.mjs",
+    "verify:search-console": "node scripts/verify-search-console.mjs",
+    "verify:content-coverage": "node scripts/verify-content-coverage.mjs",
+    "apply:business-truth": "node scripts/apply-business-truth.mjs",
+    "sync:business-truth": "npm run apply:business-truth && npm run verify:business-truth",
+    "verify:all": "node scripts/verify-all.mjs",
+    "verify:content-quality": "node scripts/verify-content-quality.mjs",
+    "verify:preflight": "node scripts/verify-preflight.mjs && npm run verify:seo-metadata",
+    "test:e2e": "playwright test",
+    "verify:runtime": "npm run build && npm run test:e2e",
+    "verify:vercel": "node scripts/verify-vercel-contract.mjs",
+    "verify:release-execution": "npm run verify:preflight && npm run verify:vercel && npm run verify:runtime",
+    "verify:seo-crawl": "node scripts/verify-seo-crawl.mjs",
+    "verify:release-candidate": "node scripts/verify-release-candidate.mjs",
+    "verify:source": "npm run verify:architecture && npm run verify:content && npm run verify:briefs && npm run verify:content-language && npm run verify:longform && npm run verify:content-quality && npm run verify:content-coverage && npm run verify:seo-ops && npm run verify:search-console && npm run verify:business-truth && npm run verify:seo-metadata && npm run verify:seo-crawl && npm run verify:vercel"
+  },
+  "dependencies": {
+    "next": "16.3.3",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "zod": "4.1.8"
+  },
+  "devDependencies": {
+    "@types/node": "24.5.2",
+    "@types/react": "19.2.13",
+    "@types/react-dom": "19.2.2",
+    "eslint": "9.36.0",
+    "eslint-config-next": "16.3.3",
+    "typescript": "5.9.2",
+    "vitest": "3.2.4",
+    "@playwright/test": "1.63.0"
+  },
+  "engines": {
+    "node": "22.x"
+  },
+  "packageManager": "npm@10.9.2"
 }
