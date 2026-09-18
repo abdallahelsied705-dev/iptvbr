@@ -1274,3 +1274,337 @@ p { margin-top: 0; }
 @media (prefers-reduced-motion: reduce) {
   .hero-pro-bg-image,.hero-pro-card,.hero-pro-visual-glow { animation:none !important; }
 }
+
+
+/* =========================================================
+   IPTVBR — GLOBAL LIGHT BLUE THEME
+   Apply the same visual language across every page.
+   ========================================================= */
+:root {
+  --bg:#ffffff;
+  --bg-soft:#f6faff;
+  --surface:#ffffff;
+  --surface-2:#edf6ff;
+  --text:#14213a;
+  --muted:#5f7089;
+  --faint:#7b8da5;
+  --border:#dfeaf5;
+  --border-strong:#cbdced;
+  --accent:#2f6fed;
+  --accent-strong:#4b91ff;
+  --premium:#2f6fed;
+  --success:#19c77a;
+  --shadow:0 18px 48px rgba(33,88,148,.10);
+}
+body {
+  background:#fff !important;
+  color:var(--text) !important;
+}
+main {
+  background:#fff;
+}
+.site-header,
+.site-header-premium {
+  background:rgba(255,255,255,.96) !important;
+  border-bottom:1px solid #e4edf6 !important;
+  box-shadow:0 5px 22px rgba(31,77,126,.055);
+}
+.nav-list > li > a {
+  color:#52647c !important;
+}
+.nav-list > li > a:hover,
+.nav-list > li:focus-within > a {
+  color:var(--accent) !important;
+  background:#f2f7ff !important;
+}
+.nav-dropdown {
+  background:#fff !important;
+  border-color:#dce7f3 !important;
+  box-shadow:0 20px 46px rgba(36,82,135,.13) !important;
+}
+.nav-dropdown a { color:#52647c !important; }
+.nav-dropdown a:hover { color:var(--accent) !important; background:#f3f8ff !important; }
+.mobile-menu-panel { background:#fff !important; border-color:#dbe6f2 !important; }
+.mobile-nav-list a:not(.button) { color:var(--text) !important; }
+
+.button-primary {
+  background:#2f6fed !important;
+  color:#fff !important;
+  border-color:transparent !important;
+}
+.button-primary:hover { background:#1f5dd8 !important; color:#fff !important; }
+.button-secondary,
+.button-ghost {
+  background:#fff !important;
+  color:#405472 !important;
+  border-color:#dbe6f2 !important;
+}
+.button-secondary:hover,
+.button-ghost:hover {
+  color:#2f6fed !important;
+  background:#f4f8ff !important;
+  border-color:#bcd5f1 !important;
+}
+.button-premium { background:#2f6fed !important; color:#fff !important; }
+
+.section,
+.section-surface,
+.section-grid-wrap,
+.stats-band,
+.review-section,
+.final-cta,
+.steps-section,
+.pricing-section-home {
+  background:#fff !important;
+  color:var(--text);
+}
+.section-surface {
+  border-top:1px solid #edf2f7 !important;
+  border-bottom:1px solid #edf2f7 !important;
+}
+.section-lead,
+.muted,
+.pricing-footnote,
+.footer-cta p {
+  color:var(--muted) !important;
+}
+
+.stats-grid {
+  background:#fff !important;
+  border-top:1px solid #e4edf6;
+  border-bottom:1px solid #e4edf6;
+}
+.stats-grid > div,
+.stats-grid > div:not(:first-child) {
+  background:#fff !important;
+  border-color:#e5edf6 !important;
+}
+.stats-grid strong { color:#1b2d49 !important; }
+.stats-grid p { color:#71839a !important; }
+.stats-grid span { color:#2f6fed !important; }
+
+.pricing-preview,
+.pricing-grid,
+.pricing-card,
+.premium-pricing-grid,
+.premium-price-card {
+  color:var(--text) !important;
+}
+.pricing-card,
+.premium-price-card,
+.device-card,
+.compact-card,
+.guide-card,
+.framework-card,
+.card,
+.aside-card,
+.faq-item,
+.step-card,
+.app-card-premium,
+.guide-card-premium,
+.review-card {
+  background:#fff !important;
+  border-color:#dfe8f2 !important;
+  box-shadow:0 12px 34px rgba(42,87,137,.055);
+}
+.pricing-card:hover,
+.premium-price-card:hover,
+.device-card:hover,
+.compact-card:hover,
+.guide-card:hover,
+.card:hover,
+.step-card:hover,
+.app-card-premium:hover,
+.guide-card-premium:hover,
+.review-card:hover {
+  border-color:#b7d4f4 !important;
+  box-shadow:0 18px 42px rgba(47,111,237,.10);
+}
+.pricing-duration,
+.price-duration {
+  color:#63758d !important;
+  border-color:#dbe6f2 !important;
+  background:#f8fbff !important;
+}
+.price-per-month,
+.price-note,
+.pricing-footnote {
+  color:#74869b !important;
+}
+.price-cta {
+  background:#2f6fed !important;
+  color:#fff !important;
+  box-shadow:0 10px 26px rgba(47,111,237,.18) !important;
+}
+.price-cta:hover { color:#fff !important; background:#1f5dd8 !important; }
+.premium-price-card li { color:#5a6e87 !important; }
+.premium-price-card li::before { color:#2f6fed !important; }
+
+.device-selector {
+  background:#f5f9fe !important;
+  border:1px solid #e0eaf4 !important;
+  border-radius:16px;
+  padding:5px;
+}
+.device-selector button { color:#61738b !important; }
+.device-selector button:hover { color:#2f6fed !important; background:#eaf4ff !important; }
+.device-selector button.is-active {
+  color:#fff !important;
+  background:#2f6fed !important;
+  box-shadow:0 9px 22px rgba(47,111,237,.18);
+}
+
+.device-showcase-card,
+.device-showcase-card:hover {
+  background:#fff !important;
+  color:var(--text) !important;
+  border-color:#dfe8f2 !important;
+}
+.device-showcase-icon,
+.device-icon,
+.app-number,
+.step-icon {
+  background:#edf6ff !important;
+  color:#2f6fed !important;
+  border-color:#d4e7fb !important;
+}
+.device-showcase-arrow,
+.app-card-premium > span:last-child {
+  color:#7d8fa4 !important;
+}
+
+.journey-card,
+.signal-panel,
+.transparency-card,
+.cta-panel {
+  background:#fff !important;
+  color:var(--text) !important;
+  border-color:#dfe8f2 !important;
+  box-shadow:0 14px 34px rgba(42,87,137,.055);
+}
+.journey-card:hover { background:#fff !important; color:var(--text) !important; }
+.journey-step,
+.signal-node span {
+  background:#edf6ff !important;
+  color:#2f6fed !important;
+}
+.signal-node {
+  color:#62758e !important;
+  background:#f9fbfe !important;
+  border-color:#e2ebf4 !important;
+}
+.signal-node.active {
+  color:#1b2d49 !important;
+  border-color:#bfd9f6 !important;
+  background:#f5f9ff !important;
+}
+.signal-node.active span { background:#2f6fed !important; color:#fff !important; }
+.signal-line { background:linear-gradient(#2f6fed,rgba(47,111,237,.04)) !important; }
+
+.page-hero {
+  background:#fff !important;
+}
+.breadcrumbs { color:#8393a7 !important; }
+.breadcrumbs a { color:#60738c !important; }
+.breadcrumbs span[aria-current="page"] { color:#243754 !important; }
+.page-hero-chip {
+  background:#eef6ff !important;
+  border-color:#d2e6fb !important;
+  color:#2f6fed !important;
+}
+.page-hero h1 { color:#14213a !important; }
+.prose-section { border-color:#e4ecf4 !important; }
+.prose-section p { color:#60738c !important; }
+.pill-link {
+  color:#536781 !important;
+  border-color:#dce7f2 !important;
+  background:#fff !important;
+}
+.pill-link:hover { color:#2f6fed !important; border-color:#bcd5f1 !important; background:#f5f9ff !important; }
+.aside-links a {
+  background:#f9fbfe !important;
+  border-color:#e2ebf4 !important;
+}
+.aside-links span { color:#8494a8 !important; }
+.aside-links strong { color:#253956 !important; }
+.aside-links i { color:#2f6fed !important; }
+.verification-note {
+  background:#eef6ff !important;
+  border-color:#cfe3fa !important;
+  color:#5d718a !important;
+}
+.verification-note strong { color:#243b5a !important; }
+.faq-item summary { color:#20334f !important; }
+.faq-answer { color:#65778e !important; }
+
+.visual-break {
+  background:linear-gradient(135deg,#eef7ff,#f8fbff) !important;
+}
+.visual-break-content p { color:#5f7188 !important; }
+.button-light {
+  background:#2f6fed !important;
+  color:#fff !important;
+}
+.button-light:hover { background:#1f5dd8 !important; color:#fff !important; }
+
+.review-stars,.review-rating { color:#2f6fed !important; }
+.reviews-summary {
+  background:linear-gradient(180deg,#f8fbff,#edf6ff) !important;
+  border-color:#d7e7f8 !important;
+  color:#1c3455 !important;
+}
+.reviews-summary strong { color:#17385f !important; }
+.reviews-summary p,
+.review-section-head > p,
+.review-card p { color:#647790 !important; }
+.review-avatar {
+  background:#2f6fed !important;
+  color:#fff !important;
+}
+.verified-pill {
+  color:#6c8199 !important;
+  border-color:#dce7f2 !important;
+  background:#f8fbff !important;
+}
+
+.final-cta-inner {
+  background:linear-gradient(135deg,#f2f8ff,#ffffff) !important;
+  border-color:#d2e5f8 !important;
+  box-shadow:0 20px 48px rgba(42,87,137,.09) !important;
+}
+.final-cta-inner h2,
+.footer-cta h2 { color:#172947 !important; }
+.final-cta-inner p { color:#61738c !important; }
+
+.site-footer,
+.site-footer-premium {
+  background:#f7fbff !important;
+  border-top:1px solid #dfe9f3 !important;
+  color:#50647e !important;
+}
+.footer-grid a:not(.brand) { color:#60738d !important; }
+.footer-grid a:not(.brand):hover { color:#2f6fed !important; }
+.footer-primary-link { color:#2f6fed !important; }
+.footer-bottom { border-color:#dfe8f2 !important; color:#7d8ea3 !important; }
+
+.floating-whatsapp {
+  background:#fff !important;
+  color:#19304d !important;
+  border-color:#d7e5f2 !important;
+  box-shadow:0 18px 42px rgba(33,78,128,.14),0 0 0 1px rgba(47,111,237,.05);
+}
+.floating-wa-icon { background:#19c77a !important; color:#062015 !important; }
+.floating-wa-copy small { color:#6e8790 !important; }
+
+.hero-pro,
+.hero-v4,
+.hero-homepage:not(.hero-light) {
+  background:#fff !important;
+}
+.hero-pro::before,
+.hero-v4::before { display:none !important; }
+
+/* New light hero becomes the canonical homepage hero. */
+.hero-light {
+  border-bottom:1px solid #e6eef6;
+}
