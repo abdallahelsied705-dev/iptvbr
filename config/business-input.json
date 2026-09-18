@@ -1,0 +1,67 @@
+{
+  "pricing": {
+    "verification": "verified",
+    "production": [
+      {
+        "duration": "1 Mês",
+        "price": 15,
+        "currency": "EUR",
+        "label": "1 dispositivo"
+      },
+      {
+        "duration": "3 Meses",
+        "price": 29,
+        "currency": "EUR",
+        "label": "1 dispositivo"
+      },
+      {
+        "duration": "6 Meses",
+        "price": 49,
+        "currency": "EUR",
+        "label": "1 dispositivo"
+      },
+      {
+        "duration": "12 Meses",
+        "price": 69,
+        "currency": "EUR",
+        "label": "1 dispositivo"
+      }
+    ]
+  },
+  "trial": {
+    "verification": "unverified",
+    "production": null
+  },
+  "devices": {
+    "verification": "unverified",
+    "production": []
+  },
+  "simultaneousDevices": {
+    "verification": "unverified",
+    "production": null
+  },
+  "channels": {
+    "verification": "unverified",
+    "production": null
+  },
+  "vod": {
+    "verification": "unverified",
+    "production": null
+  },
+  "uptime": {
+    "verification": "unverified",
+    "production": null
+  },
+  "refunds": {
+    "verification": "unverified",
+    "production": null
+  },
+  "rights": {
+    "verification": "unverified",
+    "production": null
+  },
+  "company": {
+    "verification": "unverified",
+    "production": null
+  }
+}
