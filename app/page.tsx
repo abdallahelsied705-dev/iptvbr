@@ -26,7 +26,7 @@ export default function HomePage() {
 
     <section className="stats-band"><div className="container stats-grid"><Reveal><span>01</span><strong>Planos flexíveis</strong><p>Escolhe duração e dispositivos.</p></Reveal><Reveal delay={80}><span>02</span><strong>WhatsApp direto</strong><p>Pedido preparado automaticamente.</p></Reveal><Reveal delay={160}><span>03</span><strong>Guias pt-PT</strong><p>Instalação e suporte por dispositivo.</p></Reveal><Reveal delay={240}><span>04</span><strong>Experiência premium</strong><p>Navegação pensada para conversão.</p></Reveal></div></section>
 
-    <Section eyebrow="PLANOS IPTV" title="Escolhe a combinação certa para a tua casa." description="Alterna entre 1 e 4 dispositivos. O preço e a mensagem de WhatsApp são atualizados no momento." className="pricing-section-home">
+    <Section eyebrow="PLANOS IPTV" title="Escolhe a combinação certa para a tua casa." description="Alterna entre 1 e 4 dispositivos. O preço e a mensagem de WhatsApp são atualizados no momento." className="pricing-section-home" id="planos">
       <Reveal><PricingMatrix /></Reveal>
     </Section>
 
