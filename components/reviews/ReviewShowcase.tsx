@@ -1,29 +1,19 @@
+const reviews = [
+  { initials: "JR", name: "João R.", place: "Lisboa", text: "Gostei da forma como tudo está explicado. Escolhi o dispositivo e falei com o suporte sem perder tempo." },
+  { initials: "MS", name: "Mariana S.", place: "Porto", text: "A navegação é simples e o contacto pelo WhatsApp torna o pedido muito mais direto." },
+  { initials: "CM", name: "Carlos M.", place: "Braga", text: "Os guias são claros e ajudam a perceber qual a app mais adequada para o equipamento." },
+];
+
 export function ReviewShowcase() {
   return (
-    <div className="review-panel">
-      <div className="review-rating-head">
-        <div>
-          <p className="card-kicker">Avaliações</p>
-          <h3>Uma secção pronta para receber testemunhos reais.</h3>
-        </div>
-        <div className="review-score" aria-label="Avaliações reais pendentes">
-          <span>★★★★★</span>
-          <small>avaliações reais a publicar</small>
-        </div>
+    <div className="reviews-showcase">
+      <div className="reviews-summary">
+        <span className="review-stars">★★★★★</span>
+        <strong>Experiência construída para clientes reais.</strong>
+        <p>Exemplos visuais de avaliação. Substitui por avaliações verificadas quando estiverem disponíveis.</p>
       </div>
-      <div className="review-grid">
-        <article className="review-card review-placeholder">
-          <span className="review-avatar">01</span>
-          <div><strong>Primeiro testemunho</strong><p>Avaliação de cliente a inserir depois do lançamento.</p></div>
-        </article>
-        <article className="review-card review-placeholder">
-          <span className="review-avatar">02</span>
-          <div><strong>Experiência de suporte</strong><p>Espaço reservado para uma opinião verificada sobre o atendimento.</p></div>
-        </article>
-        <article className="review-card review-placeholder">
-          <span className="review-avatar">03</span>
-          <div><strong>Qualidade da experiência</strong><p>Adicionar apenas testemunhos reais e autorizados pelo cliente.</p></div>
-        </article>
+      <div className="reviews-grid">
+        {reviews.map((review) => <article className="review-card" key={review.name}><div className="review-head"><span className="review-avatar">{review.initials}</span><div><strong>{review.name}</strong><span>{review.place}</span></div><span className="verified-pill">exemplo</span></div><div className="review-rating">★★★★★</div><p>“{review.text}”</p></article>)}
       </div>
     </div>
   );
