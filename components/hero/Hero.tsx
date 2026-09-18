@@ -4,48 +4,36 @@ import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
 
 export function Hero() {
   return (
-    <section className="hero hero-home">
-      <div className="hero-orb hero-orb-a" aria-hidden="true" />
-      <div className="hero-orb hero-orb-b" aria-hidden="true" />
-      <div className="hero-noise" aria-hidden="true" />
+    <section className="hero hero-premium">
+      <div className="hero-bg-image" aria-hidden="true" />
+      <div className="hero-grid-lines" aria-hidden="true" />
+      <div className="hero-glow hero-glow-a" aria-hidden="true" />
+      <div className="hero-glow hero-glow-b" aria-hidden="true" />
       <div className="container hero-grid">
         <div className="hero-copy hero-copy-premium">
-          <div className="hero-badge"><span /> IPTV em Portugal · plataforma local</div>
-          <p className="eyebrow">IPTVBR / experiência digital em pt-PT</p>
-          <h1>IPTV em Portugal, com uma experiência <em>mais premium.</em></h1>
-          <p className="hero-lead">
-            Encontra o plano, o dispositivo, a aplicação e o guia certo num só lugar. Informação clara, navegação rápida e atendimento direto pelo WhatsApp.
-          </p>
+          <div className="hero-badge"><span /> IPTV PORTUGAL · IPTVBR</div>
+          <p className="eyebrow">Entretenimento digital, sem complicações.</p>
+          <h1>O teu entretenimento. <em>Num só lugar.</em></h1>
+          <p className="hero-lead">Explora planos flexíveis, encontra a melhor configuração para o teu dispositivo e fala connosco diretamente pelo WhatsApp.</p>
           <div className="hero-actions">
-            <Link className="button button-primary button-lg" href="/precos/">Ver planos e preços</Link>
-            <WhatsAppButton message="Olá, quero conhecer os planos IPTVBR e saber como funciona em Portugal." />
+            <Link className="button button-primary button-large" href="#planos">Ver planos IPTV</Link>
+            <WhatsAppButton message="Olá! Quero conhecer os planos IPTVBR para Portugal." />
           </div>
-          <div className="hero-microproof" aria-label="Destaques">
-            <span><i>✓</i> Conteúdo pt-PT</span>
-            <span><i>✓</i> Guias por dispositivo</span>
-            <span><i>✓</i> Atendimento WhatsApp</span>
+          <div className="hero-proof-row hero-proof-premium" aria-label="Principais vantagens">
+            <span><strong>HD / 4K</strong> quando disponível</span>
+            <span><strong>Multi-device</strong> por plano</span>
+            <span><strong>WhatsApp</strong> atendimento direto</span>
           </div>
         </div>
-
         <div className="hero-visual hero-visual-premium">
-          <div className="hero-image-wrap">
-            <Image
-              src="/images/hero/iptvbr-living-room.webp"
-              alt="Sala moderna com televisão e ambiente de streaming inspirado em Portugal"
-              width={1536}
-              height={1024}
-              priority
-              sizes="(max-width: 900px) 100vw, 56vw"
-            />
-            <div className="hero-image-shade" />
-            <div className="hero-screen-card">
-              <span>EXPERIÊNCIA IPTVBR</span>
-              <strong>Escolhe onde queres assistir.</strong>
-              <p>Smart TV · Fire TV · Android TV · PC · mais</p>
-            </div>
-            <div className="hero-chip hero-chip-top"><b>PT</b> Portugal</div>
-            <div className="hero-chip hero-chip-bottom"><b>01</b> Escolher dispositivo</div>
+          <div className="hero-media-card">
+            <Image src="/images/hero/iptvbr-premium-living-room.webp" alt="Sala moderna com televisão e ambiente de streaming" width={1536} height={1024} priority sizes="(max-width: 900px) 100vw, 55vw" />
+            <div className="hero-media-shade" />
+            <div className="hero-media-top"><span>IPTVBR</span><span className="live-dot"><i /> LIVE EXPERIENCE</span></div>
+            <div className="hero-media-bottom"><span>PORTUGAL</span><strong>Escolhe. Liga. Assiste.</strong><p>Guias, dispositivos, apps e suporte num único percurso.</p></div>
           </div>
+          <div className="hero-floating-card hero-floating-price"><span>DESDE</span><strong>€14,99</strong><small>referência · 1 dispositivo</small></div>
+          <div className="hero-floating-card hero-floating-support"><span>SUPORTE</span><strong>WhatsApp</strong><small>resposta direta</small></div>
         </div>
       </div>
     </section>
