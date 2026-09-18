@@ -36,8 +36,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={`${inter.variable} ${manrope.variable}`}>
         <SiteHeader />
         {children}
-        <SiteFooter />
         <FloatingWhatsApp />
+        <SiteFooter />
       </body>
     </html>
   );
