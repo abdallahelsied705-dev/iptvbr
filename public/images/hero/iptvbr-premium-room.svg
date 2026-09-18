@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+<title id="title">Sala premium com televisão para streaming</title>
+<desc id="desc">Ilustração premium de uma sala moderna com televisão e interface de entretenimento abstrata.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07111F"/><stop offset=".52" stop-color="#0A1A2B"/><stop offset="1" stop-color="#04101A"/></linearGradient>
+  <linearGradient id="wall" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#10243A"/><stop offset="1" stop-color="#091525"/></linearGradient>
+  <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0E4267"/><stop offset=".55" stop-color="#179FD9"/><stop offset="1" stop-color="#0B2F4A"/></linearGradient>
+  <linearGradient id="cyan" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#72E0FF"/><stop offset="1" stop-color="#1FB6FF"/></linearGradient>
+  <linearGradient id="couch" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#263747"/><stop offset="1" stop-color="#172332"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="22"/></filter>
+  <filter id="shadow"><feDropShadow dx="0" dy="22" stdDeviation="22" flood-opacity=".35"/></filter>
+</defs>
+<rect width="1200" height="800" fill="url(#bg)"/>
+<rect x="530" y="0" width="670" height="610" fill="url(#wall)" opacity=".96"/>
+<path d="M530 0h670v430c-150-55-300-57-470 18Z" fill="#0B1A2C" opacity=".72"/>
+<rect x="90" y="60" width="345" height="320" rx="32" fill="#0A1624" stroke="#17354D"/>
+<rect x="112" y="82" width="301" height="276" rx="24" fill="#07111F"/>
+<path d="M112 230c70-76 138-104 301-76v204H112Z" fill="#0D2C42" opacity=".65"/>
+<path d="M120 305c83-106 185-142 293-109" stroke="#2EBFFF" stroke-width="5" fill="none" opacity=".23"/>
+<circle cx="288" cy="168" r="90" fill="#1FB6FF" opacity=".10" filter="url(#glow)"/>
+<rect x="640" y="130" width="462" height="292" rx="28" fill="#030B13" stroke="#23435A" stroke-width="10" filter="url(#shadow)"/>
+<rect x="667" y="157" width="408" height="238" rx="18" fill="url(#screen)"/>
+<circle cx="705" cy="193" r="9" fill="#6FE0FF"/>
+<rect x="727" y="180" width="115" height="15" rx="7.5" fill="#DFF8FF" opacity=".85"/>
+<rect x="705" y="227" width="120" height="86" rx="14" fill="#07111F" opacity=".8"/>
+<rect x="839" y="227" width="105" height="86" rx="14" fill="#07111F" opacity=".72"/>
+<rect x="956" y="227" width="94" height="86" rx="14" fill="#07111F" opacity=".66"/>
+<rect x="680" y="338" width="120" height="10" rx="5" fill="#E6FAFF" opacity=".65"/>
+<rect x="810" y="338" width="84" height="10" rx="5" fill="#E6FAFF" opacity=".30"/>
+<rect x="903" y="338" width="122" height="10" rx="5" fill="#E6FAFF" opacity=".20"/>
+<path d="M824 424h96l-21 29h-54Z" fill="#172D40"/>
+<rect x="786" y="453" width="172" height="11" rx="5.5" fill="#173248"/>
+<path d="M0 610c165-55 291-35 424 34 102 53 199 92 304 69 143-31 241-77 472-11v98H0Z" fill="#091321"/>
+<path d="M0 697c136-55 273-39 391 18 108 52 210 61 311 23 170-64 290-67 498 0" stroke="#11283D" stroke-width="8" fill="none" opacity=".9"/>
+<g filter="url(#shadow)"><path d="M95 593h445c52 0 86 36 86 76v53H36v-40c0-49 24-89 59-89Z" fill="url(#couch)"/><rect x="83" y="654" width="482" height="70" rx="24" fill="#1C2A39"/><rect x="120" y="609" width="102" height="115" rx="26" fill="#223547"/><rect x="430" y="604" width="93" height="120" rx="25" fill="#223547"/></g>
+<ellipse cx="1030" cy="632" rx="84" ry="24" fill="#000" opacity=".28"/>
+<rect x="998" y="535" width="64" height="96" rx="18" fill="#172332"/>
+<circle cx="1030" cy="516" r="32" fill="#2A4656"/>
+<path d="M1030 485c-20-17-31-35-31-54" stroke="#274F65" stroke-width="7" fill="none"/>
+<rect x="586" y="580" width="168" height="10" rx="5" fill="#1F384C"/>
+<rect x="610" y="560" width="42" height="9" rx="4.5" fill="#1A3042"/><rect x="661" y="560" width="54" height="9" rx="4.5" fill="#1A3042"/>
+<g><rect x="675" y="93" width="134" height="34" rx="17" fill="#07111F" stroke="#2A566F"/><circle cx="697" cy="110" r="5" fill="#46DD9E"/><rect x="711" y="104" width="82" height="12" rx="6" fill="#BFEFFF" opacity=".55"/></g>
+<circle cx="1090" cy="116" r="62" fill="#1FB6FF" opacity=".08" filter="url(#glow)"/>
+</svg>
