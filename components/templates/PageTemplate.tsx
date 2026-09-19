@@ -62,7 +62,7 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
   const related = (children.length ? children : recommendedLinks.map((item) => getRoute(item.href)).filter((item): item is RouteDefinition => Boolean(item))).slice(0, 6);
 
   return (
-    <main id="main-content">
+    <main id="main-content" className={isArticle ? "article-page" : route.slug === "/blog/" ? "blog-index-page" : undefined}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schemas) }} />
 
       <section className="page-hero">
@@ -87,6 +87,12 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
         </div>
       </section>
 
+      {isArticle && route.image ? (
+        <div className="container article-cover-wrap">
+          <Image className="article-cover" src={route.image} alt={getImageAlt(route)} width={1200} height={675} sizes="(max-width: 900px) 100vw, 1180px" priority />
+        </div>
+      ) : null}
+
       <ContentFramework takeaways={content.takeaways} steps={content.steps} entities={content.entities} />
 
       {deviceBrand ? (
@@ -97,12 +103,6 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
         </div>
       ) : null}
 
-      {isArticle && route.image ? (
-        <div className="container article-cover-wrap">
-          <Image className="article-cover" src={route.image} alt={getImageAlt(route)} width={1200} height={800} sizes="(max-width: 900px) 100vw, 1180px" priority />
-        </div>
-      ) : null}
-
       {children.length > 0 ? (
         <Section
           eyebrow={route.type === "blog" ? "Explorar" : "Percurso"}
@@ -110,7 +110,7 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
           description={route.type === "blog" ? "Artigos editoriais ligados a dispositivos, aplicações, tecnologia e suporte." : "Os conteúdos abaixo pertencem diretamente a esta área da arquitetura e mantêm o percurso simples."}
           className="section-surface"
         >
-          <HubGrid routes={children.slice(0, 8)} />
+          <HubGrid routes={route.type === "blog" ? children : children.slice(0, 8)} />
         </Section>
       ) : null}
 
