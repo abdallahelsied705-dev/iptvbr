@@ -73,9 +73,9 @@ export const metadata: Metadata = {
     title: "IPTV Portugal: Planos, Apps e Guias | IPTVBR",
     description: "Planos IPTV em Portugal, dispositivos compatíveis, aplicações, instalação e suporte em português.",
     url: "https://iptvbr.pt/",
-    images: [{ url: "/images/hero/iptvbr-premium-living-room.webp", width: 1536, height: 1024, alt: "IPTV Portugal numa sala moderna com televisão de grande formato" }],
+    images: [{ url: "/images/social/iptvbr-social-share.png", width: 1200, height: 630, alt: "IPTVBR Portugal — planos, aplicações e guias IPTV" }],
   },
-  twitter: { card: "summary_large_image", images: ["/images/hero/iptvbr-premium-living-room.webp"] },
+  twitter: { card: "summary_large_image", images: ["/images/social/iptvbr-social-share.png"] },
 };
 
 function SectionLabel({ children, dark = false }: { children: ReactNode; dark?: boolean }) {

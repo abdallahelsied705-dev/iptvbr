@@ -15,6 +15,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: { default: siteConfig.defaultTitle, template: "%s | IPTVBR" },
   description: siteConfig.defaultDescription,
+  icons: { icon: [{ url: "/favicon.svg", type: "image/svg+xml" }] },
   alternates: { canonical: siteConfig.url + "/" },
   robots: {
     index: !isPreview,
@@ -27,7 +28,19 @@ export const metadata: Metadata = {
     siteName: siteConfig.name,
     title: siteConfig.defaultTitle,
     description: siteConfig.defaultDescription,
-    url: siteConfig.url + "/"
+    url: siteConfig.url + "/",
+    images: [{
+      url: "/images/social/iptvbr-social-share.png",
+      width: 1200,
+      height: 630,
+      alt: "IPTVBR Portugal — planos, aplicações e guias IPTV"
+    }]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteConfig.defaultTitle,
+    description: siteConfig.defaultDescription,
+    images: ["/images/social/iptvbr-social-share.png"]
   },
   verification: process.env.GOOGLE_SITE_VERIFICATION
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
