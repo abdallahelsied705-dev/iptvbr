@@ -26,6 +26,7 @@ export interface RouteDefinition {
   relatedPages?: string[];
   schema: string[];
   image?: string;
+  publishedAt?: string;
 }
 
 const base = "https://iptvbr.pt";
@@ -161,12 +162,26 @@ export const routes: RouteDefinition[] = [
   { ...define("/blog/usar-iptv-fora-de-casa/", "blog", "usar iptv fora de casa", "Usar IPTV Fora de Casa: Rede, Dados e Limitações", "O que verificar antes de usar streaming em viagem: dados móveis, Wi-Fi público, licenças geográficas e segurança.", "/blog/", "informational"), image: "/images/blog-photos/usar-iptv-fora-de-casa.webp" },
   { ...define("/blog/manutencao-app-iptv/", "blog", "manutenção app iptv", "Manutenção da App IPTV: Atualizações, Cache e Desempenho", "Rotina simples para manter a aplicação estável, atualizar com segurança e resolver lentidão sem apagar tudo por impulso.", "/blog/", "support-informational"), image: "/images/blog-photos/manutencao-app-iptv.webp" },
   { ...define("/blog/quanto-consome-iptv/", "blog", "quanto consome iptv", "Quanto Consome IPTV? Dados, Velocidade e Qualidade", "Saiba quantos dados o IPTV pode consumir por hora em SD, HD, Full HD e 4K, como estimar o consumo mensal e reduzir gastos sem prejudicar a qualidade.", "/blog/", "informational"), image: "/images/blog/quanto-consome-iptv.svg" },
+  { ...define("/blog/melhor-app-iptv-smart-tv/", "blog", "melhor app iptv para smart tv", "Melhor App IPTV para Smart TV: Como Escolher", "Um método prático para comparar aplicações IPTV por sistema, interface, EPG, segurança e estabilidade.", "/blog/", "informational"), image: "/images/blog/melhor-app-iptv-smart-tv.svg", publishedAt: "2026-09-20T09:00:00Z" },
+  { ...define("/blog/iptv-com-som-sem-imagem/", "blog", "iptv com som sem imagem", "IPTV com Som sem Imagem: Diagnóstico do Ecrã Preto", "Passos para diagnosticar ecrã preto com áudio, incluindo codec, aceleração, HDMI, HDR e resolução.", "/blog/", "informational"), image: "/images/blog/iptv-com-som-sem-imagem.svg", publishedAt: "2026-09-21T09:00:00Z" },
+  { ...define("/blog/iptv-sem-som/", "blog", "iptv sem som", "IPTV sem Som: Como Resolver Áudio Ausente", "Checklist para resolver IPTV sem som através de faixas de áudio, PCM, passthrough, HDMI e aplicações.", "/blog/", "informational"), image: "/images/blog/iptv-sem-som.svg", publishedAt: "2026-09-22T09:00:00Z" },
+  { ...define("/blog/latencia-iptv-vs-buffering/", "blog", "latência iptv", "Latência IPTV vs Buffering: Entende a Diferença", "Aprende a distinguir atraso de interrupções e a ajustar rede, buffer e dispositivo para cada utilização.", "/blog/", "informational"), image: "/images/blog/latencia-iptv-vs-buffering.svg", publishedAt: "2026-09-23T09:00:00Z" },
+  { ...define("/blog/router-para-iptv/", "blog", "melhor router para iptv", "Router para IPTV: Wi-Fi 6, Ethernet ou Mesh?", "Critérios para escolher um router para streaming, avaliar cobertura e evitar compras que não resolvem a causa.", "/blog/", "informational"), image: "/images/blog/router-para-iptv.svg", publishedAt: "2026-09-24T09:00:00Z" },
+  { ...define("/blog/como-limpar-cache-app-iptv/", "blog", "como limpar cache app iptv", "Como Limpar a Cache da App IPTV sem Perder Dados", "Guia seguro para limpar cache em Android TV, Fire TV, Samsung, LG e Apple TV sem apagar configuração por engano.", "/blog/", "informational"), image: "/images/blog/como-limpar-cache-app-iptv.svg", publishedAt: "2026-09-25T09:00:00Z" },
+  { ...define("/blog/mesh-wifi-para-iptv/", "blog", "mesh wifi para iptv", "Mesh Wi-Fi para IPTV: Quando Vale a Pena", "Como posicionar nós Mesh, escolher backhaul e testar cobertura real numa casa com vários ecrãs.", "/blog/", "informational"), image: "/images/blog/mesh-wifi-para-iptv.svg", publishedAt: "2026-09-26T09:00:00Z" },
+  { ...define("/blog/adaptador-ethernet-firestick/", "blog", "adaptador ethernet firestick", "Adaptador Ethernet para Fire TV Stick: Guia Prático", "Quando usar Ethernet no Fire TV Stick, como escolher um adaptador compatível e testar a diferença.", "/blog/", "informational"), image: "/images/blog/adaptador-ethernet-firestick.svg", publishedAt: "2026-09-27T09:00:00Z" },
+  { ...define("/blog/legendas-audio-iptv/", "blog", "legendas e áudio iptv", "Legendas e Áudio no IPTV: Idioma e Sincronização", "Configura faixas de áudio, idiomas, sincronização de legendas e opções de acessibilidade no player.", "/blog/", "informational"), image: "/images/blog/legendas-audio-iptv.svg", publishedAt: "2026-09-28T09:00:00Z" },
+  { ...define("/blog/iptv-segunda-casa/", "blog", "iptv segunda casa", "IPTV na Segunda Casa: Internet, Plano e Segurança", "Como preparar IPTV numa casa de férias, confirmar ligações, calcular dados e proteger equipamentos partilhados.", "/blog/", "informational"), image: "/images/blog/iptv-segunda-casa.svg", publishedAt: "2026-09-29T09:00:00Z" },
 ];
 
-export function getRoute(slug: string) {
-  return routes.find((item) => item.slug === slug);
+export function isRoutePublished(item: RouteDefinition, now = new Date()) {
+  return !item.publishedAt || new Date(item.publishedAt).getTime() <= now.getTime();
 }
 
-export function getChildRoutes(parent: string) {
-  return routes.filter((item) => item.parent === parent);
+export function getRoute(slug: string, now = new Date()) {
+  return routes.find((item) => item.slug === slug && isRoutePublished(item, now));
+}
+
+export function getChildRoutes(parent: string, now = new Date()) {
+  return routes.filter((item) => item.parent === parent && isRoutePublished(item, now));
 }
