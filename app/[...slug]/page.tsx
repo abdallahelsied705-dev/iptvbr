@@ -4,7 +4,7 @@ import { getRoute, isRoutePublished, routes } from "@/config/routes";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { PageTemplate } from "@/components/templates/PageTemplate";
 
-export const revalidate = 900;
+export const revalidate = 60;
 
 export function generateStaticParams() {
   return routes
