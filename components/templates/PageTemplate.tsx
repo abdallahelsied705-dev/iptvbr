@@ -91,12 +91,12 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
           <h1>{route.title}</h1>
           <p className="hero-lead">{content.intro}</p>
           {isArticle ? <div className="article-meta"><span>Guia editorial</span><span>{readingMinutes} min de leitura</span><span>{content.sections.length} secções</span></div> : null}
-          <ContentBriefMeta min={brief.targetWords[0]} max={brief.targetWords[1]} />
+          {!isArticle ? <ContentBriefMeta min={brief.targetWords[0]} max={brief.targetWords[1]} /> : null}
           {route.type === "money" ? <BusinessStatus /> : null}
           {route.type === "money" ? <VerifiedBusinessFacts /> : null}
           {route.type === "money" ? <ReleaseStatus /> : null}
           <div className="hero-actions">
-            <Button href={primary.href} variant="primary">{primary.label}</Button>
+            <Button href={isArticle ? "/precos/" : primary.href} variant="primary">{isArticle ? "Ver preços e planos" : primary.label}</Button>
             <WhatsAppButton message={content.ctaMessage} />
           </div>
         </div>
