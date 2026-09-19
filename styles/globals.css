@@ -2358,3 +2358,81 @@ main {
 @media(prefers-reduced-motion:reduce) {
   .mobile-menu-panel { animation:none; }
 }
+
+/* Homepage art direction: depth, focal colour and restrained motion */
+.reference-home .ref-accent { color:var(--ref-blue); }
+.reference-home .ref-dark .ref-accent { color:#6aa5ff; }
+.reference-home .ref-section { position:relative; overflow:hidden; }
+.reference-home .ref-section > .container { position:relative; z-index:1; }
+.reference-home .ref-pricing::before,
+.reference-home .ref-faq::before,
+.reference-home .ref-reviews::before,
+.reference-home .ref-cta::before {
+  content:"";
+  position:absolute;
+  width:420px;
+  height:420px;
+  border-radius:50%;
+  pointer-events:none;
+  background:radial-gradient(circle,rgba(52,120,239,.10),rgba(52,120,239,0) 68%);
+}
+.reference-home .ref-pricing::before { right:-150px; top:-190px; }
+.reference-home .ref-faq::before { left:-190px; top:-180px; }
+.reference-home .ref-reviews::before { right:-170px; bottom:-220px; }
+.reference-home .ref-cta::before { left:50%; top:-230px; transform:translateX(-50%); }
+
+.ref-stats-grid > div { transition:transform .28s ease,box-shadow .28s ease,background .28s ease; }
+.ref-stats-grid > div:hover { position:relative; z-index:2; transform:translateY(-5px); background:#fbfdff; box-shadow:0 18px 38px rgba(34,74,125,.12); }
+.ref-stats-grid svg { transition:transform .32s cubic-bezier(.2,.8,.2,1); }
+.ref-stats-grid > div:hover svg { transform:scale(1.1) rotate(-4deg); }
+
+.ref-device-card { position:relative; overflow:hidden; transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease,background .3s ease; }
+.ref-device-card::before { content:""; position:absolute; inset:auto -25% -65% 25%; height:75%; border-radius:50%; background:rgba(52,120,239,.18); filter:blur(18px); opacity:0; transition:opacity .3s ease; }
+.ref-device-card > * { position:relative; z-index:1; }
+.ref-device-card:hover,.ref-device-card:focus-visible { transform:translateY(-7px); border-color:#4b86dd; background:#2b3039; box-shadow:0 18px 35px rgba(0,0,0,.28); }
+.ref-device-card:hover::before,.ref-device-card:focus-visible::before { opacity:1; }
+
+.ref-steps-grid { position:relative; }
+.ref-steps-grid::before { content:""; position:absolute; left:15%; right:15%; top:47px; height:1px; background:linear-gradient(90deg,transparent,#bcd6f7 14%,#bcd6f7 86%,transparent); }
+.ref-steps-grid article { position:relative; z-index:1; padding:27px 22px 24px; border:1px solid #e1eaf4; border-radius:20px; background:linear-gradient(155deg,#fff,#f7faff); box-shadow:0 14px 34px rgba(37,76,126,.07); transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease; }
+.ref-steps-grid article:hover { transform:translateY(-7px); border-color:#b8d3f5; box-shadow:0 23px 46px rgba(37,76,126,.13); }
+.ref-steps-grid article > span { background:#fff; box-shadow:0 10px 24px rgba(47,111,237,.13); transition:background .3s ease,color .3s ease,transform .3s ease; }
+.ref-steps-grid article:hover > span { color:#fff; background:#3478ef; transform:scale(1.08); }
+
+.ref-compare-grid article,.ref-why-grid article { transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease; }
+.ref-compare-grid article:hover,.ref-why-grid article:hover { transform:translateY(-6px); border-color:#4b78b4; box-shadow:0 20px 40px rgba(0,0,0,.25); }
+.ref-compare-grid .ref-compare-featured { box-shadow:0 20px 45px rgba(22,75,166,.18); }
+.ref-coverage-box { position:relative; overflow:hidden; border-color:#354f72; background:radial-gradient(circle at 90% 10%,rgba(52,120,239,.22),transparent 34%),linear-gradient(145deg,#252b35,#1d1f23); box-shadow:0 24px 55px rgba(0,0,0,.22); }
+.ref-coverage-tags span { transition:transform .22s ease,color .22s ease,border-color .22s ease,background .22s ease; }
+.ref-coverage-tags span:hover { transform:translateY(-2px); color:#fff; border-color:#4d88dc; background:rgba(52,120,239,.18); }
+.ref-review-card { border-radius:22px; box-shadow:0 24px 60px rgba(42,77,118,.11); }
+
+.ref-cta-main { position:relative; overflow:hidden; padding:48px 28px; border:1px solid #d9e7f7; border-radius:28px; background:linear-gradient(135deg,#fff 0%,#f1f7ff 58%,#e7f2ff 100%); box-shadow:0 24px 64px rgba(36,82,135,.12); }
+.ref-cta-main::after { content:""; position:absolute; right:-120px; top:-170px; width:360px; height:360px; border-radius:50%; border:1px solid rgba(52,120,239,.16); box-shadow:0 0 0 48px rgba(52,120,239,.035),0 0 0 96px rgba(52,120,239,.025); pointer-events:none; }
+.ref-cta-main > * { position:relative; z-index:1; }
+.ref-news-card { border-radius:14px; transition:transform .28s ease,border-color .28s ease,box-shadow .28s ease; }
+.ref-news-card:hover { transform:translateY(-6px); border-color:#b6d1f2; box-shadow:0 20px 42px rgba(42,77,118,.13); }
+
+.section-reveal.section-visible .ref-steps-grid article,
+.section-reveal.section-visible .ref-device-card,
+.section-reveal.section-visible .ref-why-grid article,
+.section-reveal.section-visible .ref-news-card { animation:refCardIn .58s both cubic-bezier(.2,.75,.25,1); }
+.section-reveal.section-visible :is(.ref-steps-grid article,.ref-device-card,.ref-why-grid article,.ref-news-card):nth-child(2) { animation-delay:.06s; }
+.section-reveal.section-visible :is(.ref-steps-grid article,.ref-device-card,.ref-why-grid article,.ref-news-card):nth-child(3) { animation-delay:.12s; }
+.section-reveal.section-visible :is(.ref-device-card,.ref-why-grid article):nth-child(4) { animation-delay:.18s; }
+.section-reveal.section-visible .ref-device-card:nth-child(n+5) { animation-delay:.22s; }
+@keyframes refCardIn { from { opacity:0; transform:translateY(22px) scale(.98); } to { opacity:1; transform:none; } }
+
+@media(max-width:720px) {
+  .ref-steps-grid::before { display:none; }
+  .ref-steps-grid article { padding:24px 20px; }
+  .ref-cta-main { padding:38px 20px; border-radius:22px; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .reference-home .ref-stats-grid > div,
+  .reference-home .ref-device-card,
+  .reference-home .ref-steps-grid article,
+  .reference-home .ref-compare-grid article,
+  .reference-home .ref-why-grid article,
+  .reference-home .ref-news-card { animation:none!important; transition:none!important; }
+}
