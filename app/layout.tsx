@@ -3,6 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { FloatingWhatsApp } from "@/components/conversion/FloatingWhatsApp";
+import { BackToTop } from "@/components/conversion/BackToTop";
 import { siteConfig } from "@/config/site";
 import { isPreview } from "@/lib/seo/environment";
 import "@/styles/globals.css";
@@ -27,7 +28,10 @@ export const metadata: Metadata = {
     title: siteConfig.defaultTitle,
     description: siteConfig.defaultDescription,
     url: siteConfig.url + "/"
-  }
+  },
+  verification: process.env.GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.GOOGLE_SITE_VERIFICATION }
+    : undefined,
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -37,6 +41,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <SiteHeader />
         {children}
         <FloatingWhatsApp />
+        <BackToTop />
         <SiteFooter />
       </body>
     </html>

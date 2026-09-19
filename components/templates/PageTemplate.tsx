@@ -1,20 +1,23 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getChildRoutes, getRoute, type RouteDefinition } from "@/config/routes";
 import { getContentRecord } from "@/config/content";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
 import { Section } from "@/components/ui/Section";
 import { Button } from "@/components/ui/Button";
-import { articleSchema, breadcrumbSchema, webPageSchema } from "@/lib/schema";
+import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/schema";
 import { getRecommendedLinks } from "@/lib/links";
 import { FAQ } from "@/components/faq/FAQ";
 import { BusinessStatus } from "@/components/content/BusinessStatus";
 import { VerifiedBusinessFacts } from "@/components/content/VerifiedBusinessFacts";
 import { HubGrid } from "@/components/content/HubGrid";
-import { PricingTable } from "@/components/pricing/PricingTable";
+import { PricingPreview } from "@/components/pricing/PricingPreview";
 import { ContentFramework } from "@/components/content/ContentFramework";
 import { ContentBriefMeta } from "@/components/content/ContentBriefMeta";
 import { ReleaseStatus } from "@/components/content/ReleaseStatus";
 import { getContentBrief } from "@/config/content-briefs";
+import { getImageAlt } from "@/config/image-seo";
+import { DeviceLogo, deviceBrandForSlug } from "@/components/brand/DeviceLogo";
 
 function typeLabel(route: RouteDefinition) {
   switch (route.type) {
@@ -52,11 +55,10 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
   const parent = route.parent && route.parent !== "/" ? getRoute(route.parent) : undefined;
   const primary = primaryDestination(route);
   const isArticle = route.type === "blog" && route.slug !== "/blog/";
-  const isPricingPage = route.slug === "/precos/";
-  const isCommercialPricingPage = ["/iptv-portugal/", "/subscricao-iptv/", "/comprar-iptv/"].includes(route.slug);
+  const deviceBrand = route.type === "device" && route.slug !== "/dispositivos/" ? deviceBrandForSlug(route.slug) : null;
   const schemas = isArticle
-    ? [articleSchema(route), breadcrumbSchema(route, parent)]
-    : [webPageSchema(route), breadcrumbSchema(route, parent)];
+    ? [articleSchema(route), breadcrumbSchema(route, parent), faqSchema(content.faq)]
+    : [webPageSchema(route), breadcrumbSchema(route, parent), faqSchema(content.faq)];
   const related = (children.length ? children : recommendedLinks.map((item) => getRoute(item.href)).filter((item): item is RouteDefinition => Boolean(item))).slice(0, 6);
 
   return (
@@ -75,9 +77,9 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
           <h1>{route.title}</h1>
           <p className="hero-lead">{content.intro}</p>
           <ContentBriefMeta min={brief.targetWords[0]} max={brief.targetWords[1]} />
-          {route.type === "money" && !isPricingPage && !isCommercialPricingPage ? <BusinessStatus /> : null}
-          {route.type === "money" && !isPricingPage && !isCommercialPricingPage ? <VerifiedBusinessFacts /> : null}
-          {route.type === "money" && !isPricingPage && !isCommercialPricingPage ? <ReleaseStatus /> : null}
+          {route.type === "money" ? <BusinessStatus /> : null}
+          {route.type === "money" ? <VerifiedBusinessFacts /> : null}
+          {route.type === "money" ? <ReleaseStatus /> : null}
           <div className="hero-actions">
             <Button href={primary.href} variant="primary">{primary.label}</Button>
             <WhatsAppButton message={content.ctaMessage} />
@@ -85,34 +87,21 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
         </div>
       </section>
 
-      {isPricingPage ? (
-        <section className="pricing-page-stage">
-          <div className="container">
-            <div className="pricing-page-stage-head">
-              <div>
-                <span className="page-hero-chip">Planos IPTV Portugal</span>
-                <h2>Escolhe a duração e o número de dispositivos.</h2>
-                <p>O valor é atualizado em tempo real. Ao clicar em comprar, o WhatsApp abre com uma mensagem já preenchida com o plano escolhido.</p>
-              </div>
-              <div className="pricing-page-stage-proof">
-                <span>1 dispositivo</span>
-                <span>2 dispositivos</span>
-                <span>3 dispositivos</span>
-                <small>Preços definidos para a estrutura comercial atual da IPTVBR.</small>
-              </div>
-            </div>
-            <PricingTable />
-          </div>
-        </section>
-      ) : null}
-
-      {isCommercialPricingPage ? (
-        <Section eyebrow="Planos e preços" title="Escolhe o período e o número de dispositivos." description="Seleciona a configuração e fala connosco diretamente pelo WhatsApp para confirmar o pedido e receber o link de pagamento." className="section-surface">
-          <PricingTable compact />
-        </Section>
-      ) : null}
-
       <ContentFramework takeaways={content.takeaways} steps={content.steps} entities={content.entities} />
+
+      {deviceBrand ? (
+        <div className="container device-page-identity">
+          <div className="device-page-logo"><DeviceLogo brand={deviceBrand} size={76} /></div>
+          <div><span>GUIA POR DISPOSITIVO</span><strong>Configuração pensada para este ecossistema.</strong><p>Aplicação, comando, rede e diagnóstico explicados no contexto do equipamento.</p></div>
+          <Link href="/dispositivos/">Comparar dispositivos →</Link>
+        </div>
+      ) : null}
+
+      {isArticle && route.image ? (
+        <div className="container article-cover-wrap">
+          <Image className="article-cover" src={route.image} alt={getImageAlt(route)} width={1200} height={800} sizes="(max-width: 900px) 100vw, 1180px" priority />
+        </div>
+      ) : null}
 
       {children.length > 0 ? (
         <Section
@@ -157,6 +146,12 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
           </div>
         </aside>
       </div>
+
+      {route.slug === "/precos/" ? (
+        <Section eyebrow="Referência de mercado" title="Uma estrutura pronta para receber os preços reais." description="Os valores abaixo ficam isolados como benchmark até serem confirmados como oferta IPTVBR." className="section-surface">
+          <PricingPreview />
+        </Section>
+      ) : null}
 
       <Section eyebrow="Perguntas frequentes" title="Respostas curtas para esta etapa." description="FAQ para apoiar a leitura e reduzir fricção durante a jornada." className="section-surface">
         <FAQ items={content.faq} />

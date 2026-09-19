@@ -18,7 +18,7 @@ export function SiteHeader() {
             <li><Link href="/iptv-portugal/">IPTV Portugal</Link></li>
             <li><Link href="/precos/">Preços</Link></li>
             {navigation.filter(item => ["/dispositivos/","/apps/"].includes(item.href)).map((item) => (
-              <li key={item.href} className="nav-has-children"><Link href={item.href}>{item.label}<span className="nav-caret">⌄</span></Link><div className="nav-dropdown">{item.children?.map((child) => <Link href={child.href} key={child.href}>{child.label}</Link>)}</div></li>
+              <li key={item.href} className={`nav-has-children ${item.href === "/dispositivos/" ? "nav-devices" : ""}`}><Link href={item.href}>{item.label}<span className="nav-caret">⌄</span></Link><div className="nav-dropdown">{item.children?.map((child) => <Link href={child.href} key={child.href}>{child.label}</Link>)}</div></li>
             ))}
             <li><Link href="/guias/">Guias</Link></li>
             <li><Link href="/blog/">Blog</Link></li>
