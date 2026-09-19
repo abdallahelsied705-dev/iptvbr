@@ -52,6 +52,11 @@ function sectionId(heading: string, index: number) {
   return value || `secao-${index + 1}`;
 }
 
+function summarySentence(value: string) {
+  const sentence = value.match(/^.*?[.!?](?:\s|$)/)?.[0]?.trim() ?? value;
+  return sentence.length > 180 ? `${sentence.slice(0, 177).trim()}…` : sentence;
+}
+
 export function PageTemplate({ route }: { route: RouteDefinition }) {
   const content = getContentRecord(route);
   const brief = getContentBrief(route);
@@ -66,7 +71,9 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
   const schemas = isArticle
     ? [articleSchema(route), breadcrumbSchema(route, parent), faqSchema(content.faq)]
     : [webPageSchema(route), breadcrumbSchema(route, parent), faqSchema(content.faq)];
-  const related = (children.length ? children : recommendedLinks.map((item) => getRoute(item.href)).filter((item): item is RouteDefinition => Boolean(item))).slice(0, 6);
+  const related = (children.length ? children : recommendedLinks.map((item) => getRoute(item.href)).filter((item): item is RouteDefinition => Boolean(item)))
+    .filter((item) => !isArticle || (item.slug !== "/blog/" && item.slug !== route.parent))
+    .slice(0, 6);
 
   return (
     <main id="main-content" className={isArticle ? "article-page" : route.slug === "/blog/" ? "blog-index-page" : undefined}>
@@ -101,7 +108,12 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
         </div>
       ) : null}
 
-      <ContentFramework takeaways={content.takeaways} steps={content.steps} entities={content.entities} />
+      <ContentFramework
+        takeaways={isArticle ? content.sections.slice(0, 3).map((section) => summarySentence(section.paragraphs[0])) : content.takeaways}
+        steps={isArticle ? content.sections.map((section) => section.heading) : content.steps}
+        entities={content.entities}
+        variant={isArticle ? "article" : "default"}
+      />
 
       {deviceBrand ? (
         <div className="container device-page-identity">
@@ -134,7 +146,7 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
                   {section.links.map((link) => <Link className="pill-link" key={link.href} href={link.href}>{link.label} <span aria-hidden="true">→</span></Link>)}
                 </div>
               ) : null}
-              {isArticle && index === 1 ? <div className="article-inline-cta"><span>PRECISAS DE AJUDA?</span><strong>Confirma o dispositivo e o plano adequado antes de avançar.</strong><WhatsAppButton message={content.ctaMessage} /></div> : null}
+              {isArticle && index === 1 ? <div className="article-inline-cta"><span>PRÓXIMO PASSO</span><strong>Compara os planos e escolhe a duração adequada ao teu dispositivo.</strong><div className="article-inline-actions"><Button href="/precos/" variant="primary">Ver preços e planos</Button><WhatsAppButton message={content.ctaMessage} /></div></div> : null}
             </section>
           ))}
         </article>
@@ -181,7 +193,8 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
             <p className="muted">O fluxo atual direciona o utilizador para o WhatsApp, onde as condições comerciais podem ser confirmadas antes do pagamento.</p>
           </div>
           <div className="hero-actions">
-            <WhatsAppButton message={content.ctaMessage} />
+            {isArticle ? <Button href="/precos/" variant="primary">Ver preços e planos</Button> : <WhatsAppButton message={content.ctaMessage} />}
+            {isArticle ? <WhatsAppButton message={content.ctaMessage} /> : null}
             <Button href="/suporte/" variant="secondary">Ir para o suporte</Button>
           </div>
         </div>

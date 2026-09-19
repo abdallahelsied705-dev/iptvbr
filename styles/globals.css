@@ -393,6 +393,7 @@ p { margin-top: 0; }
 .article-inline-cta > span { display:block; color:#3478ef; font-size:.65rem; font-weight:950; letter-spacing:.13em; }
 .article-inline-cta > strong { display:block; margin:7px 0 16px; color:#1c2d45; font-family:var(--font-display),sans-serif; font-size:1.14rem; line-height:1.4; }
 .article-inline-cta .button { width:max-content; margin:0; }
+.article-inline-actions { display:flex; flex-wrap:wrap; gap:10px; align-items:center; }
 .blog-index-page .section-grid .article-card:first-child { grid-column:span 2; }
 .blog-index-page .section-grid .article-card:first-child .article-card-image { aspect-ratio:2/1; }
 .blog-index-page .section-grid .article-card:first-child .article-card-content h3 { font-size:clamp(1.55rem,2.7vw,2.15rem); }
@@ -404,7 +405,7 @@ p { margin-top: 0; }
   .article-page .prose-section p { font-size:1.04rem; line-height:1.82; }
   .article-meta { gap:6px; }
   .article-toc { display:none; }
-  .article-inline-cta .button { width:100%; }
+  .article-inline-cta .button,.article-inline-actions { width:100%; }
   .blog-index-page .section-grid .article-card:first-child { grid-column:auto; }
   .blog-index-page .section-grid .article-card:first-child .article-card-image { aspect-ratio:16/9; }
 }
@@ -492,6 +493,7 @@ p { margin-top: 0; }
 
 /* Content framework */
 .content-framework-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.content-framework-grid.content-framework-article { grid-template-columns:1.05fr .95fr; }
 .framework-card { min-height: 100%; padding: 22px; border: 1px solid var(--border); border-radius: 18px; background: var(--surface); }
 .framework-list, .framework-steps { margin: 0; padding: 0; list-style: none; display: grid; gap: 13px; }
 .framework-list li { position: relative; padding-left: 22px; color: var(--muted); font-size: .9rem; }
@@ -501,7 +503,7 @@ p { margin-top: 0; }
 .framework-steps strong { font-size: .88rem; }
 .entity-pills { display: flex; flex-wrap: wrap; gap: 8px; }
 .entity-pills span { padding: 7px 9px; border: 1px solid var(--border); border-radius: 999px; color: var(--muted); background: rgba(255,255,255,.025); font-size: .74rem; }
-@media (max-width: 900px) { .content-framework-grid { grid-template-columns: 1fr; } }
+@media (max-width: 900px) { .content-framework-grid,.content-framework-grid.content-framework-article { grid-template-columns: 1fr; } }
 @media (prefers-reduced-motion: reduce) { .framework-card { transition: none; } }
 .content-depth-note { margin: 14px 0 0; color: var(--faint); font-size: .75rem; }
 

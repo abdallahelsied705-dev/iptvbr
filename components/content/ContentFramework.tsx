@@ -4,25 +4,27 @@ export function ContentFramework({
   takeaways,
   steps,
   entities,
+  variant = "default",
 }: {
   takeaways: string[];
   steps: string[];
   entities: string[];
+  variant?: "default" | "article";
 }) {
   return (
     <Section
-      eyebrow="Leitura guiada"
-      title="O essencial antes de avançar."
-      description="Uma estrutura rápida para perceber o tema, validar os pontos importantes e chegar ao próximo passo sem ruído."
+      eyebrow={variant === "article" ? "Resumo do artigo" : "Leitura guiada"}
+      title={variant === "article" ? "O que vais aprender." : "O essencial antes de avançar."}
+      description={variant === "article" ? "Pontos específicos deste guia e o percurso de leitura recomendado." : "Uma estrutura rápida para perceber o tema, validar os pontos importantes e chegar ao próximo passo sem ruído."}
       className="section-surface"
     >
-      <div className="content-framework-grid">
-        <div className="framework-card">
+      <div className={`content-framework-grid ${variant === "article" ? "content-framework-article" : ""}`}>
+        {variant !== "article" ? <div className="framework-card">
           <p className="card-kicker">Pontos-chave</p>
           <ul className="framework-list">
             {takeaways.map((item) => <li key={item}>{item}</li>)}
           </ul>
-        </div>
+        </div> : null}
         <div className="framework-card">
           <p className="card-kicker">Percurso</p>
           <ol className="framework-steps">
