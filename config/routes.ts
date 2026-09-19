@@ -160,6 +160,7 @@ export const routes: RouteDefinition[] = [
   { ...define("/blog/controlo-parental-iptv/", "blog", "controlo parental iptv", "Controlo Parental no IPTV: Guia para Famílias", "Passos para criar uma experiência familiar mais segura usando perfis, PIN, categorias e hábitos de supervisão.", "/blog/", "informational"), image: "/images/blog-photos/controlo-parental-iptv.webp" },
   { ...define("/blog/usar-iptv-fora-de-casa/", "blog", "usar iptv fora de casa", "Usar IPTV Fora de Casa: Rede, Dados e Limitações", "O que verificar antes de usar streaming em viagem: dados móveis, Wi-Fi público, licenças geográficas e segurança.", "/blog/", "informational"), image: "/images/blog-photos/usar-iptv-fora-de-casa.webp" },
   { ...define("/blog/manutencao-app-iptv/", "blog", "manutenção app iptv", "Manutenção da App IPTV: Atualizações, Cache e Desempenho", "Rotina simples para manter a aplicação estável, atualizar com segurança e resolver lentidão sem apagar tudo por impulso.", "/blog/", "support-informational"), image: "/images/blog-photos/manutencao-app-iptv.webp" },
+  { ...define("/blog/quanto-consome-iptv/", "blog", "quanto consome iptv", "Quanto Consome IPTV? Dados, Velocidade e Qualidade", "Saiba quantos dados o IPTV pode consumir por hora em SD, HD, Full HD e 4K, como estimar o consumo mensal e reduzir gastos sem prejudicar a qualidade.", "/blog/", "informational"), image: "/images/blog/quanto-consome-iptv.svg" },
 ];
 
 export function getRoute(slug: string) {

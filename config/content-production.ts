@@ -498,5 +498,15 @@ export const productionContent: Record<string, ProductionContent> = {
     entities: ["IPTV", "direito de autor", "Portugal", "autorização"],
     takeaways: ["IPTV é uma tecnologia, não uma autorização automática de conteúdo.", "Afirmações sobre direitos devem ser verificáveis.", "Informação técnica e informação jurídica devem permanecer claramente separadas."],
     steps: ["Identificar afirmação", "Separar conceitos", "Procurar evidência", "Consultar fonte adequada"]
-  }
+  },
+  "/blog/quanto-consome-iptv/": {
+    depth: "core",
+    entities: ["consumo de dados IPTV", "bitrate", "HD", "Full HD", "4K", "dados móveis", "velocidade de Internet"],
+    takeaways: [
+      "O consumo real depende do bitrate, codec, resolução e duração da reprodução.",
+      "Velocidade e volume de dados são medidas diferentes e devem ser planeadas separadamente.",
+      "Uma medição no dispositivo e na rede reais é mais útil do que uma estimativa genérica."
+    ],
+    steps: ["Identificar a qualidade utilizada", "Medir uma sessão real", "Estimar o consumo mensal", "Ajustar qualidade e plano de dados"]
+  },
 };
