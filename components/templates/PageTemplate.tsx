@@ -15,6 +15,7 @@ import { PricingPreview } from "@/components/pricing/PricingPreview";
 import { ContentFramework } from "@/components/content/ContentFramework";
 import { ReleaseStatus } from "@/components/content/ReleaseStatus";
 import { getImageAlt } from "@/config/image-seo";
+import { getExternalResources } from "@/config/external-resources";
 import { DeviceLogo, deviceBrandForSlug } from "@/components/brand/DeviceLogo";
 
 function typeLabel(route: RouteDefinition) {
@@ -65,6 +66,7 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
   const articleWords = [content.intro, ...content.sections.flatMap((section) => [section.heading, ...section.paragraphs])].join(" ").trim().split(/\s+/).filter(Boolean).length;
   const readingMinutes = Math.max(4, Math.ceil(articleWords / 210));
   const deviceBrand = route.type === "device" && route.slug !== "/dispositivos/" ? deviceBrandForSlug(route.slug) : null;
+  const externalResources = isArticle ? getExternalResources(route.slug) : [];
   const schemas = isArticle
     ? [articleSchema(route), breadcrumbSchema(route, parent), faqSchema(content.faq)]
     : [webPageSchema(route), breadcrumbSchema(route, parent), faqSchema(content.faq)];
@@ -145,6 +147,32 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
               {isArticle && index === 1 ? <div className="article-inline-cta"><span>PRÓXIMO PASSO</span><strong>Compara os planos e escolhe a duração adequada ao teu dispositivo.</strong><div className="article-inline-actions"><Button href="/precos/" variant="primary">Ver preços e planos</Button><WhatsAppButton message={content.ctaMessage} /></div></div> : null}
             </section>
           ))}
+          {isArticle ? (
+            <section className="prose-section article-resource-network" aria-labelledby="rede-editorial-iptvbr">
+              <p className="section-index">+</p>
+              <h2 id="rede-editorial-iptvbr">Continua na rede editorial IPTVBR</h2>
+              <p>Este artigo faz parte de uma rede de guias ligados por intenção. Usa os caminhos abaixo para regressar ao ponto central, comparar opções ou aprofundar o tema sem perder contexto.</p>
+              <div className="link-grid">
+                <Link className="pill-link" href="/">IPTV Portugal — página inicial <span aria-hidden="true">→</span></Link>
+                <Link className="pill-link" href="/blog/">Explorar todos os artigos <span aria-hidden="true">→</span></Link>
+                <Link className="pill-link" href="/precos/">Comparar preços e planos <span aria-hidden="true">→</span></Link>
+                <Link className="pill-link" href="/dispositivos/">Escolher o dispositivo <span aria-hidden="true">→</span></Link>
+              </div>
+              {externalResources.length ? (
+                <div className="article-external-resources">
+                  <p className="card-kicker">Recursos externos relacionados</p>
+                  <p>Referências de terceiros para comparação editorial; a inclusão não representa recomendação nem validação das respetivas ofertas.</p>
+                  <div className="link-grid">
+                    {externalResources.map((resource) => (
+                      <a className="pill-link" href={resource.href} key={resource.href} target="_blank" rel="nofollow external noopener noreferrer">
+                        {resource.label} <span aria-hidden="true">↗</span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ) : null}
+            </section>
+          ) : null}
         </article>
 
         <aside className="page-aside">

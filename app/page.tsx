@@ -305,6 +305,7 @@ export default function HomePage() {
               <Link href="/blog/checklist-antes-de-subscrever-iptv/" className="ref-news-card"><strong>Checklist antes de subscrever</strong><p>Dez critérios para decidir com mais segurança.</p><span>Ler artigo →</span></Link>
               <Link href="/blog/iptv-wifi-ou-cabo-ethernet/" className="ref-news-card"><strong>Wi-Fi ou cabo Ethernet?</strong><p>Como conseguir uma ligação mais estável.</p><span>Ler artigo →</span></Link>
               <Link href="/blog/seguranca-apps-iptv/" className="ref-news-card"><strong>Segurança nas apps IPTV</strong><p>Protege credenciais, dados e dispositivos.</p><span>Ler artigo →</span></Link>
+              <Link href="/blog/quanto-consome-iptv/" className="ref-news-card"><strong>Quanto consome IPTV?</strong><p>Calcula dados por hora em HD, Full HD e 4K.</p><span>Ler artigo →</span></Link>
             </div>
           </div>
         </div>
