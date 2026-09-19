@@ -46,42 +46,12 @@ const faq = [
 ];
 
 const featureCards = [
-  {
-    icon: <TvMinimal size={24} />,
-    title: "Experiência IPTV completa",
-    text: "Uma experiência pensada para televisão, filmes, séries e conteúdos ao vivo, com uma interface simples.",
-    imagePos: "36% 30%",
-  },
-  {
-    icon: <TvMinimal size={24} />,
-    title: "Filmes e séries",
-    text: "Explora uma biblioteca organizada e encontra rapidamente o conteúdo que procuras.",
-    imagePos: "73% 25%",
-  },
-  {
-    icon: <MonitorSmartphone size={24} />,
-    title: "Canais ao vivo",
-    text: "Acede ao teu percurso de visualização com categorias e guias preparados para diferentes dispositivos.",
-    imagePos: "72% 74%",
-  },
-  {
-    icon: <MonitorSmartphone size={24} />,
-    title: "Desporto em direto",
-    text: "Segue conteúdos desportivos e mantém o foco na experiência de visualização.",
-    imagePos: "54% 85%",
-  },
-  {
-    icon: <MonitorSmartphone size={24} />,
-    title: "Instalação simples",
-    text: "Guias dedicados ajudam-te a instalar e configurar a aplicação no equipamento que já tens.",
-    imagePos: "15% 70%",
-  },
-  {
-    icon: <MessageCircle size={24} />,
-    title: "Suporte direto",
-    text: "Quando precisares de ajuda, o contacto segue diretamente para o WhatsApp.",
-    imagePos: "84% 62%",
-  },
+  { icon: <TvMinimal size={24} />, title: "Experiência IPTV completa", text: "Uma experiência pensada para televisão, filmes, séries e conteúdos ao vivo, com uma interface simples.", image: "/images/features/experiencia-iptv.svg" },
+  { icon: <TvMinimal size={24} />, title: "Filmes e séries", text: "Explora uma biblioteca organizada e encontra rapidamente o conteúdo que procuras.", image: "/images/features/filmes-series.svg" },
+  { icon: <MonitorSmartphone size={24} />, title: "Canais ao vivo", text: "Acede ao teu percurso de visualização com categorias e guias preparados para diferentes dispositivos.", image: "/images/features/canais-ao-vivo.svg" },
+  { icon: <MonitorSmartphone size={24} />, title: "Desporto em direto", text: "Segue conteúdos desportivos e mantém o foco na experiência de visualização.", image: "/images/features/desporto-em-direto.svg" },
+  { icon: <MonitorSmartphone size={24} />, title: "Instalação simples", text: "Guias dedicados ajudam-te a instalar e configurar a aplicação no equipamento que já tens.", image: "/images/features/instalacao-simples.svg" },
+  { icon: <MessageCircle size={24} />, title: "Suporte direto", text: "Quando precisares de ajuda, o contacto segue diretamente para o WhatsApp.", image: "/images/features/suporte-direto.svg" },
 ];
 
 export const metadata: Metadata = {
@@ -177,7 +147,7 @@ export default function HomePage() {
           <div className="ref-feature-grid">
             {featureCards.map((feature) => (
               <article key={feature.title} className="ref-feature-card">
-                <div className="ref-feature-image" style={{ backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.03) 20%, rgba(0,0,0,.82) 100%), url("/images/hero/iptvbr-hero-background.webp")`, backgroundPosition: feature.imagePos }} />
+                <div className="ref-feature-image" style={{ backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.02) 12%, rgba(0,0,0,.78) 100%), url("${feature.image}")` }} />
                 <div className="ref-feature-icon">{feature.icon}</div>
                 <div className="ref-feature-body"><h3>{feature.title}</h3><p>{feature.text}</p><Link href="/guias/">Explorar <ChevronDown size={15} /></Link></div>
               </article>
