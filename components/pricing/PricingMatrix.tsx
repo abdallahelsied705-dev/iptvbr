@@ -20,11 +20,15 @@ const deviceLabels: Record<number, string> = {
 };
 
 const features = [
-  { icon: <Tv size={17} strokeWidth={2} />, text: "Canais de TV ao vivo e conteúdos disponíveis" },
-  { icon: <BadgeCheck size={17} strokeWidth={2} />, text: "Qualidade HD / Full HD / 4K quando disponível" },
-  { icon: <MonitorSmartphone size={17} strokeWidth={2} />, text: "Compatível com vários dispositivos" },
-  { icon: <Check size={17} strokeWidth={2} />, text: "EPG e organização por categorias" },
-  { icon: <MessageCircle size={17} strokeWidth={2} />, text: "Suporte e configuração pelo WhatsApp" },
+  { icon: <BadgeCheck size={17} strokeWidth={2} />, text: "Qualidade de streaming Ultra HD 4K" },
+  { icon: <Tv size={17} strokeWidth={2} />, text: "25.000+ canais de TV em direto em todo o mundo" },
+  { icon: <MonitorSmartphone size={17} strokeWidth={2} />, text: "120.000+ filmes e séries de TV" },
+  { icon: <Check size={17} strokeWidth={2} />, text: "Eventos PPV premium incluídos" },
+  { icon: <Tv size={17} strokeWidth={2} />, text: "Acesso imediato ao VOD" },
+  { icon: <Check size={17} strokeWidth={2} />, text: "EPG inteligente e Catch-Up TV" },
+  { icon: <MessageCircle size={17} strokeWidth={2} />, text: "Suporte 24/7" },
+  { icon: <MonitorSmartphone size={17} strokeWidth={2} />, text: "Compatibilidade com vários dispositivos" },
+  { icon: <BadgeCheck size={17} strokeWidth={2} />, text: "Métodos de pagamento 100% seguros" },
 ];
 
 export function PricingMatrix() {
