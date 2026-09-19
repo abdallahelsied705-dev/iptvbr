@@ -47,6 +47,11 @@ function primaryDestination(route: RouteDefinition) {
   }
 }
 
+function sectionId(heading: string, index: number) {
+  const value = heading.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+  return value || `secao-${index + 1}`;
+}
+
 export function PageTemplate({ route }: { route: RouteDefinition }) {
   const content = getContentRecord(route);
   const brief = getContentBrief(route);
@@ -55,6 +60,8 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
   const parent = route.parent && route.parent !== "/" ? getRoute(route.parent) : undefined;
   const primary = primaryDestination(route);
   const isArticle = route.type === "blog" && route.slug !== "/blog/";
+  const articleWords = [content.intro, ...content.sections.flatMap((section) => [section.heading, ...section.paragraphs])].join(" ").trim().split(/\s+/).filter(Boolean).length;
+  const readingMinutes = Math.max(4, Math.ceil(articleWords / 210));
   const deviceBrand = route.type === "device" && route.slug !== "/dispositivos/" ? deviceBrandForSlug(route.slug) : null;
   const schemas = isArticle
     ? [articleSchema(route), breadcrumbSchema(route, parent), faqSchema(content.faq)]
@@ -76,6 +83,7 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
           <div className="page-hero-chip">{typeLabel(route)}</div>
           <h1>{route.title}</h1>
           <p className="hero-lead">{content.intro}</p>
+          {isArticle ? <div className="article-meta"><span>Guia editorial</span><span>{readingMinutes} min de leitura</span><span>{content.sections.length} secções</span></div> : null}
           <ContentBriefMeta min={brief.targetWords[0]} max={brief.targetWords[1]} />
           {route.type === "money" ? <BusinessStatus /> : null}
           {route.type === "money" ? <VerifiedBusinessFacts /> : null}
@@ -115,9 +123,9 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
       ) : null}
 
       <div className="container content-layout">
-        <article>
+        <article className={isArticle ? "article-prose" : undefined}>
           {content.sections.map((section, index) => (
-            <section className="prose-section" key={`${section.heading}-${index}`}>
+            <section className="prose-section" id={sectionId(section.heading, index)} key={`${section.heading}-${index}`}>
               <p className="section-index">0{index + 1}</p>
               <h2>{section.heading}</h2>
               {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -126,11 +134,13 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
                   {section.links.map((link) => <Link className="pill-link" key={link.href} href={link.href}>{link.label} <span aria-hidden="true">→</span></Link>)}
                 </div>
               ) : null}
+              {isArticle && index === 1 ? <div className="article-inline-cta"><span>PRECISAS DE AJUDA?</span><strong>Confirma o dispositivo e o plano adequado antes de avançar.</strong><WhatsAppButton message={content.ctaMessage} /></div> : null}
             </section>
           ))}
         </article>
 
         <aside className="page-aside">
+          {isArticle ? <nav className="article-toc" aria-label="Índice do artigo"><span className="card-kicker">Neste artigo</span>{content.sections.map((section, index) => <Link href={`#${sectionId(section.heading, index)}`} key={section.heading}><i>{String(index + 1).padStart(2, "0")}</i>{section.heading}</Link>)}</nav> : null}
           <div className="aside-card">
             <span className="card-kicker">A seguir</span>
             <h2>Continua pelo caminho certo.</h2>
