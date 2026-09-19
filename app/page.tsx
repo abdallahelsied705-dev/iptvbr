@@ -46,12 +46,12 @@ const faq = [
 ];
 
 const featureCards = [
-  { icon: <TvMinimal size={24} />, title: "Experiência IPTV completa", text: "Uma experiência pensada para televisão, filmes, séries e conteúdos ao vivo, com uma interface simples.", image: "/images/features/experiencia-iptv.svg" },
-  { icon: <TvMinimal size={24} />, title: "Filmes e séries", text: "Explora uma biblioteca organizada e encontra rapidamente o conteúdo que procuras.", image: "/images/features/filmes-series.svg" },
-  { icon: <MonitorSmartphone size={24} />, title: "Canais ao vivo", text: "Acede ao teu percurso de visualização com categorias e guias preparados para diferentes dispositivos.", image: "/images/features/canais-ao-vivo.svg" },
-  { icon: <MonitorSmartphone size={24} />, title: "Desporto em direto", text: "Segue conteúdos desportivos e mantém o foco na experiência de visualização.", image: "/images/features/desporto-em-direto.svg" },
-  { icon: <MonitorSmartphone size={24} />, title: "Instalação simples", text: "Guias dedicados ajudam-te a instalar e configurar a aplicação no equipamento que já tens.", image: "/images/features/instalacao-simples.svg" },
-  { icon: <MessageCircle size={24} />, title: "Suporte direto", text: "Quando precisares de ajuda, o contacto segue diretamente para o WhatsApp.", image: "/images/features/suporte-direto.svg" },
+  { icon: <TvMinimal size={24} />, title: "Experiência IPTV completa", text: "Uma experiência pensada para televisão, filmes, séries e conteúdos ao vivo, com uma interface simples.", image: "/images/features/experiencia-iptv.webp" },
+  { icon: <TvMinimal size={24} />, title: "Filmes e séries", text: "Explora uma biblioteca organizada e encontra rapidamente o conteúdo que procuras.", image: "/images/features/filmes-series.webp" },
+  { icon: <MonitorSmartphone size={24} />, title: "Canais ao vivo", text: "Acede ao teu percurso de visualização com categorias e guias preparados para diferentes dispositivos.", image: "/images/features/canais-ao-vivo.webp" },
+  { icon: <MonitorSmartphone size={24} />, title: "Desporto em direto", text: "Segue conteúdos desportivos e mantém o foco na experiência de visualização.", image: "/images/features/desporto-em-direto.webp" },
+  { icon: <MonitorSmartphone size={24} />, title: "Instalação simples", text: "Guias dedicados ajudam-te a instalar e configurar a aplicação no equipamento que já tens.", image: "/images/features/instalacao-simples.webp" },
+  { icon: <MessageCircle size={24} />, title: "Suporte direto", text: "Quando precisares de ajuda, o contacto segue diretamente para o WhatsApp.", image: "/images/features/suporte-direto.webp" },
 ];
 
 export const metadata: Metadata = {
