@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+<title id="title">Consumo de dados IPTV por qualidade de imagem</title>
+<desc id="desc">Ilustração de uma Smart TV ligada à Internet com indicadores de consumo para HD, Full HD e 4K.</desc>
+<defs>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#07172f"/><stop offset="1" stop-color="#123b78"/></linearGradient>
+  <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#2575fc"/><stop offset="1" stop-color="#19c889"/></linearGradient>
+  <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#58a6ff"/><stop offset="1" stop-color="#20d49a"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#020914" flood-opacity=".45"/></filter>
+  <pattern id="dots" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="2" fill="#6da8ff" opacity=".13"/></pattern>
+</defs>
+<rect width="1200" height="675" rx="36" fill="url(#bg)"/>
+<rect width="1200" height="675" rx="36" fill="url(#dots)"/>
+<circle cx="1010" cy="90" r="180" fill="#2f7df6" opacity=".12"/>
+<circle cx="175" cy="615" r="230" fill="#19c889" opacity=".09"/>
+<g filter="url(#shadow)">
+  <rect x="92" y="100" width="650" height="414" rx="28" fill="#eaf3ff"/>
+  <rect x="116" y="124" width="602" height="342" rx="18" fill="#08182f"/>
+  <rect x="145" y="153" width="544" height="284" rx="16" fill="url(#screen)" opacity=".96"/>
+  <path d="M396 225l104 70-104 70z" fill="#fff"/>
+  <rect x="340" y="514" width="154" height="29" rx="10" fill="#9db5d3"/>
+  <rect x="270" y="538" width="294" height="18" rx="9" fill="#dce8f5"/>
+</g>
+<g transform="translate(790 112)" filter="url(#shadow)">
+  <rect width="322" height="447" rx="30" fill="#fff"/>
+  <text x="34" y="58" fill="#142441" font-family="Arial, sans-serif" font-size="23" font-weight="700">DADOS POR HORA</text>
+  <text x="34" y="91" fill="#65758d" font-family="Arial, sans-serif" font-size="16">Estimativa por qualidade</text>
+  <g transform="translate(34 132)">
+    <text y="18" fill="#142441" font-family="Arial, sans-serif" font-size="18" font-weight="700">HD</text>
+    <rect y="34" width="254" height="15" rx="8" fill="#e7eef8"/><rect y="34" width="72" height="15" rx="8" fill="url(#bar)"/>
+    <text y="76" fill="#65758d" font-family="Arial, sans-serif" font-size="16">1,5–3 GB</text>
+  </g>
+  <g transform="translate(34 232)">
+    <text y="18" fill="#142441" font-family="Arial, sans-serif" font-size="18" font-weight="700">FULL HD</text>
+    <rect y="34" width="254" height="15" rx="8" fill="#e7eef8"/><rect y="34" width="140" height="15" rx="8" fill="url(#bar)"/>
+    <text y="76" fill="#65758d" font-family="Arial, sans-serif" font-size="16">3–7 GB</text>
+  </g>
+  <g transform="translate(34 332)">
+    <text y="18" fill="#142441" font-family="Arial, sans-serif" font-size="18" font-weight="700">4K</text>
+    <rect y="34" width="254" height="15" rx="8" fill="#e7eef8"/><rect y="34" width="232" height="15" rx="8" fill="url(#bar)"/>
+    <text y="76" fill="#65758d" font-family="Arial, sans-serif" font-size="16">7–16 GB</text>
+  </g>
+</g>
+<g transform="translate(92 594)">
+  <circle cx="17" cy="17" r="17" fill="#2f7df6"/><path d="M8 19c6-8 13-8 19 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="17" cy="14" r="3" fill="#fff"/>
+  <text x="48" y="25" fill="#dce9ff" font-family="Arial, sans-serif" font-size="21" font-weight="700">IPTVBR · Guia de consumo de Internet</text>
+</g>
+</svg>
