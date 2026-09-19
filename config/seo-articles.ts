@@ -94,4 +94,68 @@ export const seoArticles: Record<string, SeoArticle> = {
     ],
     faq: [{ question: "Devo limpar cache regularmente?", answer: "Apenas quando há lentidão ou falhas específicas. Não é necessário fazê-lo diariamente." }, { question: "Limpar dados apaga a conta?", answer: "Pode remover login e configurações locais. Confirma as consequências e guarda o necessário antes de avançar." }],
   },
+  "/blog/quanto-consome-iptv/": {
+    sections: [
+      {
+        heading: "O consumo depende da qualidade, não apenas do tempo",
+        paragraphs: [
+          "O IPTV transfere vídeo continuamente enquanto estás a ver. Por isso, o consumo resulta sobretudo do bitrate — a quantidade de dados enviada por segundo — e não apenas da resolução indicada no ecrã. Dois conteúdos em Full HD podem gastar valores diferentes se usarem compressão, frame rate ou níveis de detalhe distintos.",
+          "Como referência prática, uma hora pode representar cerca de 0,7 a 1,5 GB em definição standard, 1,5 a 3 GB em HD, 3 a 7 GB em Full HD e 7 a 16 GB em 4K. Estes intervalos não são uma promessa de consumo: servem para planeamento, porque cada fonte, aplicação e codec pode variar.",
+          "A forma mais fiável de conhecer o teu caso é medir no dispositivo real durante uma sessão normal. Observa a qualidade selecionada, o tempo reproduzido e os dados registados pelo router, telemóvel ou sistema operativo."
+        ],
+        links: [l("IPTV em 4K, HDR e codecs", "/blog/iptv-4k-hdr-codecs/"), l("Velocidade de Internet para IPTV", "/guias/velocidade-internet-iptv/")]
+      },
+      {
+        heading: "Como calcular o consumo por hora e por mês",
+        paragraphs: [
+          "Para criar uma estimativa mensal, multiplica o consumo médio por hora pelo número de horas diárias e pelos dias de utilização. Se uma sessão Full HD gastar 4 GB por hora e a família assistir duas horas por dia, a estimativa chega a 240 GB em 30 dias. Não confundas este valor com velocidade: gigabytes medem volume transferido; megabits por segundo medem a capacidade instantânea da ligação.",
+          "Numa casa com vários ecrãs, calcula cada reprodução em simultâneo. Uma televisão em 4K, outra em HD e um telemóvel não dividem um único stream; cada dispositivo recebe os seus próprios dados. Atualizações, jogos, videochamadas e cópias na cloud também contam para o limite do operador.",
+          "Deixa uma margem em vez de planear pelo valor mínimo. O bitrate pode aumentar em cenas com movimento, e algumas aplicações ajustam a qualidade automaticamente quando detetam mais capacidade."
+        ],
+        links: [l("IPTV em vários dispositivos", "/blog/iptv-varios-dispositivos-em-casa/"), l("Planos e preços IPTV", "/precos/")]
+      },
+      {
+        heading: "Velocidade suficiente não significa dados ilimitados",
+        paragraphs: [
+          "Uma ligação rápida pode reproduzir 4K com estabilidade e, ao mesmo tempo, ter um plafond mensal reduzido. Antes de usar dados móveis, hotspot ou acesso fixo com limite, confirma quantos gigabytes estão incluídos e o que acontece depois: custo adicional, redução de velocidade ou bloqueio.",
+          "Para uma única reprodução, a ligação precisa de sustentar o bitrate com margem. Contudo, um teste de velocidade elevado não elimina interferência no Wi-Fi, perdas de pacotes ou congestionamento. O vídeo pode parar mesmo quando o total de dados disponível é amplo.",
+          "Ethernet tende a oferecer maior previsibilidade em equipamentos fixos. No Wi-Fi, testa no local da televisão e no horário habitual, pois paredes, distância e redes vizinhas alteram o resultado."
+        ],
+        links: [l("Wi-Fi ou cabo Ethernet", "/blog/iptv-wifi-ou-cabo-ethernet/"), l("Resolver buffering", "/suporte/buffering/")]
+      },
+      {
+        heading: "Como medir sem depender de estimativas genéricas",
+        paragraphs: [
+          "No Android e no iPhone, consulta o consumo por aplicação e repõe a estatística antes do teste. Em routers compatíveis, verifica o tráfego do dispositivo ligado à televisão. Alguns sistemas de Smart TV não apresentam um contador detalhado; nesse caso, o painel do router costuma ser a opção mais útil.",
+          "Faz um teste de pelo menos 30 minutos com a qualidade normalmente utilizada. Evita downloads em paralelo, regista o valor inicial e final e multiplica apenas depois de confirmar que a sessão foi representativa. Repete com HD e 4K para perceber o impacto real.",
+          "Não uses aplicações desconhecidas que pedem credenciais apenas para calcular consumo. Os dados do sistema, do operador ou do router são suficientes e reduzem o risco de expor informação privada."
+        ],
+        links: [l("Segurança em apps IPTV", "/blog/seguranca-apps-iptv/"), l("Manutenção da aplicação", "/blog/manutencao-app-iptv/")]
+      },
+      {
+        heading: "Reduzir dados sem destruir a experiência",
+        paragraphs: [
+          "Começa por escolher uma resolução adequada ao tamanho do ecrã. Num telemóvel, Full HD ou 4K pode aumentar o consumo sem ganho visível à distância normal. Se a aplicação disponibilizar qualidade automática, confirma se ela sobe para o máximo mesmo quando estás a usar dados móveis.",
+          "Desativa reprodução automática, pré-visualizações e streams deixados em segundo plano. Quando existe opção autorizada de download, prepara o conteúdo por Wi-Fi. Em viagem, define alertas de consumo no sistema e evita usar hotspot sem acompanhar os restantes dispositivos ligados.",
+          "Não forces qualidade baixa se o objetivo é ver desporto num ecrã grande. Ajusta primeiro as situações em que a diferença visual é pequena e preserva margem para os conteúdos em que movimento e detalhe realmente importam."
+        ],
+        links: [l("Usar IPTV fora de casa", "/blog/usar-iptv-fora-de-casa/"), l("IPTV no telemóvel", "/dispositivos/iptv-telemovel/")]
+      },
+      {
+        heading: "Checklist antes de escolher ligação e plano",
+        paragraphs: [
+          "Confirma a resolução usada com maior frequência, quantas horas a casa assiste por dia, quantos ecrãs funcionam ao mesmo tempo e se a Internet tem limite. Depois mede uma sessão real e compara a estimativa mensal com a margem disponível.",
+          "Se tens buffering, não concluas imediatamente que precisas de mais velocidade. Compara Wi-Fi e Ethernet, testa outro horário e verifica aplicação e dispositivo. Se o problema for o plafond, reduzir a resolução ou mudar a forma de acesso pode ser mais relevante do que aumentar Mbps.",
+          "Ao comparar uma subscrição IPTV, valida compatibilidade, ligações simultâneas, suporte e condições comerciais. O consumo de Internet é cobrado pelo teu operador de acesso e deve ser considerado separadamente do preço do serviço."
+        ],
+        links: [l("Checklist antes de subscrever", "/blog/checklist-antes-de-subscrever-iptv/"), l("Comparar opções IPTV", "/comparar/como-escolher-iptv-portugal/"), l("Ver preços e planos", "/precos/")]
+      }
+    ],
+    faq: [
+      { question: "Quantos GB gasta uma hora de IPTV?", answer: "Como orientação, cerca de 0,7–1,5 GB em SD, 1,5–3 GB em HD, 3–7 GB em Full HD e 7–16 GB em 4K. O valor real depende do bitrate, codec, aplicação e conteúdo." },
+      { question: "IPTV consome dados quando está em pausa?", answer: "Depende da aplicação. Algumas mantêm uma pequena reserva de vídeo ou continuam a atividade em segundo plano. Fecha a reprodução quando não estiveres a ver." },
+      { question: "É possível ver IPTV com dados móveis?", answer: "Sim, se o plano, a cobertura e as condições do serviço permitirem. Controla o plafond, define qualidade adequada e acompanha o consumo no telemóvel." },
+      { question: "Mais velocidade reduz o consumo de dados?", answer: "Não necessariamente. Uma ligação mais rápida melhora a capacidade de entrega, mas o volume depende sobretudo do bitrate e do tempo de reprodução." }
+    ]
+  },
 };
