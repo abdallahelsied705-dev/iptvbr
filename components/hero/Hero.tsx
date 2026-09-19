@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BadgeCheck, CheckCircle2, MessageCircle, MonitorSmartphone, Play, TvMinimal } from "lucide-react";
+import { ArrowRight, BadgeCheck, CheckCircle2, MessageCircle, TvMinimal } from "lucide-react";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
 
 function HeroBenefit({ icon, title, detail }: { icon: React.ReactNode; title: string; detail: string }) {
@@ -22,7 +22,7 @@ export function Hero() {
         <div className="reference-hero-photo photo-b" />
         <div className="reference-hero-photo photo-c" />
         <div className="reference-hero-photo photo-d" />
-        <div className="reference-hero-circle"><strong>IPTV</strong><span>PORTUGAL</span></div>
+        <div className="reference-hero-circle"><strong>IPTV</strong><span>PORTUGAL</span><small>7 anos de experiência</small></div>
       </div>
 
       <div className="reference-hero-copy">
@@ -36,8 +36,8 @@ export function Hero() {
           <li><CheckCircle2 /> Suporte direto pelo WhatsApp</li>
         </ul>
         <div className="reference-hero-actions">
-          <Link href="#planos" className="reference-blue-button"><Play size={17} /> Ver planos</Link>
-          <WhatsAppButton message="Olá! Quero conhecer os planos IPTVBR para Portugal." />
+          <Link href="#planos" className="reference-blue-button"><span className="hero-cta-icon"><ArrowRight size={18} /></span><span className="button-copy"><strong>Ver planos</strong><small>Comparar opções</small></span></Link>
+          <WhatsAppButton message="Olá! Quero conhecer os planos IPTVBR para Portugal." detail="Resposta rápida" />
         </div>
       </div>
     </div>

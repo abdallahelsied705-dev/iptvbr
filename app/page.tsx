@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import {
+  ArrowRight,
   BadgeCheck,
   Check,
   CheckCircle2,
@@ -9,25 +11,31 @@ import {
   MessageCircle,
   MonitorSmartphone,
   Play,
+  Radio,
   TvMinimal,
 } from "lucide-react";
 import { Hero } from "@/components/hero/Hero";
 import { PricingMatrix } from "@/components/pricing/PricingMatrix";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
+import { HomeMotion } from "@/components/home/HomeMotion";
+import { ReviewCarousel } from "@/components/reviews/ReviewCarousel";
+import { buildOrganizationSchema, webPageSchema } from "@/lib/schema";
+import { getRoute } from "@/config/routes";
+import { DeviceLogo, type DeviceBrand } from "@/components/brand/DeviceLogo";
 
-const devices = [
-  { label: "Fire TV", icon: <TvMinimal size={27} /> },
-  { label: "Android TV", icon: <TvMinimal size={27} /> },
-  { label: "Apple TV", icon: <TvMinimal size={27} /> },
-  { label: "Samsung Smart TV", icon: <TvMinimal size={27} /> },
-  { label: "LG webOS", icon: <TvMinimal size={27} /> },
-  { label: "Roku", icon: <MonitorSmartphone size={27} /> },
-  { label: "Chromecast", icon: <MessageCircle size={27} /> },
-  { label: "NVIDIA Shield", icon: <MonitorSmartphone size={27} /> },
-  { label: "Windows", icon: <MonitorSmartphone size={27} /> },
-  { label: "Android", icon: <MonitorSmartphone size={27} /> },
-  { label: "Formuler", icon: <TvMinimal size={27} /> },
-  { label: "Mobile", icon: <MonitorSmartphone size={27} /> },
+const devices: { label: string; brand: DeviceBrand; href: string }[] = [
+  { label: "Fire TV", brand: "firetv", href: "/dispositivos/iptv-firestick/" },
+  { label: "Android TV", brand: "androidtv", href: "/dispositivos/iptv-android-tv/" },
+  { label: "Apple TV", brand: "appletv", href: "/dispositivos/iptv-apple-tv/" },
+  { label: "Samsung Smart TV", brand: "samsung", href: "/dispositivos/iptv-samsung/" },
+  { label: "LG webOS", brand: "lg", href: "/dispositivos/iptv-lg/" },
+  { label: "Roku", brand: "roku", href: "/dispositivos/iptv-roku/" },
+  { label: "Chromecast", brand: "chromecast", href: "/dispositivos/iptv-chromecast/" },
+  { label: "NVIDIA Shield", brand: "nvidia", href: "/dispositivos/iptv-nvidia-shield/" },
+  { label: "Windows", brand: "windows", href: "/dispositivos/iptv-windows/" },
+  { label: "Android", brand: "android", href: "/dispositivos/iptv-android/" },
+  { label: "Formuler", brand: "formuler", href: "/dispositivos/iptv-formuler/" },
+  { label: "Mobile", brand: "mobile", href: "/dispositivos/iptv-telemovel/" },
 ];
 
 const faq = [
@@ -46,17 +54,28 @@ const faq = [
 ];
 
 const featureCards = [
-  { icon: <TvMinimal size={24} />, title: "Experiência IPTV completa", text: "Uma experiência pensada para televisão, filmes, séries e conteúdos ao vivo, com uma interface simples.", image: "/images/features/experiencia-iptv.webp" },
-  { icon: <TvMinimal size={24} />, title: "Filmes e séries", text: "Explora uma biblioteca organizada e encontra rapidamente o conteúdo que procuras.", image: "/images/features/filmes-series.webp" },
-  { icon: <MonitorSmartphone size={24} />, title: "Canais ao vivo", text: "Acede ao teu percurso de visualização com categorias e guias preparados para diferentes dispositivos.", image: "/images/features/canais-ao-vivo.webp" },
-  { icon: <MonitorSmartphone size={24} />, title: "Desporto em direto", text: "Segue conteúdos desportivos e mantém o foco na experiência de visualização.", image: "/images/features/desporto-em-direto.webp" },
-  { icon: <MonitorSmartphone size={24} />, title: "Instalação simples", text: "Guias dedicados ajudam-te a instalar e configurar a aplicação no equipamento que já tens.", image: "/images/features/instalacao-simples.webp" },
-  { icon: <MessageCircle size={24} />, title: "Suporte direto", text: "Quando precisares de ajuda, o contacto segue diretamente para o WhatsApp.", image: "/images/features/suporte-direto.webp" },
+  { icon: <TvMinimal size={24} />, title: "Experiência IPTV completa", text: "Uma experiência pensada para televisão, filmes, séries e conteúdos ao vivo, com uma interface simples.", image: "/images/features/experiencia-iptv-pro.webp", alt: "Sala moderna com televisão e experiência IPTV organizada" },
+  { icon: <TvMinimal size={24} />, title: "Filmes e séries", text: "Explora uma biblioteca organizada e encontra rapidamente o conteúdo que procuras.", image: "/images/features/filmes-series-pro.webp", alt: "Cinema em casa com filmes e séries numa televisão de grande formato" },
+  { icon: <MonitorSmartphone size={24} />, title: "Canais ao vivo", text: "Acede ao teu percurso de visualização com categorias e guias preparados para diferentes dispositivos.", image: "/images/features/canais-ao-vivo-pro.webp", alt: "Televisão com seleção visual de canais em direto" },
+  { icon: <MonitorSmartphone size={24} />, title: "Desporto em direto", text: "Segue conteúdos desportivos e mantém o foco na experiência de visualização.", image: "/images/features/desporto-em-direto-pro.webp", alt: "Estádio de futebol preparado para uma transmissão desportiva em direto" },
+  { icon: <MonitorSmartphone size={24} />, title: "Instalação simples", text: "Guias dedicados ajudam-te a instalar e configurar a aplicação no equipamento que já tens.", image: "/images/features/instalacao-simples-pro.webp", alt: "Instalação de um dispositivo de streaming junto à televisão e ao router" },
+  { icon: <MessageCircle size={24} />, title: "Suporte direto", text: "Quando precisares de ajuda, o contacto segue diretamente para o WhatsApp.", image: "/images/features/suporte-direto-pro.webp", alt: "Especialista de suporte a ajudar um cliente com a configuração IPTV" },
 ];
 
 export const metadata: Metadata = {
-  title: "IPTVBR — IPTV em Portugal",
-  description: "Planos IPTV, dispositivos, aplicações e guias em português de Portugal.",
+  title: "IPTV Portugal: Planos, Apps e Guias",
+  description: "Compara planos IPTV em Portugal, consulta dispositivos compatíveis, aplicações, guias de instalação, preços e suporte em português.",
+  alternates: { canonical: "https://iptvbr.pt/" },
+  openGraph: {
+    type: "website",
+    locale: "pt_PT",
+    siteName: "IPTVBR",
+    title: "IPTV Portugal: Planos, Apps e Guias | IPTVBR",
+    description: "Planos IPTV em Portugal, dispositivos compatíveis, aplicações, instalação e suporte em português.",
+    url: "https://iptvbr.pt/",
+    images: [{ url: "/images/hero/iptvbr-premium-living-room.webp", width: 1536, height: 1024, alt: "IPTV Portugal numa sala moderna com televisão de grande formato" }],
+  },
+  twitter: { card: "summary_large_image", images: ["/images/hero/iptvbr-premium-living-room.webp"] },
 };
 
 function SectionLabel({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
@@ -64,8 +83,16 @@ function SectionLabel({ children, dark = false }: { children: ReactNode; dark?: 
 }
 
 export default function HomePage() {
+  const homeRoute = getRoute("/")!;
+  const homeSchemas = [
+    buildOrganizationSchema(),
+    { "@context": "https://schema.org", "@type": "WebSite", name: "IPTVBR", url: "https://iptvbr.pt/", inLanguage: "pt-PT" },
+    webPageSchema(homeRoute),
+  ];
   return (
     <main id="main-content" className="reference-home">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeSchemas) }} />
+      <HomeMotion />
       <Hero />
 
       <section className="ref-stats" aria-label="Destaques">
@@ -74,6 +101,14 @@ export default function HomePage() {
           <div><MonitorSmartphone size={35} /><strong>Experiência ao vivo</strong><span>Canais e conteúdos</span></div>
           <div><TvMinimal size={35} /><strong>Filmes e séries</strong><span>Conteúdo organizado</span></div>
           <div><BadgeCheck size={35} /><strong>Suporte direto</strong><span>Atendimento em português</span></div>
+        </div>
+      </section>
+
+      <section className="ref-promo" aria-label="Oferta IPTVBR">
+        <div className="container ref-promo-inner">
+          <div className="ref-promo-icon"><Play fill="currentColor" /></div>
+          <div><span>ENTRETENIMENTO SEM COMPLICAÇÕES</span><strong>Escolhe o plano certo e recebe ajuda para começar.</strong></div>
+          <Link href="#planos" className="ref-promo-link">Explorar planos <ChevronDown size={16} /></Link>
         </div>
       </section>
 
@@ -93,10 +128,11 @@ export default function HomePage() {
           <p className="ref-dark-intro">Uma apresentação simples e organizada para encontrares rapidamente o equipamento certo.</p>
           <div className="ref-device-grid">
             {devices.map((device) => (
-              <div className="ref-device-card" key={device.label}>
-                <span className="ref-device-icon">{device.icon}</span>
+              <Link className="ref-device-card" href={device.href} key={device.label} aria-label={`Ver guia IPTV para ${device.label}`}>
+                <span className="ref-device-icon"><DeviceLogo brand={device.brand} /></span>
                 <strong>{device.label}</strong>
-              </div>
+                <small>Ver guia <span aria-hidden="true">→</span></small>
+              </Link>
             ))}
           </div>
         </div>
@@ -128,14 +164,15 @@ export default function HomePage() {
       </section>
 
       <section className="ref-section ref-explained">
-        <div className="container ref-centered">
-          <SectionLabel>TECNOLOGIA</SectionLabel>
-          <h2>IPTV explicado de forma simples.</h2>
-          <p className="ref-section-intro">Tudo o que precisas de saber antes de escolher um plano.</p>
+        <div className="container">
+          <div className="ref-explained-head">
+            <div><SectionLabel>TECNOLOGIA SEM COMPLICAÇÕES</SectionLabel><h2>Percebe o IPTV.<br /><span>Decide com confiança.</span></h2></div>
+            <p>Três conceitos essenciais para compreender a tecnologia, preparar o equipamento e avaliar uma opção antes de avançar.</p>
+          </div>
           <div className="ref-explained-grid">
-            <article><TvMinimal size={34} /><h3>O que é IPTV?</h3><p>IPTV significa televisão entregue através de uma ligação à internet. A forma de utilização depende do serviço, aplicação e dispositivo.</p></article>
-            <article><MonitorSmartphone size={34} /><h3>Como funciona?</h3><p>O conteúdo é entregue através de uma ligação de dados e apresentado numa aplicação compatível com o equipamento escolhido.</p></article>
-            <article><BadgeCheck size={34} /><h3>O que procurar?</h3><p>Procura informação clara, compatibilidade, guias de instalação, canais de apoio e condições comerciais fáceis de compreender.</p><Link href="/guias/" className="ref-button">Ler os guias <ChevronDown size={16} /></Link></article>
+            <article><span className="ref-explained-number">01</span><span className="ref-explained-icon"><TvMinimal /></span><h3>O que é IPTV?</h3><p>Televisão distribuída através de redes IP e reproduzida numa aplicação compatível. O dispositivo, a ligação e a origem do conteúdo fazem parte da experiência.</p><Link href="/guias/o-que-e-iptv/">Compreender o conceito <ArrowRight /></Link></article>
+            <article><span className="ref-explained-number">02</span><span className="ref-explained-icon"><MonitorSmartphone /></span><h3>Como funciona?</h3><p>A aplicação recebe a configuração, organiza canais e programação e entrega o vídeo ao equipamento escolhido através da ligação à internet.</p><Link href="/guias/como-funciona-iptv/">Ver como funciona <ArrowRight /></Link></article>
+            <article><span className="ref-explained-number">03</span><span className="ref-explained-icon"><BadgeCheck /></span><h3>O que deves avaliar?</h3><p>Compatibilidade, clareza das condições, qualidade da aplicação, estabilidade da rede e um canal de suporte que responda quando precisas.</p><Link href="/comparar/como-escolher-iptv-portugal/">Usar a checklist <ArrowRight /></Link></article>
           </div>
         </div>
       </section>
@@ -147,7 +184,9 @@ export default function HomePage() {
           <div className="ref-feature-grid">
             {featureCards.map((feature) => (
               <article key={feature.title} className="ref-feature-card">
-                <div className="ref-feature-image" style={{ backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.02) 12%, rgba(0,0,0,.78) 100%), url("${feature.image}")` }} />
+                <div className="ref-feature-image">
+                  <Image src={feature.image} alt={feature.alt} fill sizes="(max-width: 720px) 100vw, 290px" />
+                </div>
                 <div className="ref-feature-icon">{feature.icon}</div>
                 <div className="ref-feature-body"><h3>{feature.title}</h3><p>{feature.text}</p><Link href="/guias/">Explorar <ChevronDown size={15} /></Link></div>
               </article>
@@ -186,23 +225,25 @@ export default function HomePage() {
 
       <section className="ref-section ref-sports">
         <div className="container ref-sports-grid">
-          <div>
+          <div className="ref-sports-copy">
             <SectionLabel>DESPORTO & ENTRETENIMENTO</SectionLabel>
-            <h2>Não percas os teus conteúdos favoritos.</h2>
-            <p>A estrutura da experiência foi pensada para destacar conteúdos ao vivo, entretenimento e diferentes dispositivos sem complicar a navegação.</p>
+            <h2>Vive cada momento. <span>Em qualquer ecrã.</span></h2>
+            <p>Desporto em direto, entretenimento e uma experiência fluida nos teus dispositivos favoritos — com configuração simples e apoio quando precisares.</p>
             <div className="ref-mini-cards">
-              <div><MonitorSmartphone /><strong>Streams ao vivo</strong><span>Experiência simples</span></div>
-              <div><CheckCircle2 /><strong>Disponibilidade</strong><span>Quando precisares</span></div>
-              <div><BadgeCheck /><strong>Planos flexíveis</strong><span>Escolhe a configuração</span></div>
+              <div><span className="ref-mini-icon"><Radio /></span><strong>Direto em alta qualidade</strong><span>Imagem estável e nítida</span></div>
+              <div><span className="ref-mini-icon"><MonitorSmartphone /></span><strong>Todos os teus ecrãs</strong><span>TV, mobile e tablet</span></div>
+              <div><span className="ref-mini-icon"><BadgeCheck /></span><strong>Planos flexíveis</strong><span>Escolhe a duração ideal</span></div>
             </div>
-            <div className="ref-sports-price"><strong>A partir dos preços atuais</strong><span>Consulta todos os planos e dispositivos.</span><Link href="#planos" className="ref-button">Ver planos <ChevronDown size={16} /></Link></div>
+            <div className="ref-sports-price">
+              <div><span>PLANOS A PARTIR DE</span><strong><small>€</small>16,99</strong><em>Preço total · 1 dispositivo</em></div>
+              <div className="ref-sports-actions"><Link href="#planos" className="ref-button">Ver todos os planos <ArrowRight size={16} /></Link><Link href="/dispositivos/">Ver dispositivos</Link></div>
+            </div>
           </div>
-          <div className="ref-sports-art" aria-hidden="true">
-            <div className="ref-sports-art-ring" />
-            <div className="ref-sports-art-tile tile-a"><TvMinimal /></div>
-            <div className="ref-sports-art-tile tile-b"><MonitorSmartphone /></div>
-            <div className="ref-sports-art-tile tile-c"><MonitorSmartphone /></div>
-            <div className="ref-sports-art-tile tile-d"><MonitorSmartphone /></div>
+          <div className="ref-sports-art">
+            <div className="ref-sports-orbit" aria-hidden="true" />
+            <span className="ref-sports-live"><i /> DIRETO · 4K</span>
+            <Image src="/images/features/sports-streaming-devices.webp" alt="Transmissão de futebol, basquetebol e automobilismo em televisão, tablet e telemóvel" width={1400} height={933} sizes="(max-width: 1050px) 90vw, 52vw" />
+            <div className="ref-sports-proof"><CheckCircle2 /><span><strong>Compatível</strong><small>Vários dispositivos</small></span></div>
           </div>
         </div>
       </section>
@@ -222,19 +263,31 @@ export default function HomePage() {
       <section className="ref-section ref-reviews">
         <div className="container ref-centered">
           <SectionLabel>EXPERIÊNCIA</SectionLabel>
-          <h2>Uma área preparada para avaliações reais.</h2>
-          <div className="ref-review-card">
-            <div className="ref-review-user"><span><MessageCircle /></span><div><strong>Cliente IPTVBR</strong><small>Portugal</small></div><b>★★★★★</b></div>
-            <p>“O percurso é simples, os guias estão organizados e consigo perceber rapidamente qual é o caminho certo para o meu dispositivo.”</p>
-            <div className="ref-review-footer"><span><BadgeCheck size={15} /> Estrutura pronta para avaliações verificadas</span><span>‹ &nbsp; • &nbsp; • &nbsp; ›</span></div>
-          </div>
+          <h2>O que dizem os nossos clientes.</h2>
+          <p className="ref-section-intro">Experiências reais partilhadas por clientes depois da configuração do serviço.</p>
+          <ReviewCarousel />
         </div>
       </section>
 
       <section className="ref-section ref-dark ref-reseller">
         <div className="container ref-reseller-inner">
-          <div><SectionLabel dark>IPTV BUSINESS</SectionLabel><h2>Programa de revenda IPTV.</h2><p>Estrutura dedicada para parceiros que procuram informação de produto, planos e suporte num fluxo separado do cliente final.</p><div className="ref-tag-row"><span>IPTV Reseller</span><span>Preços de atacado</span><span>White Label</span><span>Partner</span></div><Link href="/reseller/" className="ref-button ref-button-blue">Começar como parceiro <ChevronDown size={16} /></Link></div>
-          <div className="ref-reseller-art"><div /><div /><span>IPTV<br /><small>BUSINESS</small></span></div>
+          <div className="ref-reseller-copy">
+            <SectionLabel dark>IPTVBR · BUSINESS</SectionLabel>
+            <h2>Transforma uma oportunidade num <span>negócio digital.</span></h2>
+            <p>Um percurso dedicado a parceiros que procuram começar ou desenvolver uma operação IPTV, com informação comercial organizada, orientação e suporte num canal separado do cliente final.</p>
+            <div className="ref-reseller-benefits">
+              <div><BadgeCheck /><span><strong>Estrutura para parceiros</strong><small>Processo comercial organizado</small></span></div>
+              <div><MonitorSmartphone /><span><strong>Solução flexível</strong><small>Preparada para vários cenários</small></span></div>
+              <div><MessageCircle /><span><strong>Contacto dedicado</strong><small>Acompanhamento pelo WhatsApp</small></span></div>
+            </div>
+            <div className="ref-tag-row"><span>IPTV Reseller</span><span>Preços de atacado</span><span>White Label</span><span>Business Partner</span></div>
+            <div className="ref-reseller-actions"><Link href="/reseller/" className="ref-button ref-button-blue">Conhecer o programa <ArrowRight size={16} /></Link><small>Sem compromisso · Informação clara</small></div>
+          </div>
+          <div className="ref-reseller-art">
+            <span className="ref-reseller-status"><i /> PROGRAMA DE PARCEIROS</span>
+            <Image src="/images/features/iptv-business-partnership.webp" alt="Dois parceiros de negócio a formalizar uma parceria tecnológica IPTV" width={1200} height={1000} sizes="(max-width: 1050px) 90vw, 46vw" />
+            <div className="ref-reseller-float"><BadgeCheck /><span><strong>IPTVBR Business</strong><small>Parceria orientada ao crescimento</small></span></div>
+          </div>
         </div>
       </section>
 
@@ -249,9 +302,9 @@ export default function HomePage() {
           <div className="ref-news">
             <div className="ref-news-head"><SectionLabel>GUIAS & ATUALIZAÇÕES</SectionLabel><h2>Últimos conteúdos</h2></div>
             <div className="ref-news-grid">
-              <Link href="/blog/" className="ref-news-card"><strong>IPTV em vários dispositivos</strong><p>Como organizar a tua utilização em casa.</p><span>Ler artigo →</span></Link>
-              <Link href="/guias/" className="ref-news-card"><strong>Como instalar IPTV</strong><p>Guia prático para encontrar o caminho certo.</p><span>Ver guia →</span></Link>
-              <Link href="/suporte/" className="ref-news-card"><strong>Ajuda e suporte</strong><p>Onde começar quando tens uma dúvida.</p><span>Abrir suporte →</span></Link>
+              <Link href="/blog/checklist-antes-de-subscrever-iptv/" className="ref-news-card"><strong>Checklist antes de subscrever</strong><p>Dez critérios para decidir com mais segurança.</p><span>Ler artigo →</span></Link>
+              <Link href="/blog/iptv-wifi-ou-cabo-ethernet/" className="ref-news-card"><strong>Wi-Fi ou cabo Ethernet?</strong><p>Como conseguir uma ligação mais estável.</p><span>Ler artigo →</span></Link>
+              <Link href="/blog/seguranca-apps-iptv/" className="ref-news-card"><strong>Segurança nas apps IPTV</strong><p>Protege credenciais, dados e dispositivos.</p><span>Ler artigo →</span></Link>
             </div>
           </div>
         </div>

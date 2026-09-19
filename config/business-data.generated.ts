@@ -18,33 +18,8 @@ export type BusinessInput = {
 
 export const businessInput: BusinessInput = {
   "pricing": {
-    "verification": "verified",
-    "production": [
-      {
-        "duration": "1 Mês",
-        "price": 15,
-        "currency": "EUR",
-        "label": "1 dispositivo"
-      },
-      {
-        "duration": "3 Meses",
-        "price": 29,
-        "currency": "EUR",
-        "label": "1 dispositivo"
-      },
-      {
-        "duration": "6 Meses",
-        "price": 49,
-        "currency": "EUR",
-        "label": "1 dispositivo"
-      },
-      {
-        "duration": "12 Meses",
-        "price": 69,
-        "currency": "EUR",
-        "label": "1 dispositivo"
-      }
-    ]
+    "verification": "unverified",
+    "production": []
   },
   "trial": {
     "verification": "unverified",
