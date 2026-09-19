@@ -10,8 +10,8 @@ export function articleSchema(route: RouteDefinition) {
     mainEntityOfPage: route.canonical,
     url: route.canonical,
     image: route.image ? `${siteConfig.url}${route.image}` : `${siteConfig.url}/images/hero/iptvbr-premium-living-room.webp`,
-    datePublished: "2026-09-19",
-    dateModified: "2026-09-19",
+    datePublished: route.publishedAt ?? "2026-09-19",
+    dateModified: route.publishedAt ?? "2026-09-19",
     inLanguage: siteConfig.language,
     author: {
       "@type": "Organization",
