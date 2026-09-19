@@ -1592,11 +1592,10 @@ main {
   position:relative; overflow:hidden; background:#fff; padding:42px 0 26px;
   border-bottom:1px solid #e7edf4;
 }
-.reference-hero-bg {
-  position:absolute; inset:0; z-index:0; opacity:.055; pointer-events:none;
+.reference-hero::before {
+  content:""; position:absolute; inset:0; z-index:0; pointer-events:none;
+  background:radial-gradient(circle at 16% 42%,rgba(52,120,239,.075),transparent 28%),radial-gradient(circle at 88% 12%,rgba(65,142,255,.055),transparent 24%),linear-gradient(135deg,#fff 25%,#fbfdff 70%,#f5f9ff);
 }
-.reference-hero-bg img { object-fit:cover; object-position:center; filter:grayscale(1) saturate(.15) blur(1px); }
-.reference-hero-wash { position:absolute; inset:0; background:linear-gradient(90deg,#fff 20%,rgba(255,255,255,.97) 56%,rgba(255,255,255,.89)); }
 .reference-hero-grid {
   position:relative; z-index:1; display:grid; grid-template-columns:42% 58%; align-items:center; gap:26px;
   min-height:520px;
@@ -1622,7 +1621,7 @@ main {
 }
 .reference-hero-circle::after {
   content:""; position:absolute; inset:-18%; z-index:0; border-radius:50%;
-  background:linear-gradient(rgba(8,35,74,.48),rgba(9,45,99,.64)),url("/images/hero/iptv-portugal-experience.webp") center/cover no-repeat;
+  background:linear-gradient(rgba(8,35,74,.48),rgba(9,45,99,.64)),url("/images/hero/iptv-portugal-experience-compact.webp") center/cover no-repeat;
   animation:hero-badge-image 34s linear infinite; transform-origin:center;
 }
 .reference-hero-circle strong,.reference-hero-circle span,.reference-hero-circle small { position:relative; z-index:3; text-shadow:0 2px 12px rgba(0,0,0,.72); }
@@ -1944,7 +1943,7 @@ main {
 .ref-sports-proof small { margin-top:2px; color:#74869d; font-size:.48rem; }
 @keyframes sportsVisualFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
 @keyframes sportsOrbit { from{transform:rotate(-10deg) scale(.98)} to{transform:rotate(-6deg) scale(1.04)} }
-@keyframes sportsLivePulse { 0%{box-shadow:0 0 0 0 rgba(31,206,136,.35)} 70%,100%{box-shadow:0 0 0 9px rgba(31,206,136,0)} }
+@keyframes sportsLivePulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.45;transform:scale(1.45)} }
 
 /* Coverage */
 .ref-coverage { padding-bottom:70px; }
@@ -2435,4 +2434,22 @@ main {
   .reference-home .ref-compare-grid article,
   .reference-home .ref-why-grid article,
   .reference-home .ref-news-card { animation:none!important; transition:none!important; }
+}
+
+/* Lighthouse-safe rendering and WCAG contrast */
+.reference-home .ref-section {
+  content-visibility:auto;
+  contain-intrinsic-size:auto 760px;
+}
+.site-header .brand-copy strong span,
+.site-header .brand-copy small { color:#205fc5; }
+.site-header .desktop-header-cta .button-whatsapp { background:#205fc5!important; }
+.reference-hero-benefit small { color:#5d6f85; }
+.reference-hero-price span,
+.reference-hero-price small { color:#5d6f85; }
+.reference-hero-price strong { color:#205fc5; }
+.ref-stats-grid span { color:#5d6f85; }
+
+@supports not (content-visibility:auto) {
+  .reference-home .ref-section { contain:none; }
 }

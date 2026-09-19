@@ -6,7 +6,7 @@ export function WhatsAppButton({ message = "Olá, gostaria de obter informaçõe
     <Link
       className="button button-whatsapp"
       href={buildWhatsAppUrl(message)}
-      aria-label="Contactar o IPTVBR pelo WhatsApp"
+      aria-label={`Contactar o IPTVBR pelo WhatsApp: ${message}`}
       target="_blank"
       rel="noopener noreferrer"
     >

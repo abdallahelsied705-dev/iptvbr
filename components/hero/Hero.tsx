@@ -11,11 +11,6 @@ function HeroBenefit({ icon, title, detail }: { icon: React.ReactNode; title: st
 
 export function Hero() {
   return <section className="reference-hero" aria-labelledby="hero-title">
-    <div className="reference-hero-bg" aria-hidden="true">
-      <Image src="/images/hero/iptvbr-hero-background.webp" alt="" fill priority sizes="100vw" />
-      <div className="reference-hero-wash" />
-    </div>
-
     <div className="container reference-hero-grid">
       <div className="reference-hero-collage">
         <Image
@@ -24,8 +19,8 @@ export function Hero() {
           alt="Entretenimento IPTV em Portugal com futebol, televisão, costa portuguesa e cinema em casa"
           fill
           priority
-          quality={90}
-          sizes="(max-width: 720px) 80vw, (max-width: 1050px) 70vw, 430px"
+          quality={80}
+          sizes="(max-width: 720px) 335px, (max-width: 1050px) 390px, 430px"
         />
         <div className="reference-hero-circle"><strong>IPTV</strong><span>PORTUGAL</span><small>7 anos de experiência</small></div>
       </div>
