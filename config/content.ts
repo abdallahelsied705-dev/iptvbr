@@ -4,6 +4,7 @@ import { longformContent } from "@/config/content-longform";
 import { getActivePricing } from "@/config/business";
 import { seoArticles } from "@/config/seo-articles";
 import { devicePages } from "@/config/device-pages";
+import { scheduledArticles } from "@/config/scheduled-articles";
 
 export type ContentSection = {
   heading: string;
@@ -417,7 +418,7 @@ export function getContentRecord(route: RouteDefinition): ContentRecord {
     steps: ["Definir a dúvida", "Verificar o contexto", "Consultar o guia relacionado", "Avançar para o próximo passo"]
   };
 
-  const longform = seoArticles[route.slug] ?? devicePages[route.slug] ?? longformContent[route.slug];
+  const longform = scheduledArticles[route.slug] ?? seoArticles[route.slug] ?? devicePages[route.slug] ?? longformContent[route.slug];
 
   return {
     eyebrow: labels[route.type],
