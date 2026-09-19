@@ -20,7 +20,8 @@ export function Button({
       target={external ? "_blank" : undefined}
       rel={external ? "noopener noreferrer" : undefined}
     >
-      {children}
+      <span className="button-label">{children}</span>
+      <svg className="button-arrow" aria-hidden="true" viewBox="0 0 20 20"><path d="M4 10h11M11 6l4 4-4 4" /></svg>
     </Link>
   );
 }

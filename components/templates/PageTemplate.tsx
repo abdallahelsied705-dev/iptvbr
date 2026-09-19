@@ -13,9 +13,7 @@ import { VerifiedBusinessFacts } from "@/components/content/VerifiedBusinessFact
 import { HubGrid } from "@/components/content/HubGrid";
 import { PricingPreview } from "@/components/pricing/PricingPreview";
 import { ContentFramework } from "@/components/content/ContentFramework";
-import { ContentBriefMeta } from "@/components/content/ContentBriefMeta";
 import { ReleaseStatus } from "@/components/content/ReleaseStatus";
-import { getContentBrief } from "@/config/content-briefs";
 import { getImageAlt } from "@/config/image-seo";
 import { DeviceLogo, deviceBrandForSlug } from "@/components/brand/DeviceLogo";
 
@@ -59,7 +57,6 @@ function summarySentence(value: string) {
 
 export function PageTemplate({ route }: { route: RouteDefinition }) {
   const content = getContentRecord(route);
-  const brief = getContentBrief(route);
   const children = getChildRoutes(route.slug);
   const recommendedLinks = getRecommendedLinks(route, 6);
   const parent = route.parent && route.parent !== "/" ? getRoute(route.parent) : undefined;
@@ -91,7 +88,6 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
           <h1>{route.title}</h1>
           <p className="hero-lead">{content.intro}</p>
           {isArticle ? <div className="article-meta"><span>Guia editorial</span><span>{readingMinutes} min de leitura</span><span>{content.sections.length} secções</span></div> : null}
-          {!isArticle ? <ContentBriefMeta min={brief.targetWords[0]} max={brief.targetWords[1]} /> : null}
           {route.type === "money" ? <BusinessStatus /> : null}
           {route.type === "money" ? <VerifiedBusinessFacts /> : null}
           {route.type === "money" ? <ReleaseStatus /> : null}
@@ -109,10 +105,10 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
       ) : null}
 
       <ContentFramework
-        takeaways={isArticle ? content.sections.slice(0, 3).map((section) => summarySentence(section.paragraphs[0])) : content.takeaways}
-        steps={isArticle ? content.sections.map((section) => section.heading) : content.steps}
+        takeaways={content.sections.slice(0, 3).map((section) => summarySentence(section.paragraphs[0]))}
+        steps={content.sections.map((section) => section.heading)}
         entities={content.entities}
-        variant={isArticle ? "article" : "default"}
+        variant={isArticle ? "article" : "contextual"}
       />
 
       {deviceBrand ? (

@@ -9,17 +9,18 @@ export function ContentFramework({
   takeaways: string[];
   steps: string[];
   entities: string[];
-  variant?: "default" | "article";
+  variant?: "default" | "article" | "contextual";
 }) {
+  const isContextual = variant !== "default";
   return (
     <Section
-      eyebrow={variant === "article" ? "Resumo do artigo" : "Leitura guiada"}
-      title={variant === "article" ? "O que vais aprender." : "O essencial antes de avançar."}
-      description={variant === "article" ? "Pontos específicos deste guia e o percurso de leitura recomendado." : "Uma estrutura rápida para perceber o tema, validar os pontos importantes e chegar ao próximo passo sem ruído."}
+      eyebrow={variant === "article" ? "Resumo do artigo" : isContextual ? "Resumo da página" : "Leitura guiada"}
+      title={variant === "article" ? "O que vais aprender." : isContextual ? "O que vais encontrar." : "O essencial antes de avançar."}
+      description={isContextual ? "Pontos específicos desta página e um percurso simples para encontrares a informação certa." : "Uma estrutura rápida para perceber o tema, validar os pontos importantes e chegar ao próximo passo sem ruído."}
       className="section-surface"
     >
-      <div className={`content-framework-grid ${variant === "article" ? "content-framework-article" : ""}`}>
-        {variant !== "article" ? <div className="framework-card">
+      <div className={`content-framework-grid ${isContextual ? "content-framework-article" : ""}`}>
+        {!isContextual ? <div className="framework-card">
           <p className="card-kicker">Pontos-chave</p>
           <ul className="framework-list">
             {takeaways.map((item) => <li key={item}>{item}</li>)}
