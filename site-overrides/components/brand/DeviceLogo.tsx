@@ -1,6 +1,8 @@
-import { siAndroid, siAppletv, siGooglecast, siLg, siNvidia, siRoku, siSamsung } from "simple-icons";
+import { MonitorSmartphone, Tv } from "lucide-react";
 
-export type DeviceBrand = "firetv" | "androidtv" | "appletv" | "samsung" | "lg" | "roku" | "chromecast" | "nvidia" | "windows" | "android" | "formuler" | "mobile";
+export type DeviceBrand =
+  | "firetv" | "androidtv" | "appletv" | "samsung" | "lg" | "roku"
+  | "chromecast" | "nvidia" | "windows" | "android" | "formuler" | "mobile";
 
 export function deviceBrandForSlug(slug: string): DeviceBrand | null {
   if (slug.includes("firestick")) return "firetv";
@@ -18,16 +20,35 @@ export function deviceBrandForSlug(slug: string): DeviceBrand | null {
   return null;
 }
 
-const icons = { appletv: siAppletv, samsung: siSamsung, lg: siLg, roku: siRoku, chromecast: siGooglecast, nvidia: siNvidia, android: siAndroid } as const;
+const labels: Record<DeviceBrand, string> = {
+  firetv: "Fire TV",
+  androidtv: "Android TV",
+  appletv: "Apple TV",
+  samsung: "Samsung",
+  lg: "LG",
+  roku: "Roku",
+  chromecast: "Chromecast",
+  nvidia: "NVIDIA Shield",
+  windows: "Windows",
+  android: "Android",
+  formuler: "Formuler",
+  mobile: "Mobile",
+};
 
 export function DeviceLogo({ brand, size = 38 }: { brand: DeviceBrand; size?: number }) {
-  if (brand in icons) {
-    const icon = icons[brand as keyof typeof icons];
-    return <svg role="img" aria-label={`${icon.title} logo`} viewBox="0 0 24 24" width={size} height={size} fill="currentColor"><path d={icon.path} /></svg>;
+  const iconBrands: DeviceBrand[] = ["android", "mobile"];
+  if (iconBrands.includes(brand)) {
+    return brand === "android"
+      ? <MonitorSmartphone size={size} aria-label={labels[brand]} />
+      : <Tv size={size} aria-label={labels[brand]} />;
   }
-  if (brand === "firetv") return <span className="device-wordmark firetv-mark" aria-label="Amazon Fire TV logo"><b>fire</b><i>tv</i><small>⌣</small></span>;
-  if (brand === "androidtv") return <span className="device-combo-mark" aria-label="Android TV logo"><svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor"><path d={siAndroid.path} /></svg><b>TV</b></span>;
-  if (brand === "windows") return <span className="windows-mark" aria-label="Windows logo"><i /><i /><i /><i /></span>;
-  if (brand === "formuler") return <span className="device-wordmark formuler-mark" aria-label="Formuler logo"><b>FORMULER</b></span>;
-  return <span className="mobile-mark" aria-label="Mobile device icon"><i /><b /></span>;
+  return (
+    <span
+      className="device-wordmark"
+      aria-label={labels[brand]}
+      style={{ fontSize: Math.max(11, Math.round(size / 3.4)) }}
+    >
+      {labels[brand]}
+    </span>
+  );
 }
