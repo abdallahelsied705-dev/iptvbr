@@ -17,11 +17,16 @@ export function Hero() {
     </div>
 
     <div className="container reference-hero-grid">
-      <div className="reference-hero-collage" aria-hidden="true">
-        <div className="reference-hero-photo photo-a" />
-        <div className="reference-hero-photo photo-b" />
-        <div className="reference-hero-photo photo-c" />
-        <div className="reference-hero-photo photo-d" />
+      <div className="reference-hero-collage">
+        <Image
+          className="reference-hero-collage-image"
+          src="/images/hero/iptv-portugal-entertainment-collage.webp"
+          alt="Entretenimento IPTV em Portugal com futebol, televisão, costa portuguesa e cinema em casa"
+          fill
+          priority
+          quality={90}
+          sizes="(max-width: 720px) 80vw, (max-width: 1050px) 70vw, 430px"
+        />
         <div className="reference-hero-circle"><strong>IPTV</strong><span>PORTUGAL</span><small>7 anos de experiência</small></div>
       </div>
 
