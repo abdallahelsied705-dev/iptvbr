@@ -1,0 +1,42 @@
+{
+  "pricing": {
+    "verification": "unverified",
+    "production": []
+  },
+  "trial": {
+    "verification": "unverified",
+    "production": null
+  },
+  "devices": {
+    "verification": "unverified",
+    "production": []
+  },
+  "simultaneousDevices": {
+    "verification": "unverified",
+    "production": null
+  },
+  "channels": {
+    "verification": "unverified",
+    "production": null
+  },
+  "vod": {
+    "verification": "unverified",
+    "production": null
+  },
+  "uptime": {
+    "verification": "unverified",
+    "production": null
+  },
+  "refunds": {
+    "verification": "unverified",
+    "production": null
+  },
+  "rights": {
+    "verification": "unverified",
+    "production": null
+  },
+  "company": {
+    "verification": "unverified",
+    "production": null
+  }
+}
