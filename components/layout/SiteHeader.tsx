@@ -1,18 +1,15 @@
-import Link from "next/link";
 import { navigation } from "@/config/navigation";
 import { MobileMenu } from "@/components/navigation/MobileMenu";
 import { WhatsAppButton } from "@/components/conversion/WhatsAppButton";
-
-function Logo() {
-  return <span className="brand-logo"><span className="brand-logo-mark">▶</span><span className="brand-logo-word">IPTV<span>BR</span></span><small>PORTUGAL</small></span>;
-}
+import { Logo } from "@/components/brand/Logo";
+import Link from "next/link";
 
 export function SiteHeader() {
   return (
     <header className="site-header site-header-premium">
       <a className="skip-link" href="#main-content">Saltar para o conteúdo</a>
       <div className="container header-inner">
-        <Link className="brand" href="/" aria-label="IPTVBR — Início"><Logo /></Link>
+        <Logo compact />
         <nav aria-label="Navegação principal" className="desktop-navigation">
           <ul className="nav-list">
             <li><Link href="/iptv-portugal/">IPTV Portugal</Link></li>

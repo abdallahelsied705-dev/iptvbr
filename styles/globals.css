@@ -2157,3 +2157,53 @@ main {
   .floating-whatsapp { animation:none!important; }
   .back-to-top { transition:none!important; }
 }
+
+/* IPTVBR brand identity */
+.brand.brand-pro {
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  width:max-content;
+  color:#182337;
+  text-decoration:none;
+  line-height:1;
+}
+.brand-symbol {
+  width:44px;
+  height:44px;
+  flex:0 0 44px;
+  display:block;
+  filter:drop-shadow(0 10px 16px rgba(35,104,223,.18));
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),filter .35s ease;
+}
+.brand-symbol svg { display:block; width:100%; height:100%; }
+.brand-copy { display:grid; gap:5px; }
+.brand-copy strong {
+  color:#182337;
+  font-family:var(--font-display),sans-serif;
+  font-size:1.18rem;
+  font-weight:850;
+  letter-spacing:-.075em;
+}
+.brand-copy strong span { color:#3478ef; }
+.brand-copy small {
+  padding-left:2px;
+  color:#3478ef;
+  font-size:.43rem;
+  font-weight:900;
+  letter-spacing:.31em;
+}
+.brand-pro:hover .brand-symbol { transform:translateY(-2px) rotate(-3deg); filter:drop-shadow(0 14px 20px rgba(35,104,223,.25)); }
+.brand-pro:focus-visible { outline:3px solid rgba(52,120,239,.3); outline-offset:6px; border-radius:12px; }
+.brand-compact .brand-symbol { width:40px; height:40px; flex-basis:40px; }
+.brand-compact .brand-copy strong { font-size:1.12rem; }
+.site-footer .brand-pro .brand-copy strong { color:#f6f9ff; }
+.site-footer .brand-pro .brand-copy strong span,
+.site-footer .brand-pro .brand-copy small { color:#69a3ff; }
+
+@media(max-width:430px) {
+  .brand-compact { gap:8px; }
+  .brand-compact .brand-symbol { width:36px; height:36px; flex-basis:36px; }
+  .brand-compact .brand-copy strong { font-size:1rem; }
+  .brand-compact .brand-copy small { font-size:.38rem; }
+}

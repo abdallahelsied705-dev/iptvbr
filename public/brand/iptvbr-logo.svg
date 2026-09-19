@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="82" viewBox="0 0 320 82" role="img" aria-labelledby="title desc">
+  <title id="title">IPTVBR Portugal</title>
+  <desc id="desc">Logótipo IPTVBR Portugal com monograma B azul</desc>
+  <defs>
+    <linearGradient id="blue" x1="8" y1="7" x2="64" y2="71" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#62a6ff"/>
+      <stop offset="1" stop-color="#2368df"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(4 3)">
+    <rect x="0" y="0" width="76" height="76" rx="23" fill="url(#blue)"/>
+    <path d="M23 19v38m0-38h15c8 0 12.5 3.6 12.5 9.4 0 5.9-4.8 9.5-12.8 9.5H23m15 0c8.8 0 13.6 3.4 13.6 9.3 0 5.7-4.7 8.8-13.5 8.8H23" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M52 12h10" stroke="#ffcf42" stroke-width="4" stroke-linecap="round"/>
+    <path d="M52 64h10" stroke="#32d583" stroke-width="4" stroke-linecap="round"/>
+  </g>
+  <text x="98" y="48" fill="#182337" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="800" letter-spacing="-2.2">IPTV<tspan fill="#3478ef">BR</tspan></text>
+  <text x="101" y="70" fill="#3478ef" font-family="Arial, Helvetica, sans-serif" font-size="9.5" font-weight="800" letter-spacing="5.2">PORTUGAL</text>
+</svg>
