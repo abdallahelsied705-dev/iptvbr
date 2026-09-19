@@ -115,7 +115,7 @@ export default function HomePage() {
       <section className="ref-section ref-pricing">
         <div className="container">
           <SectionLabel>IPTVBR · PLANOS</SectionLabel>
-          <h2>Planos IPTV para a tua forma de ver.</h2>
+          <h2>Planos IPTV para a <span className="ref-accent">tua forma de ver.</span></h2>
           <p className="ref-section-intro">Escolhe a duração e o número de dispositivos. Mantemos os preços atualmente configurados no site e apresentamos tudo de forma clara.</p>
           <PricingMatrix />
         </div>
@@ -124,7 +124,7 @@ export default function HomePage() {
       <section className="ref-section ref-dark ref-devices">
         <div className="container ref-centered">
           <SectionLabel dark>COMPATIBILIDADE</SectionLabel>
-          <h2>Vê IPTV nos dispositivos que já tens.</h2>
+          <h2>Vê IPTV nos <span className="ref-accent">dispositivos que já tens.</span></h2>
           <p className="ref-dark-intro">Uma apresentação simples e organizada para encontrares rapidamente o equipamento certo.</p>
           <div className="ref-device-grid">
             {devices.map((device) => (
@@ -141,7 +141,7 @@ export default function HomePage() {
       <section className="ref-section ref-steps">
         <div className="container ref-centered">
           <SectionLabel>COMO COMEÇAR</SectionLabel>
-          <h2>3 passos para começares.</h2>
+          <h2><span className="ref-accent">3 passos</span> para começares.</h2>
           <div className="ref-steps-grid">
             <article><span>1</span><h3>Escolhe o teu plano</h3><p>Seleciona a duração e o número de dispositivos que queres utilizar.</p></article>
             <article><span>2</span><h3>Confirma o pedido</h3><p>Fala connosco pelo WhatsApp para confirmar os dados e seguir o processo.</p></article>
@@ -153,7 +153,7 @@ export default function HomePage() {
       <section className="ref-section ref-dark ref-compare">
         <div className="container ref-centered">
           <SectionLabel dark>PORQUÊ IPTVBR</SectionLabel>
-          <h2>O que deves procurar num serviço IPTV.</h2>
+          <h2>O que deves procurar num <span className="ref-accent">serviço IPTV.</span></h2>
           <p className="ref-dark-intro">Uma comparação visual simples para tornar a decisão mais fácil.</p>
           <div className="ref-compare-grid">
             <article><h3>Televisão tradicional</h3><ul><li><CheckCircle2 /> Menos flexibilidade</li><li><CheckCircle2 /> Pacotes pouco ajustáveis</li><li><CheckCircle2 /> Dependência de equipamento</li><li><CheckCircle2 /> Experiência mais rígida</li></ul></article>
@@ -180,7 +180,7 @@ export default function HomePage() {
       <section className="ref-section ref-dark ref-features">
         <div className="container ref-centered">
           <SectionLabel dark>RECURSOS</SectionLabel>
-          <h2>Descobre a experiência IPTVBR.</h2>
+          <h2>Descobre a <span className="ref-accent">experiência IPTVBR.</span></h2>
           <div className="ref-feature-grid">
             {featureCards.map((feature) => (
               <article key={feature.title} className="ref-feature-card">
@@ -198,7 +198,7 @@ export default function HomePage() {
       <section className="ref-section ref-faq">
         <div className="container ref-centered">
           <SectionLabel>PERGUNTAS FREQUENTES</SectionLabel>
-          <h2>Respostas rápidas às tuas dúvidas.</h2>
+          <h2>Respostas rápidas às <span className="ref-accent">tuas dúvidas.</span></h2>
           <div className="ref-faq-grid">
             {faq.map((question) => (
               <details key={question}>
@@ -213,7 +213,7 @@ export default function HomePage() {
       <section className="ref-section ref-dark ref-why">
         <div className="container ref-centered">
           <SectionLabel dark>ESCOLHA INFORMADA</SectionLabel>
-          <h2>Uma experiência pensada para ser clara.</h2>
+          <h2>Uma experiência pensada para <span className="ref-accent">ser clara.</span></h2>
           <div className="ref-why-grid">
             <article><span><BadgeCheck /></span><h3>Informação transparente</h3><p>Preços, dispositivos e passos apresentados num só percurso.</p></article>
             <article><span><MonitorSmartphone /></span><h3>Vários dispositivos</h3><p>Encontra o caminho certo para TV, streaming, mobile e computador.</p></article>
@@ -251,7 +251,7 @@ export default function HomePage() {
       <section className="ref-section ref-dark ref-coverage">
         <div className="container ref-centered">
           <SectionLabel dark>PORTUGAL</SectionLabel>
-          <h2>IPTV para clientes em Portugal.</h2>
+          <h2>IPTV para <span className="ref-accent">clientes em Portugal.</span></h2>
           <div className="ref-coverage-box">
             <strong>Atendimento pensado para Portugal</strong>
             <p>Conteúdo, guias e comunicação em português de Portugal, com um percurso simples desde a escolha do plano até à configuração.</p>
@@ -263,7 +263,7 @@ export default function HomePage() {
       <section className="ref-section ref-reviews">
         <div className="container ref-centered">
           <SectionLabel>EXPERIÊNCIA</SectionLabel>
-          <h2>O que dizem os nossos clientes.</h2>
+          <h2>O que dizem os <span className="ref-accent">nossos clientes.</span></h2>
           <p className="ref-section-intro">Experiências reais partilhadas por clientes depois da configuração do serviço.</p>
           <ReviewCarousel />
         </div>
@@ -295,7 +295,7 @@ export default function HomePage() {
         <div className="container">
           <div className="ref-cta-main">
             <SectionLabel>COMEÇA AGORA</SectionLabel>
-            <h2>Pronto para melhorar a tua experiência de TV?</h2>
+            <h2>Pronto para melhorar a tua <span className="ref-accent">experiência de TV?</span></h2>
             <p>Escolhe um plano ou fala diretamente connosco para orientação.</p>
             <div className="ref-actions"><WhatsAppButton message="Olá! Quero ajuda para escolher o melhor plano IPTVBR para Portugal." /><Link href="#planos" className="ref-button ref-button-outline">Ver planos</Link></div>
           </div>
