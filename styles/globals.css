@@ -1603,17 +1603,10 @@ main {
 }
 .reference-hero-collage {
   width:min(430px,100%); aspect-ratio:1; position:relative; margin:0 auto;
-  border-radius:50%; overflow:hidden; display:grid; grid-template-columns:1fr 1fr; gap:7px;
+  border-radius:50%; overflow:hidden; background:#10233f;
+  box-shadow:0 24px 60px rgba(26,69,127,.16),0 0 0 1px rgba(36,84,151,.12);
 }
-.reference-hero-photo {
-  background-image:url("/images/hero/iptvbr-hero-background.webp");
-  background-size:220% 220%; background-repeat:no-repeat;
-  filter:saturate(1.02);
-}
-.reference-hero-photo.photo-a { background-position:18% 18%; }
-.reference-hero-photo.photo-b { background-position:82% 18%; }
-.reference-hero-photo.photo-c { background-position:18% 82%; }
-.reference-hero-photo.photo-d { background-position:82% 82%; }
+.reference-hero-collage-image { object-fit:cover; object-position:center; filter:saturate(1.03) contrast(1.01); }
 .reference-hero-circle {
   position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
   width:205px; height:205px; border-radius:50%;
