@@ -68,6 +68,16 @@ const resourcePairs: Record<string, ExternalResource[]> = {
     { label: "Chile IPTV — referência internacional", href: "https://chileiptv.com/" },
     { label: "IPTV Polski — referência internacional", href: "https://iptvpolski.com/" },
   ],
+  "/blog/melhor-app-iptv-smart-tv/": [{ label: "Appolo IPTV — recursos de aplicações", href: "https://www.appoloiptv.com/" }],
+  "/blog/iptv-com-som-sem-imagem/": [{ label: "Golden Gate IPTV — referência de streaming", href: "https://goldengateiptv.com/" }],
+  "/blog/iptv-sem-som/": [{ label: "MultiVision IPTV — referência internacional", href: "https://www.multivision-iptv.com/" }],
+  "/blog/latencia-iptv-vs-buffering/": [{ label: "Belgische IPTV — referência europeia", href: "https://belgischeiptv.be/" }],
+  "/blog/router-para-iptv/": [{ label: "Nederland IPTV — referência de rede", href: "https://nederlandiptv.org/" }],
+  "/blog/como-limpar-cache-app-iptv/": [{ label: "Dexter Fire TV — recursos para streaming devices", href: "https://dexterfiretv.com/" }],
+  "/blog/mesh-wifi-para-iptv/": [{ label: "Romanian IPTV — referência europeia", href: "https://romanianiptv.ro/" }],
+  "/blog/adaptador-ethernet-firestick/": [{ label: "Dexter Fire TV — recursos para Fire TV", href: "https://dexterfiretv.com/" }],
+  "/blog/legendas-audio-iptv/": [{ label: "Greek IPTV — referência regional", href: "https://iptvgreeks.gr/" }],
+  "/blog/iptv-segunda-casa/": [{ label: "Chile IPTV — referência internacional", href: "https://chileiptv.com/" }],
 };
 
 export function getExternalResources(slug: string): ExternalResource[] {

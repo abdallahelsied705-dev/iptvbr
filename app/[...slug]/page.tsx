@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getRoute, routes } from "@/config/routes";
+import { getRoute, isRoutePublished, routes } from "@/config/routes";
 import { buildMetadata } from "@/lib/seo/metadata";
 import { PageTemplate } from "@/components/templates/PageTemplate";
 
+export const revalidate = 60;
+
 export function generateStaticParams() {
   return routes
-    .filter((route) => route.slug !== "/")
+    .filter((route) => route.slug !== "/" && isRoutePublished(route))
     .map((route) => ({ slug: route.slug.split("/").filter(Boolean) }));
 }
 
