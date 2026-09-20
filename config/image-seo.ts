@@ -19,6 +19,16 @@ const articleImageAlt: Record<string, string> = {
   "/blog/controlo-parental-iptv/": "Família a ver televisão em conjunto numa sala com vários ecrãs",
   "/blog/usar-iptv-fora-de-casa/": "Smart TV com conteúdo de viagem numa casa junto ao mar",
   "/blog/manutencao-app-iptv/": "Televisão, comando e bloco de notas para manutenção de uma app IPTV",
+  "/blog/melhor-app-iptv-smart-tv/": "Smart TV numa sala moderna para comparar aplicações IPTV",
+  "/blog/iptv-com-som-sem-imagem/": "Televisão com ecrã preto e áudio ativo para diagnosticar IPTV sem imagem",
+  "/blog/iptv-sem-som/": "Smart TV com imagem ativa e som desativado para resolver áudio no IPTV",
+  "/blog/latencia-iptv-vs-buffering/": "Comparação visual entre latência e buffering numa transmissão IPTV",
+  "/blog/router-para-iptv/": "Router Wi-Fi 6 ligado a uma Smart TV para melhorar o IPTV",
+  "/blog/como-limpar-cache-app-iptv/": "Limpeza segura da cache de uma aplicação IPTV na Smart TV",
+  "/blog/mesh-wifi-para-iptv/": "Rede Mesh Wi-Fi a distribuir IPTV por vários ecrãs da casa",
+  "/blog/adaptador-ethernet-firestick/": "Adaptador Ethernet ligado a um dispositivo de streaming para IPTV",
+  "/blog/legendas-audio-iptv/": "Configuração de legendas e faixas de áudio num player IPTV",
+  "/blog/iptv-segunda-casa/": "IPTV ligado entre residência principal e casa de férias em Portugal",
 };
 
 export function getImageAlt(route: RouteDefinition) {
