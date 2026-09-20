@@ -125,4 +125,124 @@ export const scheduledArticles: Record<string, ScheduledArticle> = {
       { question: "Internet móvel serve para uma casa de férias?", answer: "Pode servir com cobertura estável e plafond adequado. Mede consumo e testa no horário real." },
     ],
   },
+  "/blog/app-iptv-fecha-sozinha/": {
+    sections: [
+      { heading: "Fecha sozinha ou é encerrada pelo sistema?", paragraphs: ["Uma aplicação pode fechar por erro interno, falta de memória ou porque o sistema precisa de libertar recursos. Observa se regressas ao ecrã inicial, se o dispositivo reinicia ou se aparece uma mensagem; cada comportamento aponta para uma causa diferente.", "Regista a ação anterior à falha: abrir o EPG, mudar rapidamente de canal, iniciar 4K ou retomar depois de suspensão. Um padrão repetível é muito mais útil do que reinstalar sem diagnóstico."], links: [l("Problemas com a app", "/suporte/problemas-app/"), l("Manutenção da aplicação", "/blog/manutencao-app-iptv/")] },
+      { heading: "Liberta recursos sem apagar a configuração", paragraphs: ["Fecha aplicações em segundo plano, reinicia o equipamento e confirma espaço livre. Em sticks e boxes compactos, armazenamento cheio e calor podem tornar o sistema agressivo ao encerrar processos.", "Limpa primeiro apenas a cache. Limpar dados pode remover login, favoritos e preferências; usa essa opção apenas quando tens forma segura de reconstruir a configuração."], links: [l("Como limpar cache", "/blog/como-limpar-cache-app-iptv/")] },
+      { heading: "Atualização, versão e compatibilidade", paragraphs: ["Atualiza pela loja oficial e confirma se a versão do sistema continua suportada. Uma app recente pode exigir recursos que uma televisão antiga não oferece; uma versão abandonada pode falhar depois de mudanças no serviço.", "Se a falha começou após uma atualização, anota a versão em vez de procurar ficheiros antigos em sites desconhecidos. O suporte precisa desse dado para confirmar um problema conhecido."], links: [l("Escolher uma app IPTV", "/blog/como-escolher-uma-app-iptv/"), l("Segurança nas apps", "/blog/seguranca-apps-iptv/")] },
+      { heading: "Teste controlado antes do suporte", paragraphs: ["Repete no mesmo conteúdo, testa outro conteúdo e compara numa segunda aplicação compatível sem mudar a rede. Se apenas uma app fecha, a investigação fica concentrada; se o equipamento reinicia, verifica alimentação e temperatura.", "Envia modelo, sistema, versão, espaço livre e passos que reproduzem o erro. Nunca publiques credenciais nem uses acesso remoto de origem duvidosa."], links: [l("Suporte IPTV", "/suporte/"), l("Ver dispositivos", "/dispositivos/")] },
+    ],
+    faq: [
+      { question: "Por que a app IPTV fecha sozinha?", answer: "As causas comuns são falta de memória ou espaço, aquecimento, erro da versão, cache danificada ou incompatibilidade do dispositivo." },
+      { question: "Limpar cache pode ajudar?", answer: "Sim, quando ficheiros temporários estão danificados. Evita limpar dados antes de guardar a configuração necessária." },
+    ],
+  },
+  "/blog/epg-hora-errada/": {
+    sections: [
+      { heading: "O relógio certo começa no dispositivo", paragraphs: ["Confirma data, hora e fuso horário do televisor, box ou telemóvel. Em Portugal, a mudança entre hora de inverno e verão pode criar uma diferença de uma hora quando o sistema está configurado manualmente.", "Ativa hora automática, reinicia e só depois altera compensações dentro da aplicação. Corrigir duas vezes — no sistema e no player — pode deslocar ainda mais o guia."], links: [l("O que é EPG", "/blog/o-que-e-epg/"), l("EPG não funciona", "/suporte/epg-nao-funciona/")] },
+      { heading: "Offset da aplicação: usa apenas quando necessário", paragraphs: ["Alguns players oferecem EPG time shift ou offset. Começa em zero e compara um programa conhecido. Ajusta em passos de 30 ou 60 minutos apenas se todas as linhas tiverem o mesmo desvio.", "Se alguns canais estão certos e outros errados, um offset global não resolve; pode existir associação incorreta entre canal e identificador."], links: [l("Configurar EPG", "/guias/epg/")] },
+      { heading: "Atualiza a fonte sem destruir favoritos", paragraphs: ["Força uma atualização do EPG e aguarda a conclusão. Limpa apenas os dados específicos do guia quando a app distingue essa opção; apagar toda a aplicação pode remover organização sem corrigir a origem.", "Confirma também país e região. Canais com versões internacionais podem usar grelhas diferentes apesar de nomes semelhantes."], links: [l("Manutenção da app", "/blog/manutencao-app-iptv/")] },
+      { heading: "Diagnóstico por padrão", paragraphs: ["Uma hora de diferença em todos os canais aponta para fuso ou horário de verão. Apenas alguns canais apontam para correspondência de IDs. Guia vazio é outro problema: fonte, ligação ou atualização.", "Ao pedir ajuda, envia exemplos com canal, programa, hora apresentada e hora esperada, sem expor URLs privadas."], links: [l("Suporte", "/suporte/"), l("Aplicações IPTV", "/apps/")] },
+    ],
+    faq: [
+      { question: "Como corrigir o EPG uma hora adiantado?", answer: "Confirma fuso e hora automática no dispositivo e deixa o offset da app em zero antes de testar um ajuste." },
+      { question: "Por que só alguns canais têm horário errado?", answer: "Normalmente existe associação incorreta entre canais e identificadores do guia, não um problema global de fuso." },
+    ],
+  },
+  "/blog/lista-m3u-nao-carrega/": {
+    sections: [
+      { heading: "A mensagem de erro é o primeiro dado", paragraphs: ["URL inválido, timeout, acesso recusado e playlist vazia são falhas diferentes. Copia apenas a mensagem — nunca publiques o endereço completo, porque uma playlist pode conter credenciais.", "Confirma se introduziste o URL sem espaços e respeitando maiúsculas, símbolos e protocolo. Teclados de televisão tornam fácil trocar caracteres."], links: [l("Guia M3U", "/guias/m3u/"), l("Erro de credenciais", "/suporte/erro-credenciais/")] },
+      { heading: "Separa rede, player e fonte", paragraphs: ["Testa a ligação com outra aplicação legítima, reinicia o router e verifica data do sistema. Depois testa a mesma configuração num segundo player compatível, mantendo dispositivo e rede quando possível.", "Se dois players falham da mesma forma, evita reinstalar repetidamente. Confirma validade e disponibilidade com o fornecedor autorizado."], links: [l("M3U vs Xtream Codes", "/blog/m3u-vs-xtream-codes/"), l("IPTV não funciona", "/suporte/iptv-nao-funciona/")] },
+      { heading: "Playlist grande e limites do equipamento", paragraphs: ["Listas extensas exigem memória para analisar categorias, logos e EPG. Uma Smart TV antiga pode parecer bloqueada enquanto processa ou pode fechar a aplicação.", "Reduz funções opcionais durante o teste, liberta armazenamento e aguarda a primeira importação. Se o player permite grupos, carrega apenas o necessário."], links: [l("App fecha sozinha", "/blog/app-iptv-fecha-sozinha/"), l("Escolher uma box", "/blog/como-escolher-box-iptv/")] },
+      { heading: "Privacidade durante o suporte", paragraphs: ["Partilha dispositivo, app, hora e texto do erro, mas oculta servidor, utilizador, password e tokens. Não introduzas a playlist em validadores públicos desconhecidos.", "Quando o acesso voltar, remove capturas que contenham dados e altera credenciais se suspeitares de exposição."], links: [l("Segurança em apps", "/blog/seguranca-apps-iptv/"), l("Contactar suporte", "/suporte/")] },
+    ],
+    faq: [
+      { question: "Por que uma lista M3U não carrega?", answer: "Pode existir URL incorreto, acesso expirado, rede indisponível, fonte temporariamente inacessível ou falta de recursos no player." },
+      { question: "Posso testar o URL num site online?", answer: "Evita validadores desconhecidos, pois o endereço pode conter credenciais. Usa aplicações confiáveis ou suporte autorizado." },
+    ],
+  },
+  "/blog/imagem-iptv-pixelizada/": {
+    sections: [
+      { heading: "Pixelização não significa sempre Internet lenta", paragraphs: ["Blocos visíveis podem nascer de bitrate baixo, compressão agressiva, perda de dados, sinal Wi-Fi instável ou descodificação. Se a imagem fica pixelizada apenas em movimento rápido, a compressão pode ser mais relevante do que a velocidade máxima.", "Observa se acontece em todos os conteúdos e horários. Um padrão isolado não deve levar a alterar toda a rede."], links: [l("4K, HDR e codecs", "/blog/iptv-4k-hdr-codecs/"), l("Velocidade para IPTV", "/blog/velocidade-internet-iptv/")] },
+      { heading: "Compara qualidade e bitrate", paragraphs: ["Muda temporariamente entre HD e Full HD e observa detalhe em cenas rápidas. Uma etiqueta 4K não garante qualidade se o bitrate for insuficiente.", "Confirma que a aplicação não escolheu qualidade baixa automaticamente após uma oscilação. Volta a automático apenas depois de estabilizar a rede."], links: [l("Quanto consome IPTV", "/blog/quanto-consome-iptv/")] },
+      { heading: "Testa a rede sem depender de um único número", paragraphs: ["Liga por Ethernet ou aproxima o dispositivo do router, reproduz o mesmo conteúdo e evita downloads paralelos. Um teste de Mbps pode parecer excelente e esconder perdas ou interferência.", "Se Ethernet resolve, melhora cobertura ou posição. Se o resultado não muda, investiga player, dispositivo e fonte."], links: [l("Wi-Fi ou cabo", "/blog/iptv-wifi-ou-cabo-ethernet/"), l("Mesh Wi-Fi", "/blog/mesh-wifi-para-iptv/")] },
+      { heading: "Ajustes do televisor", paragraphs: ["Desativa temporariamente redução de ruído e nitidez excessiva; estes filtros podem ampliar artefactos. Usa um modo de imagem neutro para avaliar a fonte.", "Se a pixelização aparece em vários dispositivos no mesmo conteúdo, documenta o horário e contacta suporte em vez de comprar hardware."], links: [l("Problemas na Smart TV", "/suporte/problemas-smart-tv/"), l("Ver preços", "/precos/")] },
+    ],
+    faq: [
+      { question: "Por que a imagem IPTV fica pixelizada?", answer: "As causas incluem compressão, bitrate baixo, instabilidade de rede, interferência Wi-Fi, player ou descodificação." },
+      { question: "Mais Mbps eliminam pixelização?", answer: "Não necessariamente. Estabilidade, bitrate da fonte e processamento também influenciam." },
+    ],
+  },
+  "/blog/audio-video-dessincronizado-iptv/": {
+    sections: [
+      { heading: "Mede antes de corrigir", paragraphs: ["Escolhe uma cena com fala visível e identifica se o áudio chega antes ou depois. Reinicia o conteúdo para confirmar que o atraso é constante; uma diferença que aumenta ao longo do tempo pode indicar frame rate ou descodificação.", "Testa outro conteúdo. Se apenas um item falha, um ajuste global pode desalinhar todo o resto."], links: [l("Legendas e áudio", "/blog/legendas-audio-iptv/"), l("IPTV sem som", "/blog/iptv-sem-som/")] },
+      { heading: "Ajuste de sincronização no player", paragraphs: ["Procura Audio delay ou AV sync e altera em passos pequenos, por exemplo 50 milissegundos. Guarda apenas quando o resultado se mantém depois de pausar e retomar.", "Regista o valor original. Ajustes extremos costumam mascarar outro problema na cadeia."], links: [l("Escolher app IPTV", "/blog/como-escolher-uma-app-iptv/")] },
+      { heading: "Bluetooth, soundbar e HDMI", paragraphs: ["Auscultadores Bluetooth e processamento de soundbar acrescentam latência. Testa o altifalante interno da televisão e depois volta a introduzir cada componente.", "Em HDMI, experimenta PCM e outra porta. Atualiza firmware da televisão e do sistema de áudio quando existir uma correção relevante."], links: [l("IPTV com som sem imagem", "/blog/iptv-com-som-sem-imagem/")] },
+      { heading: "Quando o problema acompanha o dispositivo", paragraphs: ["Se todas as aplicações ficam dessincronizadas, verifica sistema, processamento de imagem e áudio. Modo Jogo pode reduzir atraso visual, embora altere outros tratamentos.", "Se o problema acompanha apenas uma app, reúne versão, codec e passos de reprodução para o suporte."], links: [l("Suporte IPTV", "/suporte/"), l("Dispositivos", "/dispositivos/")] },
+    ],
+    faq: [
+      { question: "Como sincronizar áudio e vídeo no IPTV?", answer: "Usa o ajuste AV sync em pequenos passos e testa sem Bluetooth ou soundbar para localizar a origem." },
+      { question: "Bluetooth causa atraso no áudio?", answer: "Pode causar, dependendo do codec e equipamento. Compara com os altifalantes internos." },
+    ],
+  },
+  "/blog/iptv-televisao-antiga/": {
+    sections: [
+      { heading: "Uma televisão antiga pode continuar útil", paragraphs: ["Se tem entrada HDMI funcional, uma box ou stick certificado pode adicionar aplicações modernas sem substituir o ecrã. A resolução da televisão define o limite visual, mas não impede uma interface atualizada.", "Antes de comprar, confirma HDMI, resolução, espaço físico e acesso a tomada. Televisões muito antigas podem exigir conversores, com perda de simplicidade e qualidade."], links: [l("Dispositivos IPTV", "/dispositivos/"), l("Como escolher box", "/blog/como-escolher-box-iptv/")] },
+      { heading: "Stick ou box externa?", paragraphs: ["Um stick ocupa pouco espaço e serve utilização simples. Uma box costuma oferecer mais portas, refrigeração e possibilidade de Ethernet. Escolhe pelo cenário, não pelo formato mais popular.", "Confirma sistema certificado, atualizações e comando. Equipamentos genéricos baratos podem ter software pouco previsível."], links: [l("Fire TV Stick", "/dispositivos/iptv-firestick/"), l("Android TV", "/dispositivos/iptv-android-tv/")] },
+      { heading: "Resolução, HDMI e energia", paragraphs: ["Configura a saída para a resolução nativa do televisor. Se aparece ecrã preto, começa em 720p ou 1080p e testa outra porta.", "Alimenta o dispositivo pelo adaptador recomendado. A porta USB de uma TV antiga pode não fornecer corrente suficiente, causando reinícios e falhas."], links: [l("Som sem imagem", "/blog/iptv-com-som-sem-imagem/")] },
+      { heading: "Experiência simples para uso diário", paragraphs: ["Organiza favoritos, aumenta tamanho de texto quando possível e remove apps desnecessárias. Um comando com botões claros pode importar mais do que funções avançadas.", "Testa rede no local. Se passar cabo for viável, Ethernet reduz uma variável importante numa instalação fixa."], links: [l("Wi-Fi ou Ethernet", "/blog/iptv-wifi-ou-cabo-ethernet/"), l("Ver planos", "/precos/")] },
+    ],
+    faq: [
+      { question: "É possível usar IPTV numa televisão antiga?", answer: "Sim, normalmente através de uma box ou stick ligado por HDMI e uma aplicação compatível." },
+      { question: "Preciso de televisão 4K?", answer: "Não. A qualidade pode ser ajustada à resolução do ecrã, como HD ou Full HD." },
+    ],
+  },
+  "/blog/fire-tv-vs-android-tv-box/": {
+    sections: [
+      { heading: "Dois caminhos para o mesmo objetivo", paragraphs: ["Fire TV oferece um ecossistema integrado da Amazon e configuração consistente. Android TV ou Google TV existe em várias marcas, com maior diversidade de hardware, portas e preços.", "A comparação justa usa modelos concretos. Uma box premium não deve ser comparada apenas com o stick mais básico."], links: [l("Fire TV Stick", "/dispositivos/iptv-firestick/"), l("Android TV", "/dispositivos/iptv-android-tv/")] },
+      { heading: "Aplicações e interface", paragraphs: ["Confirma a aplicação na Amazon Appstore ou Google Play antes da compra. A existência do mesmo nome não garante funções idênticas em todas as versões.", "Avalia pesquisa, favoritos, EPG e navegação por comando. Se dependes de instalação externa, inclui segurança e manutenção no custo da decisão."], links: [l("Melhor app para Smart TV", "/blog/melhor-app-iptv-smart-tv/"), l("Segurança das apps", "/blog/seguranca-apps-iptv/")] },
+      { heading: "Portas, rede e desempenho", paragraphs: ["Boxes podem incluir Ethernet, USB e mais armazenamento; sticks privilegiam tamanho e simplicidade. Ambos podem exigir adaptador para rede por cabo.", "Para 4K, confirma codec, HDR, memória e refrigeração. A etiqueta de resolução não descreve a fluidez do menu."], links: [l("Adaptador Ethernet Fire TV", "/blog/adaptador-ethernet-firestick/"), l("4K e codecs", "/blog/iptv-4k-hdr-codecs/")] },
+      { heading: "Decisão por perfil", paragraphs: ["Escolhe Fire TV se valorizas uma experiência padronizada e o ecossistema Amazon. Considera Android TV/Google TV quando precisas de variedade de hardware, portas ou integração Google.", "Qualquer escolha deve incluir atualizações, garantia e origem confiável. Evita boxes sem identificação clara apenas por prometerem muitas funções."], links: [l("Comparar dispositivos", "/dispositivos/"), l("Preços IPTV", "/precos/")] },
+    ],
+    faq: [
+      { question: "Fire TV é melhor do que Android TV Box?", answer: "Depende do modelo, apps, portas e ecossistema pretendido. Compara equipamentos concretos, não apenas sistemas." },
+      { question: "Qual é melhor para Ethernet?", answer: "Muitas boxes incluem porta; Fire TV costuma precisar de adaptador compatível." },
+    ],
+  },
+  "/blog/firestick-armazenamento-cheio/": {
+    sections: [
+      { heading: "Sinais de armazenamento insuficiente", paragraphs: ["Atualizações que falham, menus lentos, apps que fecham e avisos de espaço são sintomas comuns. Confirma o valor livre nas definições antes de limpar qualquer coisa.", "Não confundas armazenamento com memória RAM. Apagar ficheiros liberta espaço permanente, mas não aumenta a memória física do dispositivo."], links: [l("Problemas no Firestick", "/suporte/problemas-firestick/"), l("App fecha sozinha", "/blog/app-iptv-fecha-sozinha/")] },
+      { heading: "Liberta espaço com baixo risco", paragraphs: ["Remove aplicações que já não usas, limpa cache das maiores e apaga downloads conhecidos. Reinicia depois para o sistema recalcular o espaço.", "Evita aplicações de limpeza que prometem acelerar tudo. As ferramentas do Fire OS mostram consumo sem entregar permissões a terceiros."], links: [l("Limpar cache", "/blog/como-limpar-cache-app-iptv/")] },
+      { heading: "Dados da app: último recurso", paragraphs: ["Limpar dados pode recuperar espaço, mas remove sessão, favoritos e configuração. Faz isso apenas quando tens as informações necessárias e compreendes o resultado.", "Se uma app volta a ocupar demasiado espaço, verifica downloads, logos, cache de EPG e versões. Uma reinstalação repetida não é manutenção sustentável."], links: [l("Manutenção da app", "/blog/manutencao-app-iptv/")] },
+      { heading: "Expansão e escolha de equipamento", paragraphs: ["Alguns modelos suportam armazenamento externo com limitações. Confirma documentação do modelo e não desligues unidades durante escrita.", "Se o espaço continua incompatível com o teu uso, compara um dispositivo com maior armazenamento em vez de gerir permanentemente no limite."], links: [l("Escolher box IPTV", "/blog/como-escolher-box-iptv/"), l("Dispositivos", "/dispositivos/")] },
+    ],
+    faq: [
+      { question: "Quanto espaço livre deve ter o Fire TV Stick?", answer: "Não existe um valor universal, mas deve existir margem para cache e atualizações. Evita operar continuamente junto de zero." },
+      { question: "Limpar dados apaga a configuração?", answer: "Normalmente sim. Limpa cache primeiro e usa dados apenas quando estás preparado para configurar novamente." },
+    ],
+  },
+  "/blog/iptv-pc-vlc/": {
+    sections: [
+      { heading: "Quando o computador é o dispositivo mais prático", paragraphs: ["Um PC permite testar rede, codecs e configuração com mais visibilidade do que muitas televisões. VLC é um player conhecido para fontes legítimas e ficheiros locais, mas não substitui autorização de conteúdo.", "Atualiza o sistema e descarrega o player apenas do site oficial. Evita versões modificadas que prometem listas ou canais incluídos."], links: [l("IPTV no Windows", "/dispositivos/iptv-windows/"), l("Segurança nas apps", "/blog/seguranca-apps-iptv/")] },
+      { heading: "Abrir uma fonte sem expor dados", paragraphs: ["Usa Abrir fluxo de rede para um endereço fornecido legitimamente e não o guardes em capturas públicas. Se trabalhas com ficheiro M3U, mantém-no numa pasta privada.", "Confirma áudio, vídeo e estabilidade antes de alterar cache de rede. Os valores padrão são um ponto de partida, não um erro."], links: [l("Guia M3U", "/guias/m3u/"), l("Lista M3U não carrega", "/blog/lista-m3u-nao-carrega/")] },
+      { heading: "Buffer, hardware e ecrã completo", paragraphs: ["Se existem pausas, compara Ethernet, outra fonte legítima e utilização de CPU. Ativa ou desativa descodificação por hardware apenas como teste; drivers antigos podem causar imagem preta ou artefactos.", "Para ligar à televisão, ajusta resolução e áudio HDMI no Windows. Testa sem duplicar ecrãs se o equipamento perde frames."], links: [l("Latência vs buffering", "/blog/latencia-iptv-vs-buffering/"), l("Som sem imagem", "/blog/iptv-com-som-sem-imagem/")] },
+      { heading: "VLC ou aplicação dedicada", paragraphs: ["VLC é útil para diagnóstico e reprodução direta. Uma aplicação dedicada pode organizar EPG, favoritos e perfis de forma mais confortável.", "Escolhe pela tarefa: usa uma ferramenta simples para testar e uma interface adequada ao uso diário, sem duplicar credenciais em programas desnecessários."], links: [l("Aplicações IPTV", "/apps/"), l("Ver planos", "/precos/")] },
+    ],
+    faq: [
+      { question: "VLC pode reproduzir IPTV?", answer: "Pode abrir fontes legítimas compatíveis, incluindo certos fluxos e playlists M3U." },
+      { question: "VLC inclui canais IPTV?", answer: "Não. É um player; a fonte e os direitos de acesso são separados." },
+    ],
+  },
+  "/blog/testar-estabilidade-iptv/": {
+    sections: [
+      { heading: "Um teste útil começa com critérios", paragraphs: ["Não avalies apenas se a imagem abriu. Define antes o que vais observar: tempo de arranque, interrupções, mudança de canal, EPG, qualidade em movimento e resposta do suporte.", "Testa no dispositivo, rede e horário em que pretendes usar. Uma demonstração junto ao router numa manhã vazia não representa a sala num evento concorrido."], links: [l("Checklist antes de subscrever", "/blog/checklist-antes-de-subscrever-iptv/"), l("Como escolher IPTV", "/comparar/como-escolher-iptv-portugal/")] },
+      { heading: "Repete o mesmo cenário", paragraphs: ["Escolhe conteúdos de diferentes tipos e mantém resolução e app. Regista início, pausas e recuperação durante pelo menos trinta minutos.", "Depois compara Wi-Fi e Ethernet sem alterar o resto. Se o resultado muda, encontraste uma variável local; se não muda, continua o diagnóstico."], links: [l("Wi-Fi ou cabo", "/blog/iptv-wifi-ou-cabo-ethernet/"), l("Buffering", "/blog/iptv-buffering-causas/")] },
+      { heading: "Testa suporte antes de precisar dele", paragraphs: ["Faz uma pergunta concreta sobre compatibilidade ou configuração e avalia clareza, não apenas velocidade. Respostas que pressionam pagamento sem explicar condições são um sinal para pausar.", "Confirma duração, dispositivos, ligações simultâneas, renovação e reembolso por escrito."], links: [l("Contacto", "/contacto/"), l("Política de reembolso", "/politica-reembolso/")] },
+      { heading: "Decide com evidência, não com um momento perfeito", paragraphs: ["Nenhum teste garante o futuro, mas um método reduz decisões por slogans. Compara estabilidade, organização, suporte, transparência e custo total.", "Se a oferta não permite confirmar condições básicas ou exige instalar software desconhecido, não avances. Uma boa decisão pode ser esperar."], links: [l("Preços IPTV", "/precos/"), l("Legalidade", "/legalidade/")] },
+    ],
+    faq: [
+      { question: "Quanto tempo deve durar um teste de estabilidade?", answer: "Tempo suficiente para observar o uso real; pelo menos trinta minutos e, idealmente, em mais de um horário." },
+      { question: "O que devo testar antes de subscrever?", answer: "Dispositivo, app, rede, mudança de canal, EPG, qualidade, suporte e condições comerciais." },
+    ],
+  },
 };
