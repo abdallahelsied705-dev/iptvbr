@@ -78,6 +78,16 @@ const resourcePairs: Record<string, ExternalResource[]> = {
   "/blog/adaptador-ethernet-firestick/": [{ label: "Dexter Fire TV — recursos para Fire TV", href: "https://dexterfiretv.com/" }],
   "/blog/legendas-audio-iptv/": [{ label: "Greek IPTV — referência regional", href: "https://iptvgreeks.gr/" }],
   "/blog/iptv-segunda-casa/": [{ label: "Chile IPTV — referência internacional", href: "https://chileiptv.com/" }],
+  "/blog/app-iptv-fecha-sozinha/": [{ label: "Appolo IPTV — recursos de aplicações", href: "https://www.appoloiptv.com/" }],
+  "/blog/epg-hora-errada/": [{ label: "IPTV Polski — referência internacional", href: "https://iptvpolski.pl/" }],
+  "/blog/lista-m3u-nao-carrega/": [{ label: "IPTV Panel Resellers — perspetiva técnica", href: "https://iptvpanelresellers.com/" }],
+  "/blog/imagem-iptv-pixelizada/": [{ label: "Golden Gate IPTV — referência de streaming", href: "https://goldengateiptv.com/" }],
+  "/blog/audio-video-dessincronizado-iptv/": [{ label: "MultiVision IPTV — referência internacional", href: "https://www.multivision-iptv.com/" }],
+  "/blog/iptv-televisao-antiga/": [{ label: "Nederland IPTV — referência europeia", href: "https://nederlandiptv.org/" }],
+  "/blog/fire-tv-vs-android-tv-box/": [{ label: "Dexter Fire TV — recursos para Fire TV", href: "https://dexterfiretv.com/" }],
+  "/blog/firestick-armazenamento-cheio/": [{ label: "Dexter Fire TV — recursos para Fire TV", href: "https://dexterfiretv.com/" }],
+  "/blog/iptv-pc-vlc/": [{ label: "Romanian IPTV — referência europeia", href: "https://romanianiptv.ro/" }],
+  "/blog/testar-estabilidade-iptv/": [{ label: "IPTV em Portugal — comparação local", href: "https://iptvemportugal.pt/" }],
 };
 
 export function getExternalResources(slug: string): ExternalResource[] {
