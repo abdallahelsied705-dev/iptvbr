@@ -9,6 +9,13 @@ function HeroBenefit({ icon, title, detail }: { icon: React.ReactNode; title: st
   </div>;
 }
 
+function HeroActions({ mobile = false }: { mobile?: boolean }) {
+  return <div className={`reference-hero-actions${mobile ? " reference-hero-actions-mobile" : ""}`}>
+    <Link href="#planos" className="reference-blue-button"><span className="hero-cta-icon"><ArrowRight size={18} /></span><span className="button-copy"><strong>Ver planos</strong><small>Comparar opções</small></span></Link>
+    <WhatsAppButton message="Olá! Quero conhecer os planos IPTVBR para Portugal." detail="Resposta rápida" />
+  </div>;
+}
+
 export function Hero() {
   return <section className="reference-hero" aria-labelledby="hero-title">
     <div className="container reference-hero-grid">
@@ -35,11 +42,9 @@ export function Hero() {
           <li><CheckCircle2 /> Compatibilidade com vários dispositivos</li>
           <li><CheckCircle2 /> Suporte direto pelo WhatsApp</li>
         </ul>
-        <div className="reference-hero-actions">
-          <Link href="#planos" className="reference-blue-button"><span className="hero-cta-icon"><ArrowRight size={18} /></span><span className="button-copy"><strong>Ver planos</strong><small>Comparar opções</small></span></Link>
-          <WhatsAppButton message="Olá! Quero conhecer os planos IPTVBR para Portugal." detail="Resposta rápida" />
-        </div>
+        <HeroActions />
       </div>
+      <HeroActions mobile />
     </div>
 
     <div className="container reference-hero-proof">
