@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
+import { createPortal } from "react-dom";
 import { navigation } from "@/config/navigation";
 
 export function MobileMenu() {
@@ -35,10 +36,10 @@ export function MobileMenu() {
         <svg aria-hidden="true" viewBox="0 0 20 20"><path d={open ? "M5 5l10 10M15 5 5 15" : "M3 6h14M3 10h14M3 14h14"} /></svg>
       </button>
 
-      {open ? (
-        <>
+      {open ? createPortal(
+        <div className="mobile-menu-layer">
         <button className="mobile-menu-backdrop" type="button" aria-label="Fechar menu" onClick={() => setOpen(false)} />
-        <div id={menuId} className="mobile-menu-panel">
+        <div id={menuId} className="mobile-menu-panel" role="dialog" aria-modal="true" aria-label="Menu de navegação">
           <div className="mobile-menu-heading"><span>NAVEGAÇÃO</span><strong>Explora a IPTVBR</strong></div>
           <nav aria-label="Navegação móvel">
             <ul className="mobile-nav-list">
@@ -63,7 +64,8 @@ export function MobileMenu() {
             </ul>
           </nav>
         </div>
-        </>
+        </div>,
+        document.body,
       ) : null}
     </div>
   );
