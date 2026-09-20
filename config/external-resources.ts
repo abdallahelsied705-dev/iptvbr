@@ -88,6 +88,16 @@ const resourcePairs: Record<string, ExternalResource[]> = {
   "/blog/firestick-armazenamento-cheio/": [{ label: "Dexter Fire TV — recursos para Fire TV", href: "https://dexterfiretv.com/" }],
   "/blog/iptv-pc-vlc/": [{ label: "Romanian IPTV — referência europeia", href: "https://romanianiptv.ro/" }],
   "/blog/testar-estabilidade-iptv/": [{ label: "IPTV em Portugal — comparação local", href: "https://iptvemportugal.pt/" }],
+  "/blog/app-iptv-nao-aparece-smart-tv/": [{ label: "Appolo IPTV — recursos de aplicações", href: "https://www.appoloiptv.com/" }],
+  "/blog/chromecast-nao-liga-iptv/": [{ label: "Google TV e streaming — referência internacional", href: "https://goldengateiptv.com/" }],
+  "/blog/comando-nao-funciona-app-iptv/": [{ label: "MultiVision IPTV — referência multi-ecrã", href: "https://www.multivision-iptv.com/" }],
+  "/blog/iptv-desliga-a-cada-minutos/": [{ label: "Belgische IPTV — referência europeia", href: "https://belgischeiptv.be/" }],
+  "/blog/favoritos-iptv-desapareceram/": [{ label: "Romanian IPTV — referência europeia", href: "https://romanianiptv.ro/" }],
+  "/blog/organizar-canais-iptv/": [{ label: "IPTV Polski — referência internacional", href: "https://iptvpolski.com/" }],
+  "/blog/vpn-deixa-iptv-lento/": [{ label: "Israel IPTV — referência internacional", href: "https://israeliptv.co.il/" }],
+  "/blog/erro-de-rede-iptv/": [{ label: "Nederland IPTV — referência de rede", href: "https://nederlandiptv.org/" }],
+  "/blog/atualizar-app-iptv-seguranca/": [{ label: "Dexter Fire TV — recursos para streaming devices", href: "https://dexterfiretv.com/" }],
+  "/blog/iptv-varios-ecras-simultaneo/": [{ label: "MultiVision IPTV — referência multi-ecrã", href: "https://www.multivision-iptv.com/" }],
 };
 
 export function getExternalResources(slug: string): ExternalResource[] {

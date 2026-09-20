@@ -245,4 +245,124 @@ export const scheduledArticles: Record<string, ScheduledArticle> = {
       { question: "O que devo testar antes de subscrever?", answer: "Dispositivo, app, rede, mudança de canal, EPG, qualidade, suporte e condições comerciais." },
     ],
   },
+  "/blog/app-iptv-nao-aparece-smart-tv/": {
+    sections: [
+      { heading: "A loja depende do sistema, região e modelo", paragraphs: ["Uma aplicação disponível numa Samsung recente pode não aparecer numa LG, Android TV ou modelo antigo. Cada fabricante controla a loja, os países suportados e as versões mínimas.", "Confirma modelo completo, ano, sistema e região configurada. Procurar apenas pelo nome da marca da televisão não é suficiente."], links: [l("IPTV na Smart TV", "/dispositivos/iptv-smart-tv/"), l("Melhor app para Smart TV", "/blog/melhor-app-iptv-smart-tv/")] },
+      { heading: "Atualiza antes de procurar alternativas", paragraphs: ["Atualiza o software da televisão, reinicia completamente e volta a pesquisar pelo nome exato e programador. Algumas lojas demoram a atualizar resultados depois de uma alteração de região.", "Não mudes o país apenas para instalar uma app sem compreender o efeito: serviços locais, termos e métodos de pagamento podem mudar."], links: [l("Manutenção da app", "/blog/manutencao-app-iptv/")] },
+      { heading: "Quando a televisão deixou de ser suportada", paragraphs: ["Fabricantes e programadores encerram suporte para versões antigas. Instalar um ficheiro encontrado na Internet pode criar risco e continuar sem resolver limitações de memória ou codecs.", "Uma box certificada com atualizações ativas costuma ser uma alternativa mais previsível do que forçar uma aplicação incompatível."], links: [l("IPTV numa TV antiga", "/blog/iptv-televisao-antiga/"), l("Escolher box IPTV", "/blog/como-escolher-box-iptv/")] },
+      { heading: "Escolhe o caminho com menor manutenção", paragraphs: ["Compara aplicação oficial, casting e dispositivo externo. Avalia comando, arranque, EPG e atualizações, não apenas o custo inicial.", "Confirma compatibilidade com o serviço antes da compra e evita entregar acesso remoto a terceiros para instalar software desconhecido."], links: [l("Aplicações IPTV", "/apps/"), l("Ver dispositivos", "/dispositivos/")] },
+    ],
+    faq: [
+      { question: "Por que uma app IPTV não aparece na Smart TV?", answer: "Pode não suportar o sistema, região, modelo ou versão do televisor, ou ter sido removida da loja." },
+      { question: "Devo mudar a região da televisão?", answer: "Só depois de compreender o impacto em apps, serviços e termos. Uma box compatível pode ser mais simples." },
+    ],
+  },
+  "/blog/chromecast-nao-liga-iptv/": {
+    sections: [
+      { heading: "Casting precisa de descoberta na rede local", paragraphs: ["Telemóvel e Chromecast devem estar na mesma rede e conseguir comunicar. Redes de convidados, isolamento de clientes e alguns extensores impedem que um dispositivo encontre o outro.", "Confirma o nome do Wi-Fi em ambos e desativa temporariamente dados móveis no telemóvel para evitar que a app escolha outro caminho."], links: [l("IPTV no Chromecast", "/dispositivos/iptv-chromecast/"), l("Wi-Fi ou Ethernet", "/blog/iptv-wifi-ou-cabo-ethernet/")] },
+      { heading: "O ícone aparece, mas a reprodução não começa", paragraphs: ["Descoberta e reprodução são etapas diferentes. Atualiza app, Google Home e Chromecast; reinicia e testa conteúdo autorizado conhecido.", "Se o ecrã fica preto, investiga codec, resolução e DRM. Espelhar o ecrã não é igual a enviar um stream compatível diretamente."], links: [l("Som sem imagem", "/blog/iptv-com-som-sem-imagem/"), l("4K e codecs", "/blog/iptv-4k-hdr-codecs/")] },
+      { heading: "Router, Mesh e mudanças de ponto", paragraphs: ["Num sistema Mesh, confirma que não existe segmentação entre bandas ou nós. Reinicia primeiro o Chromecast e depois o router, sem repor tudo de fábrica.", "VPN no telemóvel pode interferir na descoberta local. Testa sem VPN apenas para diagnóstico e mantém as regras legais do conteúdo."], links: [l("Mesh Wi-Fi", "/blog/mesh-wifi-para-iptv/"), l("VPN para IPTV", "/blog/vpn-para-iptv/")] },
+      { heading: "Checklist antes de fazer reset", paragraphs: ["Verifica mesma rede, permissões de rede local, atualizações, alimentação e outro conteúdo. Só faz reposição de fábrica depois de guardar o necessário e confirmar que os passos simples falharam.", "Ao pedir suporte, indica modelo do Chromecast, telemóvel, app e comportamento do ícone de transmissão."], links: [l("Suporte IPTV", "/suporte/"), l("Problemas com a app", "/suporte/problemas-app/")] },
+    ],
+    faq: [
+      { question: "Por que o Chromecast não aparece na app IPTV?", answer: "Normalmente os dispositivos não estão na mesma rede, existe isolamento no router ou falta permissão de rede local." },
+      { question: "Espelhar o ecrã é igual a transmitir?", answer: "Não. Casting envia conteúdo compatível ao dispositivo; espelhamento replica o ecrã e pode ter mais atraso." },
+    ],
+  },
+  "/blog/comando-nao-funciona-app-iptv/": {
+    sections: [
+      { heading: "O problema pode estar no foco, não no comando", paragraphs: ["Se volume e início funcionam mas os menus da app não respondem, a aplicação pode ter interface pensada para toque. Testa setas, voltar e OK noutras apps antes de culpar o hardware.", "Fecha e reabre o player. Um elemento invisível ou janela bloqueada pode prender o foco depois de uma atualização."], links: [l("Escolher uma app IPTV", "/blog/como-escolher-uma-app-iptv/"), l("Problemas com a app", "/suporte/problemas-app/")] },
+      { heading: "Pilhas, emparelhamento e Bluetooth", paragraphs: ["Troca pilhas e volta a emparelhar conforme o sistema. Comandos Bluetooth podem controlar energia por infravermelhos e ainda assim perder ligação para navegação.", "Remove obstáculos apenas quando o comando usa infravermelhos. Não assumes que todos os botões usam a mesma tecnologia."], links: [l("Dispositivos IPTV", "/dispositivos/")] },
+      { heading: "Mapeamento de teclas e acessibilidade", paragraphs: ["Evita remapeadores desconhecidos com permissões amplas. Procura primeiro definições da app, modo TV ou interface para comando.", "Num telemóvel usado como comando, confirma mesma rede e permissões. Mantém uma forma alternativa de navegação antes de alterar definições."], links: [l("Segurança nas apps", "/blog/seguranca-apps-iptv/")] },
+      { heading: "Quando escolher outra interface", paragraphs: ["Uma app que exige rato numa televisão pode funcionar tecnicamente, mas não oferece boa experiência diária. Compara uma versão concebida para TV.", "Se apenas uma tecla falha em todas as apps, o comando pode precisar de substituição. Se falha só no player, reúne versão e modelo para suporte."], links: [l("Melhor app para Smart TV", "/blog/melhor-app-iptv-smart-tv/"), l("Suporte", "/suporte/")] },
+    ],
+    faq: [
+      { question: "Por que o comando funciona na TV mas não na app IPTV?", answer: "A app pode ter perdido foco, não suportar navegação por comando ou usar uma interface concebida para toque." },
+      { question: "Preciso de um air mouse?", answer: "Só se a aplicação exigir ponteiro. Preferir uma app nativa para TV costuma ser mais simples." },
+    ],
+  },
+  "/blog/iptv-desliga-a-cada-minutos/": {
+    sections: [
+      { heading: "A periodicidade é uma pista", paragraphs: ["Uma interrupção sempre ao mesmo intervalo sugere sessão, suspensão, poupança de energia ou renovação de acesso. Falhas aleatórias apontam mais para rede, temperatura ou fonte.", "Cronometra três ocorrências e regista se a app fecha, volta ao menu ou apenas congela. A diferença muda o diagnóstico."], links: [l("IPTV não funciona", "/suporte/iptv-nao-funciona/"), l("App fecha sozinha", "/blog/app-iptv-fecha-sozinha/")] },
+      { heading: "Energia e suspensão do dispositivo", paragraphs: ["Desativa temporariamente suspensão automática e poupança agressiva para testar. Em sticks, usa o adaptador recomendado em vez de uma porta USB fraca da televisão.", "Se o equipamento reinicia, verifica calor e alimentação antes de alterar a playlist."], links: [l("Problemas no Firestick", "/suporte/problemas-firestick/"), l("Firestick sem espaço", "/blog/firestick-armazenamento-cheio/")] },
+      { heading: "Rede, DHCP e mudança entre nós", paragraphs: ["Observa se outros dispositivos perdem ligação ao mesmo tempo. Renova o router, testa Ethernet e, em Mesh, confirma transições entre pontos.", "Uma VPN ou firewall pode encerrar ligações inativas. Testa uma variável de cada vez e repõe a proteção depois."], links: [l("Mesh Wi-Fi", "/blog/mesh-wifi-para-iptv/"), l("Latência vs buffering", "/blog/latencia-iptv-vs-buffering/")] },
+      { heading: "Sessão e ligações simultâneas", paragraphs: ["Se outra pessoa inicia reprodução quando a tua para, confirma o número de ligações permitido. Compatibilidade com vários equipamentos não significa simultaneidade.", "Contacta suporte com intervalo, dispositivo, app e testes, sem enviar credenciais."], links: [l("Vários dispositivos", "/blog/iptv-varios-dispositivos-em-casa/"), l("Ver planos", "/precos/")] },
+    ],
+    faq: [
+      { question: "Por que o IPTV desliga sempre após alguns minutos?", answer: "Pode existir suspensão, alimentação insuficiente, limite de sessão, ligação simultânea, rede ou aquecimento." },
+      { question: "Cronometrar a falha ajuda?", answer: "Sim. Um intervalo regular distingue políticas e sessões de oscilações aleatórias." },
+    ],
+  },
+  "/blog/favoritos-iptv-desapareceram/": {
+    sections: [
+      { heading: "Descobre onde os favoritos eram guardados", paragraphs: ["Algumas aplicações guardam favoritos apenas no dispositivo; outras sincronizam com conta ou perfil. Reinstalar, limpar dados ou trocar de perfil pode mostrar uma lista vazia sem que o serviço tenha mudado.", "Confirma perfil, utilizador e dispositivo antes de criar tudo novamente."], links: [l("Manutenção da app", "/blog/manutencao-app-iptv/"), l("Limpar cache", "/blog/como-limpar-cache-app-iptv/")] },
+      { heading: "Atualização da lista e mudança de identificadores", paragraphs: ["Quando nomes ou IDs de canais mudam, a app pode perder a associação do favorito. Atualiza a fonte e procura o canal pelo nome antes de concluir que foi removido.", "Evita apagar a playlist enquanto investigas. Uma nova importação pode criar duplicados."], links: [l("M3U vs Xtream Codes", "/blog/m3u-vs-xtream-codes/"), l("Lista M3U não carrega", "/blog/lista-m3u-nao-carrega/")] },
+      { heading: "Backup e migração", paragraphs: ["Se o player oferece exportação, guarda o ficheiro localmente e protege-o se contiver configuração. Nem todos os backups são compatíveis entre versões ou sistemas.", "Ao mudar de televisão, confirma se a licença e dados podem ser transferidos; o pagamento da app e o serviço podem ser separados."], links: [l("Apps IPTV", "/apps/"), l("Vários dispositivos", "/blog/iptv-varios-dispositivos-em-casa/")] },
+      { heading: "Reconstruir de forma mais resistente", paragraphs: ["Cria grupos pequenos por utilização, não centenas de favoritos. Regista apenas organização, nunca passwords em notas públicas.", "Se os favoritos desaparecem após cada reinício, verifica armazenamento, permissões e suporte da aplicação."], links: [l("Problemas com a app", "/suporte/problemas-app/"), l("Segurança", "/blog/seguranca-apps-iptv/")] },
+    ],
+    faq: [
+      { question: "Limpar dados apaga favoritos?", answer: "Pode apagar favoritos locais, login e definições. Limpar cache normalmente tem impacto menor." },
+      { question: "Posso transferir favoritos para outra TV?", answer: "Depende da app e do formato de backup. Confirma compatibilidade antes de mudar." },
+    ],
+  },
+  "/blog/organizar-canais-iptv/": {
+    sections: [
+      { heading: "Organização começa pela intenção de uso", paragraphs: ["Separa favoritos diários, notícias, desporto, filmes e família em vez de navegar por milhares de entradas. Uma estrutura pequena reduz tempo de procura e erros no comando.", "Antes de editar, percebe se a ordem vem da fonte ou pode ser personalizada no player."], links: [l("O que é EPG", "/blog/o-que-e-epg/"), l("Escolher uma app", "/blog/como-escolher-uma-app-iptv/")] },
+      { heading: "Ocultar não é apagar", paragraphs: ["Muitos players permitem ocultar categorias sem modificar a fonte. Esta opção é reversível e mais segura do que eliminar dados.", "Usa PIN para proteger grupos sensíveis quando existem crianças, mas não confies apenas na organização visual."], links: [l("Controlo parental", "/blog/controlo-parental-iptv/")] },
+      { heading: "Nomes, logos e duplicados", paragraphs: ["Canais duplicados podem representar regiões, qualidades ou fontes diferentes. Testa antes de ocultar e mantém a opção estável.", "Logos e nomes dependem de metadados. Atualiza a lista e EPG antes de corrigir manualmente dezenas de entradas."], links: [l("EPG com hora errada", "/blog/epg-hora-errada/")] },
+      { heading: "Uma rotina que não vira manutenção infinita", paragraphs: ["Revê favoritos mensalmente e depois de grandes atualizações. Evita reorganizar toda a lista sempre que uma entrada muda.", "Se a app não guarda alterações, verifica espaço e permissões ou escolhe um player com gestão adequada."], links: [l("Favoritos desapareceram", "/blog/favoritos-iptv-desapareceram/"), l("Ver aplicações", "/apps/")] },
+    ],
+    faq: [
+      { question: "É possível ordenar canais IPTV?", answer: "Depende do player. Muitos permitem favoritos, grupos e categorias ocultas sem alterar a fonte." },
+      { question: "Por que existem canais duplicados?", answer: "Podem ser versões regionais, qualidades ou fontes diferentes. Testa antes de ocultar." },
+    ],
+  },
+  "/blog/vpn-deixa-iptv-lento/": {
+    sections: [
+      { heading: "Uma VPN acrescenta caminho e processamento", paragraphs: ["O tráfego passa por um servidor adicional e é cifrado. Distância, carga, protocolo e capacidade do dispositivo podem reduzir velocidade ou aumentar latência.", "Isto não significa que toda VPN seja lenta; significa que o efeito deve ser medido no cenário real."], links: [l("VPN para IPTV", "/blog/vpn-para-iptv/"), l("Latência vs buffering", "/blog/latencia-iptv-vs-buffering/")] },
+      { heading: "Testa com e sem VPN de forma comparável", paragraphs: ["Usa o mesmo dispositivo, conteúdo, qualidade e horário. Escolhe um servidor próximo e mede arranque, interrupções e atraso, não apenas Mbps.", "Se desligar a VPN resolve, muda servidor ou protocolo antes de culpar a aplicação."], links: [l("Testar estabilidade", "/blog/testar-estabilidade-iptv/")] },
+      { heading: "O dispositivo pode ser o limite", paragraphs: ["Routers e boxes antigos podem ter pouca capacidade para cifrar tráfego. Uma VPN instalada no router afeta vários equipamentos; instalada na app afeta apenas um.", "Observa CPU, temperatura e outras utilizações. Não aumentes complexidade sem uma necessidade clara de privacidade."], links: [l("Router para IPTV", "/blog/router-para-iptv/"), l("Escolher box", "/blog/como-escolher-box-iptv/")] },
+      { heading: "Privacidade não altera direitos de acesso", paragraphs: ["VPN não torna legal um conteúdo não autorizado nem garante contornar restrições. Respeita termos, localização e licenças.", "Escolhe fornecedor transparente e evita VPNs gratuitas sem modelo de negócio compreensível."], links: [l("Legalidade IPTV", "/legalidade/"), l("Segurança nas apps", "/blog/seguranca-apps-iptv/")] },
+    ],
+    faq: [
+      { question: "Por que a VPN deixa IPTV lento?", answer: "A VPN acrescenta cifragem e um servidor ao percurso. Distância, carga, protocolo e hardware influenciam." },
+      { question: "Qual servidor VPN escolher?", answer: "Normalmente um servidor próximo e pouco carregado, respeitando termos e direitos de acesso." },
+    ],
+  },
+  "/blog/erro-de-rede-iptv/": {
+    sections: [
+      { heading: "Erro de rede é uma categoria, não um diagnóstico", paragraphs: ["A mensagem pode representar ausência de Internet, DNS, timeout, certificado, firewall ou servidor inacessível. Regista o texto exato e o momento.", "Confirma se outras apps funcionam no mesmo dispositivo. Navegar no telemóvel não prova que a televisão tem ligação."], links: [l("IPTV não funciona", "/suporte/iptv-nao-funciona/"), l("Canais não carregam", "/suporte/canais-nao-carregam/")] },
+      { heading: "Reinício na ordem certa", paragraphs: ["Fecha a app, reinicia dispositivo e depois router se outros serviços também falham. Aguarda a ligação estabilizar antes de abrir novamente.", "Evita repor o router de fábrica; isso remove configurações e raramente é o primeiro passo adequado."], links: [l("Wi-Fi ou Ethernet", "/blog/iptv-wifi-ou-cabo-ethernet/")] },
+      { heading: "Data, DNS e certificados", paragraphs: ["Data errada pode invalidar certificados. Ativa hora automática e atualiza o sistema. Se apenas um domínio falha, não alteres DNS sem compreender o impacto.", "VPN, controlo parental e firewall também podem bloquear ligações. Testa temporariamente uma variável e repõe a proteção depois."], links: [l("Segurança das apps", "/blog/seguranca-apps-iptv/"), l("VPN deixa IPTV lento", "/blog/vpn-deixa-iptv-lento/")] },
+      { heading: "Quando a falha está fora de casa", paragraphs: ["Se vários dispositivos e redes falham com a mesma mensagem, reúne evidência e contacta suporte. Não envies passwords ou URLs completas.", "Informa horário, app, dispositivo, operador de Internet e testes realizados para reduzir respostas genéricas."], links: [l("Suporte", "/suporte/"), l("Erro de credenciais", "/suporte/erro-credenciais/")] },
+    ],
+    faq: [
+      { question: "O que significa erro de rede no IPTV?", answer: "Pode indicar Internet ausente, timeout, DNS, certificado, firewall ou indisponibilidade do destino." },
+      { question: "Devo repor o router?", answer: "Não como primeiro passo. Reinicia normalmente e testa ligação, data e outras apps." },
+    ],
+  },
+  "/blog/atualizar-app-iptv-seguranca/": {
+    sections: [
+      { heading: "Atualizar é segurança — se a origem for correta", paragraphs: ["Prefere a loja oficial ou o site verificado do programador. Mensagens com APK, links encurtados ou instruções para desativar proteção merecem cautela.", "Confirma nome do programador e versão instalada. Apps com nomes semelhantes podem não ter o mesmo proprietário."], links: [l("Segurança nas apps", "/blog/seguranca-apps-iptv/"), l("Manutenção da app", "/blog/manutencao-app-iptv/")] },
+      { heading: "Prepara uma atualização reversível", paragraphs: ["Regista versão, favoritos e definições sem copiar credenciais para locais inseguros. Em casa com vários dispositivos, atualiza primeiro um equipamento secundário.", "Lê notas da versão quando existem e confirma requisitos mínimos. Uma atualização pode deixar de suportar sistemas antigos."], links: [l("Favoritos desapareceram", "/blog/favoritos-iptv-desapareceram/"), l("IPTV numa TV antiga", "/blog/iptv-televisao-antiga/")] },
+      { heading: "Depois da instalação", paragraphs: ["Abre menus, EPG, favoritos e reprodução antes de replicar nos restantes ecrãs. Revê permissões: uma atualização não deve justificar acesso a contactos ou microfone sem função clara.", "Se a app fecha, limpa cache e reinicia antes de apagar dados. Guarda a versão que falhou para o suporte."], links: [l("App fecha sozinha", "/blog/app-iptv-fecha-sozinha/"), l("Limpar cache", "/blog/como-limpar-cache-app-iptv/")] },
+      { heading: "Quando adiar faz sentido", paragraphs: ["Se a atualização não vem da origem habitual ou exige permissões inexplicáveis, pausa e verifica. Adiar algumas horas para confirmar é diferente de ignorar correções indefinidamente.", "Remove aplicações abandonadas e considera uma alternativa mantida quando já não existem atualizações de segurança."], links: [l("Melhor app para Smart TV", "/blog/melhor-app-iptv-smart-tv/"), l("Ver apps", "/apps/")] },
+    ],
+    faq: [
+      { question: "É seguro atualizar uma app IPTV por APK?", answer: "Só com origem e integridade verificáveis. A loja oficial é preferível quando disponível." },
+      { question: "Uma atualização pode apagar favoritos?", answer: "Normalmente não, mas migrações falham. Usa backup quando a app oferece essa opção." },
+    ],
+  },
+  "/blog/iptv-varios-ecras-simultaneo/": {
+    sections: [
+      { heading: "Instalado em vários dispositivos não significa simultâneo", paragraphs: ["Uma conta pode estar configurada em várias televisões e permitir apenas uma reprodução de cada vez. Confirma o número de ligações do plano antes de organizar a casa.", "Quando uma segunda reprodução interrompe a primeira, não assumes que é falha de rede: pode ser uma regra de sessão."], links: [l("IPTV em vários dispositivos", "/blog/iptv-varios-dispositivos-em-casa/"), l("Subscrição IPTV", "/subscricao-iptv/")] },
+      { heading: "Calcula rede pelo pior horário", paragraphs: ["Soma streams ativos, videochamadas, jogos e backups no horário de pico. Cada ecrã recebe dados próprios; a velocidade não é partilhada como um único vídeo.", "Reserva margem e liga equipamentos fixos por Ethernet quando possível."], links: [l("Velocidade de Internet", "/guias/velocidade-internet-iptv/"), l("Quanto consome IPTV", "/blog/quanto-consome-iptv/")] },
+      { heading: "Perfis, favoritos e controlo parental", paragraphs: ["Cria perfis por pessoa quando a app permite, com favoritos e PIN adequados. Isto organiza uso, mas não aumenta o número de ligações autorizadas.", "Evita partilhar a password principal com todos os dispositivos se existem perfis ou códigos separados."], links: [l("Controlo parental", "/blog/controlo-parental-iptv/"), l("Organizar canais", "/blog/organizar-canais-iptv/")] },
+      { heading: "Escolher o plano sem pagar por excesso", paragraphs: ["Mapeia quantos ecrãs realmente funcionam ao mesmo tempo, não quantos existem na casa. Um plano maior só tem valor quando corresponde ao uso.", "Confirma condições, localização e suporte antes do pagamento. Pede esclarecimento sobre simultaneidade em linguagem direta."], links: [l("Preços e planos", "/precos/"), l("Contacto", "/contacto/")] },
+    ],
+    faq: [
+      { question: "Posso ver IPTV em vários ecrãs ao mesmo tempo?", answer: "Só quando o plano permite o número correspondente de ligações simultâneas." },
+      { question: "Dois ecrãs consomem o dobro de Internet?", answer: "Aproximadamente, se reproduzem a mesma qualidade e bitrate, porque cada stream transfere dados próprios." },
+    ],
+  },
 };
