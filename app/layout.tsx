@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Manrope } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { FloatingWhatsApp } from "@/components/conversion/FloatingWhatsApp";
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <FloatingWhatsApp />
         <BackToTop />
         <SiteFooter />
+        <Analytics />
       </body>
     </html>
   );
