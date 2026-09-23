@@ -34,8 +34,8 @@ export const businessInput: BusinessInput = {
     "production": null
   },
   "channels": {
-    "verification": "unverified",
-    "production": null
+    "verification": "verified",
+    "production": { "count": 45000 }
   },
   "vod": {
     "verification": "unverified",
