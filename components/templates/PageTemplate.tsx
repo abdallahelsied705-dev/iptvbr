@@ -100,6 +100,12 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
         </div>
       </section>
 
+      {route.slug === "/precos/" ? (
+        <Section eyebrow="Referência de mercado" title="Uma estrutura pronta para receber os preços reais." description="Os valores abaixo ficam isolados como benchmark até serem confirmados como oferta IPTVBR." className="section-surface">
+          <PricingPreview />
+        </Section>
+      ) : null}
+
       {isArticle && route.image ? (
         <div className="container article-cover-wrap">
           <Image className="article-cover" src={route.image} alt={getImageAlt(route)} width={1200} height={675} sizes="(max-width: 900px) 100vw, 1180px" priority />
@@ -192,12 +198,6 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
           </div>
         </aside>
       </div>
-
-      {route.slug === "/precos/" ? (
-        <Section eyebrow="Referência de mercado" title="Uma estrutura pronta para receber os preços reais." description="Os valores abaixo ficam isolados como benchmark até serem confirmados como oferta IPTVBR." className="section-surface">
-          <PricingPreview />
-        </Section>
-      ) : null}
 
       <Section eyebrow="Perguntas frequentes" title="Respostas curtas para esta etapa." description="FAQ para apoiar a leitura e reduzir fricção durante a jornada." className="section-surface">
         <FAQ items={content.faq} />

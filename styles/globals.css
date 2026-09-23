@@ -738,6 +738,14 @@ p { margin-top: 0; }
   .final-cta-inner { padding:28px; }
   .footer-cta .button { width:100%; }
 }
+@media (max-width:430px) {
+  .device-selector { grid-template-columns:1fr; gap:6px; }
+  .device-selector button { min-height:44px; }
+  .premium-price-card { padding:17px; min-height:auto; }
+  .price-value { font-size:clamp(2.1rem,10vw,2.6rem); }
+  .pricing-benchmark-note { padding:14px; gap:12px; }
+  .benchmark-badge { align-self:flex-start; }
+}
 
 .floating-whatsapp { position:fixed; right:20px; bottom:20px; z-index:70; display:flex; align-items:center; gap:10px; padding:9px 13px 9px 9px; border:1px solid rgba(255,255,255,.16); border-radius:999px; background:rgba(6,19,29,.88); color:#f8fffb; box-shadow:0 18px 50px rgba(0,0,0,.34),0 0 0 1px rgba(25,199,122,.08); backdrop-filter:blur(16px); animation: waFloat 4s ease-in-out infinite; }
 .floating-whatsapp:hover { color:#fff; transform:translateY(-3px); border-color:rgba(25,199,122,.45); }
