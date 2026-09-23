@@ -63,15 +63,15 @@ const featureCards = [
 ];
 
 export const metadata: Metadata = {
-  title: "IPTV Portugal: Planos, Apps e Guias",
-  description: "Compara planos IPTV em Portugal, consulta dispositivos compatíveis, aplicações, guias de instalação, preços e suporte em português.",
+  title: "IPTV Portugal: +45.000 Canais ao Vivo | IPTVBR",
+  description: "IPTV em Portugal com +45.000 canais ao vivo, filmes e séries, dispositivos compatíveis (Smart TV, Firestick, Android) e guias de instalação e suporte.",
   alternates: { canonical: "https://iptvbr.pt/" },
   openGraph: {
     type: "website",
     locale: "pt_PT",
     siteName: "IPTVBR",
-    title: "IPTV Portugal: Planos, Apps e Guias | IPTVBR",
-    description: "Planos IPTV em Portugal, dispositivos compatíveis, aplicações, instalação e suporte em português.",
+    title: "IPTV Portugal: +45.000 Canais ao Vivo | IPTVBR",
+    description: "Mais de 45.000 canais ao vivo em Portugal, dispositivos compatíveis, aplicações, instalação e suporte em português.",
     url: "https://iptvbr.pt/",
     images: [{ url: "/images/social/iptvbr-social-share.png", width: 1200, height: 630, alt: "IPTVBR Portugal — planos, aplicações e guias IPTV" }],
   },
