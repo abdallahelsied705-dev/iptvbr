@@ -15,7 +15,7 @@ export type PricingPlan = {
  * Benchmark data is intentionally kept separate from production facts.
  */
 export const businessTruth = {
-  domain: "https://iptvbr.pt",
+  domain: "https://www.iptvbr.pt",
   locale: "pt-PT",
   whatsapp: "212710141872",
   paymentFlow: "whatsapp-payment-link" as const,

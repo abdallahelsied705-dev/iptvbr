@@ -54,25 +54,25 @@ const faq = [
 ];
 
 const featureCards = [
-  { icon: <TvMinimal size={24} />, title: "Experiência IPTV completa", text: "Uma experiência pensada para televisão, filmes, séries e conteúdos ao vivo, com uma interface simples.", image: "/images/features/experiencia-iptv-pro.webp", alt: "Sala moderna com televisão e experiência IPTV organizada" },
-  { icon: <TvMinimal size={24} />, title: "Filmes e séries", text: "Explora uma biblioteca organizada e encontra rapidamente o conteúdo que procuras.", image: "/images/features/filmes-series-pro.webp", alt: "Cinema em casa com filmes e séries numa televisão de grande formato" },
-  { icon: <MonitorSmartphone size={24} />, title: "Canais ao vivo", text: "Acede ao teu percurso de visualização com categorias e guias preparados para diferentes dispositivos.", image: "/images/features/canais-ao-vivo-pro.webp", alt: "Televisão com seleção visual de canais em direto" },
-  { icon: <MonitorSmartphone size={24} />, title: "Desporto em direto", text: "Segue conteúdos desportivos e mantém o foco na experiência de visualização.", image: "/images/features/desporto-em-direto-pro.webp", alt: "Estádio de futebol preparado para uma transmissão desportiva em direto" },
-  { icon: <MonitorSmartphone size={24} />, title: "Instalação simples", text: "Guias dedicados ajudam-te a instalar e configurar a aplicação no equipamento que já tens.", image: "/images/features/instalacao-simples-pro.webp", alt: "Instalação de um dispositivo de streaming junto à televisão e ao router" },
-  { icon: <MessageCircle size={24} />, title: "Suporte direto", text: "Quando precisares de ajuda, o contacto segue diretamente para o WhatsApp.", image: "/images/features/suporte-direto-pro.webp", alt: "Especialista de suporte a ajudar um cliente com a configuração IPTV" },
+  { icon: <TvMinimal size={24} />, title: "Experiência IPTV completa", text: "Uma experiência pensada para televisão, filmes, séries e conteúdos ao vivo, com uma interface simples.", href: "/iptv-portugal/", image: "/images/features/experiencia-iptv-pro.webp", alt: "Sala moderna com televisão e experiência IPTV organizada" },
+  { icon: <TvMinimal size={24} />, title: "Filmes e séries", text: "Explora uma biblioteca organizada e encontra rapidamente o conteúdo que procuras.", href: "/canais/filmes-series/", image: "/images/features/filmes-series-pro.webp", alt: "Cinema em casa com filmes e séries numa televisão de grande formato" },
+  { icon: <MonitorSmartphone size={24} />, title: "Canais ao vivo", text: "Acede ao teu percurso de visualização com categorias e guias preparados para diferentes dispositivos.", href: "/canais/", image: "/images/features/canais-ao-vivo-pro.webp", alt: "Televisão com seleção visual de canais em direto" },
+  { icon: <MonitorSmartphone size={24} />, title: "Desporto em direto", text: "Segue conteúdos desportivos e mantém o foco na experiência de visualização.", href: "/canais/desporto/", image: "/images/features/desporto-em-direto-pro.webp", alt: "Estádio de futebol preparado para uma transmissão desportiva em direto" },
+  { icon: <MonitorSmartphone size={24} />, title: "Instalação simples", text: "Guias dedicados ajudam-te a instalar e configurar a aplicação no equipamento que já tens.", href: "/guias/como-instalar-iptv/", image: "/images/features/instalacao-simples-pro.webp", alt: "Instalação de um dispositivo de streaming junto à televisão e ao router" },
+  { icon: <MessageCircle size={24} />, title: "Suporte direto", text: "Quando precisares de ajuda, o contacto segue diretamente para o WhatsApp.", href: "/suporte/", image: "/images/features/suporte-direto-pro.webp", alt: "Especialista de suporte a ajudar um cliente com a configuração IPTV" },
 ];
 
 export const metadata: Metadata = {
   title: "IPTV Portugal: +45.000 Canais ao Vivo | IPTVBR",
   description: "IPTV em Portugal com +45.000 canais ao vivo, filmes e séries, dispositivos compatíveis (Smart TV, Firestick, Android) e guias de instalação e suporte.",
-  alternates: { canonical: "https://iptvbr.pt/" },
+  alternates: { canonical: "https://www.iptvbr.pt/" },
   openGraph: {
     type: "website",
     locale: "pt_PT",
     siteName: "IPTVBR",
     title: "IPTV Portugal: +45.000 Canais ao Vivo | IPTVBR",
     description: "Mais de 45.000 canais ao vivo em Portugal, dispositivos compatíveis, aplicações, instalação e suporte em português.",
-    url: "https://iptvbr.pt/",
+    url: "https://www.iptvbr.pt/",
     images: [{ url: "/images/social/iptvbr-social-share.png", width: 1200, height: 630, alt: "IPTVBR Portugal — planos, aplicações e guias IPTV" }],
   },
   twitter: { card: "summary_large_image", images: ["/images/social/iptvbr-social-share.png"] },
@@ -86,7 +86,7 @@ export default function HomePage() {
   const homeRoute = getRoute("/")!;
   const homeSchemas = [
     buildOrganizationSchema(),
-    { "@context": "https://schema.org", "@type": "WebSite", name: "IPTVBR", url: "https://iptvbr.pt/", inLanguage: "pt-PT" },
+    { "@context": "https://schema.org", "@type": "WebSite", name: "IPTVBR", url: "https://www.iptvbr.pt/", inLanguage: "pt-PT" },
     webPageSchema(homeRoute),
   ];
   return (
@@ -188,7 +188,7 @@ export default function HomePage() {
                   <Image src={feature.image} alt={feature.alt} fill sizes="(max-width: 720px) 100vw, 290px" />
                 </div>
                 <div className="ref-feature-icon">{feature.icon}</div>
-                <div className="ref-feature-body"><h3>{feature.title}</h3><p>{feature.text}</p><Link href="/guias/">Explorar <ChevronDown size={15} /></Link></div>
+                <div className="ref-feature-body"><h3>{feature.title}</h3><p>{feature.text}</p><Link href={feature.href} aria-label={`Explorar: ${feature.title}`}>Explorar <ArrowRight size={15} /></Link></div>
               </article>
             ))}
           </div>

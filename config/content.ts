@@ -74,18 +74,18 @@ function moneyContent(route: RouteDefinition): ContentSection[] {
   if (route.slug === "/teste-iptv/") {
     return [
       {
-        heading: "Disponibilidade de teste",
+        heading: "Teste grátis de 24 horas",
         paragraphs: [
-          "Esta página está preparada para uma eventual oferta de teste, mas a existência, duração, condições e elegibilidade do teste continuam por validar.",
-          "Nenhuma duração ou vantagem de teste deve ser apresentada como facto comercial até existir confirmação no Business Truth.",
+          "A IPTVBR disponibiliza um teste grátis de 24 horas para experimentares o serviço no teu próprio dispositivo antes de escolheres um plano.",
+          "O pedido é feito pelo WhatsApp: indica o dispositivo e a aplicação que vais usar e enviamos os dados de acesso para o teste.",
         ],
-        links: links(["Ver preços", "/precos/"], ["Falar no WhatsApp", "/contacto/"]),
+        links: links(["Ver preços", "/precos/"], ["Guias de instalação", "/guias/"]),
       },
       {
-        heading: "Como usar esta página",
+        heading: "Como pedir o teste",
         paragraphs: [
-          "Quando o teste for confirmado, esta página deverá explicar claramente quem pode solicitar, quais os passos necessários e quais as condições aplicáveis.",
-          "Enquanto esses dados não estiverem confirmados, a prioridade é transparência e não a criação de uma promessa de conversão.",
+          "Carrega em «Pedir teste grátis», envia a mensagem pelo WhatsApp e diz-nos qual é o teu dispositivo (Smart TV, Firestick, Android, iPhone ou PC).",
+          "Depois de receberes os dados, segue o guia do teu dispositivo. No fim das 24 horas escolhes, se quiseres, o plano que preferires.",
         ],
       },
     ];

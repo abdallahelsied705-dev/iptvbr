@@ -13,7 +13,7 @@ const deviceMultipliers: Record<number, number> = { 1: 1, 2: 1.6, 3: 2.05, 4: 2.
 const deviceLabels: Record<number, string> = { 1: "1 dispositivo", 2: "2 dispositivos", 3: "3 dispositivos", 4: "4 dispositivos" };
 const planFeatures = [
   "Qualidade de streaming 4K Ultra HD",
-  "Mais de 25.000 canais em direto no mundo",
+  "Mais de 45.000 canais em direto no mundo",
   "Mais de 120.000 filmes e séries",
   "Eventos PPV premium incluídos",
   "Acesso instantâneo ao catálogo VOD",
@@ -43,6 +43,10 @@ export function PricingMatrix() {
           <a className="price-cta" href={buildWhatsAppUrl(buildMessage(plan.duration, plan.price))} target="_blank" rel="noopener noreferrer">Escolher plano <span>↗</span></a>
           <span className="price-note">{plan.note}</span>
         </article>)}
+      </div>
+      <div className="pricing-trial">
+        <div><strong>Teste grátis de 24 horas</strong><span>Experimenta no teu dispositivo antes de escolher um plano.</span></div>
+        <a className="pricing-trial-cta" href={buildWhatsAppUrl("Olá! 👋 Gostaria de pedir o teste grátis de 24 horas da IPTVBR.\n\n📺 Dispositivo: ")} target="_blank" rel="noopener noreferrer">Pedir teste grátis <span>↗</span></a>
       </div>
       <div className="pricing-footnote"><span>ⓘ</span> Ao escolher, o WhatsApp abre já com duração, número de dispositivos e preço selecionados.</div>
     </div>

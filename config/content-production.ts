@@ -441,9 +441,9 @@ export const productionContent: Record<string, ProductionContent> = {
   },
   "/teste-iptv/": {
     depth: "supporting",
-    entities: ["teste IPTV", "trial", "condições"],
-    takeaways: ["A existência e as condições de qualquer teste continuam sujeitas a confirmação.", "Não apresentar duração, elegibilidade ou benefícios como factos sem validação.", "A página pode ser ativada comercialmente quando o Business Truth for confirmado."],
-    steps: ["Confirmar existência", "Definir condições", "Publicar oferta validada", "Rever regularmente"]
+    entities: ["teste IPTV grátis", "24 horas", "WhatsApp"],
+    takeaways: ["O teste grátis dura 24 horas.", "O pedido é feito pelo WhatsApp, indicando o dispositivo e a aplicação.", "No fim do teste podes escolher o plano que preferires."],
+    steps: ["Pedir no WhatsApp", "Indicar o dispositivo", "Instalar e testar", "Escolher o plano"]
   },
   "/blog/": {
     depth: "core",

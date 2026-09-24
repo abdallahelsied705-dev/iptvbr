@@ -22,8 +22,8 @@ export const businessInput: BusinessInput = {
     "production": []
   },
   "trial": {
-    "verification": "unverified",
-    "production": null
+    "verification": "verified",
+    "production": { "available": true, "duration": "24 horas" }
   },
   "devices": {
     "verification": "unverified",

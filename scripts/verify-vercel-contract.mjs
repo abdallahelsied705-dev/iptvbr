@@ -13,7 +13,7 @@ const check = (name, ok, detail) => results.push({ name, ok, detail });
 check('build script', ['next build', 'node build.mjs'].includes(pkg.scripts?.build), pkg.scripts?.build ?? 'missing');
 check('Node 22 engine', pkg.engines?.node === '22.x', pkg.engines?.node ?? 'missing');
 check('Preview robots header', nextConfig.includes('X-Robots-Tag') && nextConfig.includes('noindex, nofollow'), 'next.config.ts');
-check('Production origin declared', readFileSync(path.join(root, 'config/site.ts'), 'utf8').includes('https://iptvbr.pt'), 'config/site.ts');
+check('Production origin declared', readFileSync(path.join(root, 'config/site.ts'), 'utf8').includes('https://www.iptvbr.pt'), 'config/site.ts');
 check('Sitemap uses route registry', sitemap.includes('routes') && sitemap.includes('filter'), 'app/sitemap.ts');
 check('robots has production sitemap', robots.includes('sitemap.xml'), 'app/robots.ts');
 check('No hard-coded Vercel production URL', !/(vercel\.app|vercel\.com)/i.test(nextConfig + sitemap + robots), 'seo/runtime config');

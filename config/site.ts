@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "IPTVBR",
-  url: "https://iptvbr.pt",
+  url: "https://www.iptvbr.pt",
   locale: "pt-PT",
   language: "pt-PT",
   defaultTitle: "IPTV Portugal: +45.000 Canais ao Vivo | IPTVBR",

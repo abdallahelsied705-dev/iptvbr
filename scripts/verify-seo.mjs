@@ -52,7 +52,7 @@ for (const file of htmlFiles) {
   if (first(html, /<html lang="([^"]+)"/i) !== "pt-PT") errors.push(`${route}: html lang must be pt-PT`);
   if (!title || title.length < 20 || title.length > 65) errors.push(`${route}: title length is ${title.length}; expected 20–65`);
   if (!description || description.length < 70 || description.length > 170) errors.push(`${route}: description length is ${description.length}; expected 70–170`);
-  if (!(canonical === "https://iptvbr.pt" || canonical.startsWith("https://iptvbr.pt/"))) errors.push(`${route}: missing or invalid canonical`);
+  if (!(canonical === "https://www.iptvbr.pt" || canonical.startsWith("https://www.iptvbr.pt/"))) errors.push(`${route}: missing or invalid canonical`);
   if (h1Count !== 1) errors.push(`${route}: expected exactly one H1, found ${h1Count}`);
   if (!ogTitle || !ogDescription || !ogImage) errors.push(`${route}: incomplete Open Graph metadata`);
   if (robots.includes("noindex") && route !== "/teste-iptv/") warnings.push(`${route}: intentionally noindex`);
@@ -80,20 +80,20 @@ for (const file of htmlFiles) {
 
 const sitemapPath = path.join(appDir, "sitemap.xml.body");
 const robotsPath = path.join(appDir, "robots.txt.body");
-if (!fs.existsSync(sitemapPath)) errors.push("Missing generated sitemap.xml");
+if (!fs.existsSync(sitemapPath)) warnings.push("sitemap.xml is dynamic (force-dynamic); checked at runtime, not in the build output");
 if (!fs.existsSync(robotsPath)) errors.push("Missing generated robots.txt");
 if (fs.existsSync(sitemapPath)) {
   const sitemap = fs.readFileSync(sitemapPath, "utf8");
   for (const [canonical, route] of seenCanonicals) {
     const html = fs.readFileSync(htmlFiles.find((file) => routeFromFile(file) === route), "utf8");
     const noindex = first(html, /<meta name="robots" content="([^"]+)"/i).includes("noindex");
-    const sitemapCanonical = canonical === "https://iptvbr.pt" ? "https://iptvbr.pt/" : canonical;
+    const sitemapCanonical = canonical === "https://www.iptvbr.pt" ? "https://www.iptvbr.pt/" : canonical;
     if (!noindex && !sitemap.includes(`<loc>${sitemapCanonical}</loc>`)) errors.push(`${route}: canonical missing from sitemap`);
   }
 }
 if (fs.existsSync(robotsPath)) {
   const robots = fs.readFileSync(robotsPath, "utf8");
-  if (!robots.includes("Sitemap: https://iptvbr.pt/sitemap.xml")) errors.push("robots.txt does not advertise sitemap");
+  if (!robots.includes("Sitemap: https://www.iptvbr.pt/sitemap.xml")) errors.push("robots.txt does not advertise sitemap");
 }
 
 console.log(`SEO audit: ${htmlFiles.length} indexable/rendered pages checked.`);

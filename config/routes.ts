@@ -29,8 +29,8 @@ export interface RouteDefinition {
   publishedAt?: string;
 }
 
-const base = "https://iptvbr.pt";
-const route = (slug: string) => `${base}${slug === "/" ? "/" : slug}`;
+const base = "https://www.iptvbr.pt";
+const route = (slug: string) => `${base}${slug === "/" ? "/" : slug.replace(/\/$/, "")}`;
 
 const define = (
   slug: string,
@@ -75,7 +75,7 @@ export const routes: RouteDefinition[] = [
   define("/comprar-iptv/", "money", "comprar iptv", "Comprar IPTV em Portugal", "Informação para quem procura compreender o processo de compra de uma subscrição IPTV em Portugal.", "/iptv-portugal/", "transactional"),
   define("/precos/", "money", "preços iptv", "Preços IPTV em Portugal", "Consulte a estrutura de planos e informações de preços IPTV em Portugal.", "/iptv-portugal/", "commercial-investigational"),
   define("/reseller/", "money", "revenda iptv portugal", "Programa de Revenda IPTV em Portugal", "Conheça o programa IPTVBR para parceiros, com informação sobre revenda, estrutura comercial, suporte e próximos passos em Portugal.", "/iptv-portugal/", "commercial"),
-  { ...define("/teste-iptv/", "money", "teste iptv", "Teste IPTV em Portugal", "Informação sobre disponibilidade de teste IPTV. A disponibilidade deve ser confirmada antes da publicação de qualquer oferta.", "/iptv-portugal/", "commercial"), indexable: businessTruth.trial.verification === "verified" && businessTruth.trial.production?.available === true },
+  { ...define("/teste-iptv/", "money", "teste iptv", "Teste IPTV Grátis 24 Horas em Portugal", "Pede um teste IPTV grátis de 24 horas pelo WhatsApp e experimenta o serviço no teu dispositivo antes de escolher um plano.", "/iptv-portugal/", "commercial"), indexable: businessTruth.trial.verification === "verified" && businessTruth.trial.production?.available === true },
 
   define("/dispositivos/", "device", "dispositivos iptv", "Dispositivos IPTV", "Compare dispositivos compatíveis com IPTV e encontre guias de configuração para Smart TV, Fire TV, Android, Apple TV, Windows e mobile.", "/", "commercial-informational"),
   define("/dispositivos/iptv-firestick/", "device", "iptv firestick", "IPTV no Fire TV Stick", "Guia sobre IPTV no Fire TV Stick, instalação, aplicações e resolução de problemas.", "/dispositivos/", "informational-commercial"),
