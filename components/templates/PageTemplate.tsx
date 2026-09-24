@@ -8,12 +8,10 @@ import { Button } from "@/components/ui/Button";
 import { articleSchema, breadcrumbSchema, faqSchema, webPageSchema } from "@/lib/schema";
 import { getRecommendedLinks } from "@/lib/links";
 import { FAQ } from "@/components/faq/FAQ";
-import { BusinessStatus } from "@/components/content/BusinessStatus";
 import { VerifiedBusinessFacts } from "@/components/content/VerifiedBusinessFacts";
 import { HubGrid } from "@/components/content/HubGrid";
 import { PricingPreview } from "@/components/pricing/PricingPreview";
 import { ContentFramework } from "@/components/content/ContentFramework";
-import { ReleaseStatus } from "@/components/content/ReleaseStatus";
 import { getImageAlt } from "@/config/image-seo";
 import { getExternalResources } from "@/config/external-resources";
 import { DeviceLogo, deviceBrandForSlug } from "@/components/brand/DeviceLogo";
@@ -90,18 +88,16 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
           <h1>{route.title}</h1>
           <p className="hero-lead">{content.intro}</p>
           {isArticle ? <div className="article-meta"><span>Guia editorial</span><span>{readingMinutes} min de leitura</span><span>{content.sections.length} secções</span></div> : null}
-          {route.type === "money" ? <BusinessStatus /> : null}
           {route.type === "money" ? <VerifiedBusinessFacts /> : null}
-          {route.type === "money" ? <ReleaseStatus /> : null}
           <div className="hero-actions">
             <Button href={isArticle ? "/precos/" : primary.href} variant="primary">{isArticle ? "Ver preços e planos" : primary.label}</Button>
-            <WhatsAppButton message={content.ctaMessage} />
+            <WhatsAppButton />
           </div>
         </div>
       </section>
 
       {route.slug === "/precos/" ? (
-        <Section eyebrow="Referência de mercado" title="Uma estrutura pronta para receber os preços reais." description="Os valores abaixo ficam isolados como benchmark até serem confirmados como oferta IPTVBR." className="section-surface">
+        <Section eyebrow="Planos IPTVBR" title="Escolhe a duração e o número de dispositivos." description="Preços finais em euros. O pedido segue para o WhatsApp com o plano escolhido." className="section-surface">
           <PricingPreview />
         </Section>
       ) : null}
@@ -150,7 +146,7 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
                   {section.links.map((link) => <Link className="pill-link" key={link.href} href={link.href}>{link.label} <span aria-hidden="true">→</span></Link>)}
                 </div>
               ) : null}
-              {isArticle && index === 1 ? <div className="article-inline-cta"><span>PRÓXIMO PASSO</span><strong>Compara os planos e escolhe a duração adequada ao teu dispositivo.</strong><div className="article-inline-actions"><Button href="/precos/" variant="primary">Ver preços e planos</Button><WhatsAppButton message={content.ctaMessage} /></div></div> : null}
+              {isArticle && index === 1 ? <div className="article-inline-cta"><span>PRÓXIMO PASSO</span><strong>Compara os planos e escolhe a duração adequada ao teu dispositivo.</strong><div className="article-inline-actions"><Button href="/precos/" variant="primary">Ver preços e planos</Button><WhatsAppButton /></div></div> : null}
             </section>
           ))}
           {isArticle ? (
@@ -217,8 +213,8 @@ export function PageTemplate({ route }: { route: RouteDefinition }) {
             <p className="muted">O fluxo atual direciona o utilizador para o WhatsApp, onde as condições comerciais podem ser confirmadas antes do pagamento.</p>
           </div>
           <div className="hero-actions">
-            {isArticle ? <Button href="/precos/" variant="primary">Ver preços e planos</Button> : <WhatsAppButton message={content.ctaMessage} />}
-            {isArticle ? <WhatsAppButton message={content.ctaMessage} /> : null}
+            {isArticle ? <Button href="/precos/" variant="primary">Ver preços e planos</Button> : <WhatsAppButton />}
+            {isArticle ? <WhatsAppButton /> : null}
             <Button href="/suporte/" variant="secondary">Ir para o suporte</Button>
           </div>
         </div>

@@ -48,7 +48,7 @@ export function VerifiedBusinessFacts() {
     <section className="verified-facts" aria-label="Dados comerciais confirmados">
       <div className="verified-facts-heading">
         <span className="card-kicker">Dados confirmados</span>
-        <p>Esta informação é carregada a partir do Business Truth validado.</p>
+        <p>Informação atualizada sobre a oferta IPTVBR.</p>
       </div>
       <div className="verified-facts-grid">
         {items.map((item) => (

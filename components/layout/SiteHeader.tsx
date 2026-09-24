@@ -22,7 +22,7 @@ export function SiteHeader() {
             <li><Link href="/suporte/">Suporte</Link></li>
           </ul>
         </nav>
-        <div className="desktop-header-cta"><WhatsAppButton message="Olá! Quero falar com a IPTVBR sobre um plano em Portugal." /></div>
+        <div className="desktop-header-cta"><WhatsAppButton /></div>
         <MobileMenu />
       </div>
     </header>

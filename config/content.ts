@@ -47,7 +47,7 @@ function moneyContent(route: RouteDefinition): ContentSection[] {
     const activePricing = getActivePricing();
     const pricingParagraphs = activePricing
       ? [
-          "Os planos apresentados nesta página são carregados a partir do Business Truth validado. Confirme a duração, condições e forma de pagamento antes de avançar.",
+          "Os planos mostram a duração e o preço final em euros. Escolhe o número de dispositivos e o pedido segue para o WhatsApp com o plano selecionado.",
           "O preço é apenas uma parte da decisão: verifique também compatibilidade, condições de utilização e suporte aplicáveis ao plano escolhido.",
         ]
       : [
@@ -101,10 +101,10 @@ function moneyContent(route: RouteDefinition): ContentSection[] {
       links: links(["Preços", "/precos/"], ["Dispositivos", "/dispositivos/"], ["Suporte", "/suporte/"]),
     },
     {
-      heading: "Informação comercial verificada",
+      heading: "Preços claros e teste grátis",
       paragraphs: [
-        "Qualquer preço, teste, número de dispositivos simultâneos, catálogo, garantia ou condição de reembolso deve vir de dados empresariais confirmados.",
-        "Estimativas de mercado podem ser usadas internamente como benchmark, mas não devem ser convertidas automaticamente em alegações da IPTVBR.",
+        "Os planos IPTVBR começam em €12,99 por mês e o plano de 12 meses custa €49,99 para 1 dispositivo.",
+        "Antes de pagar podes pedir um teste grátis de 24 horas pelo WhatsApp e confirmar tudo no teu dispositivo.",
       ],
     },
   ];
@@ -204,7 +204,7 @@ function supportContent(route: RouteDefinition): ContentSection[] {
       heading: "Quando pedir ajuda",
       paragraphs: [
         "Se as verificações básicas não resolverem o problema, o utilizador deve ter um caminho claro para fornecer contexto sem expor publicamente credenciais ou outros dados privados.",
-        "O contacto atual do projeto passa pelo WhatsApp, onde o caso pode ser analisado com mais contexto.",
+        "O suporte é feito pelo WhatsApp, onde o caso pode ser analisado com mais contexto.",
       ],
     },
   ];
@@ -305,17 +305,17 @@ function getFAQ(route: RouteDefinition): FAQEntry[] {
     case "support":
       return [
         { question: "Qual é o primeiro passo para diagnosticar um problema?", answer: "Identifique primeiro se o sintoma aponta para rede, dispositivo, aplicação, credenciais ou outra causa antes de alterar várias configurações." },
-        { question: "Posso pedir ajuda pelo WhatsApp?", answer: "Sim. O fluxo de contacto definido para o projeto encaminha o utilizador para o WhatsApp, onde o caso pode ser analisado com contexto." },
+        { question: "Posso pedir ajuda pelo WhatsApp?", answer: "Sim. O suporte é feito pelo WhatsApp, onde o caso pode ser analisado com contexto." },
       ];
     case "money":
       return [
-        { question: "Os preços desta página estão confirmados?", answer: "Os valores guardados atualmente são benchmarks de mercado e não devem ser tratados como preços comerciais IPTVBR até serem validados." },
+        { question: "Quanto custa a subscrição?", answer: "Os planos começam em €12,99 por 1 mês. O plano de 12 meses custa €49,99 para 1 dispositivo, cerca de €4,17 por mês." },
         { question: "Como funciona o contacto antes do pagamento?", answer: "O fluxo atual direciona o utilizador para o WhatsApp, onde as condições comerciais podem ser confirmadas antes de qualquer pagamento." },
       ];
     default:
       return [
         { question: "Como navegar para o próximo conteúdo?", answer: "Use as ligações contextuais e a navegação para avançar para o próximo tema do mesmo cluster ou para um artigo de suporte relacionado." },
-        { question: "Onde são confirmadas as informações comerciais?", answer: "Os dados comerciais devem ser confirmados no Business Truth antes de serem publicados como factos ou ofertas." },
+        { question: "Onde posso tirar dúvidas sobre os planos?", answer: "Fala connosco pelo WhatsApp. Respondemos sobre preços, dispositivos e o teste grátis de 24 horas." },
       ];
   }
 }

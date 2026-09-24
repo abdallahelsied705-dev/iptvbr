@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { buildWhatsAppUrl } from "@/lib/whatsapp";
+import { buildWhatsAppUrl, trialWhatsAppMessage } from "@/lib/whatsapp";
 
-export function WhatsAppButton({ message = "Olá, gostaria de obter informações sobre a IPTVBR.", label = "Falar no WhatsApp", detail }: { message?: string; label?: string; detail?: string }) {
+export function WhatsAppButton({ message = trialWhatsAppMessage, label = "Pedir teste grátis 24h", detail }: { message?: string; label?: string; detail?: string }) {
   return (
     <Link
       className="button button-whatsapp"
       href={buildWhatsAppUrl(message)}
-      aria-label={`Contactar o IPTVBR pelo WhatsApp: ${message}`}
+      aria-label={`${label} — IPTVBR pelo WhatsApp`}
       target="_blank"
       rel="noopener noreferrer"
     >

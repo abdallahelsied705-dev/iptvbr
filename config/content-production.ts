@@ -38,13 +38,13 @@ export const productionContent: Record<string, ProductionContent> = {
   },
   "/precos/": {
     depth: "core",
-    entities: ["preços IPTV", "plano", "duração", "benchmark"],
+    entities: ["preços IPTV", "plano", "duração", "dispositivos"],
     takeaways: [
-      "Os valores atualmente no projeto são benchmarks e não uma oferta comercial verificada.",
-      "Antes da publicação final, os preços reais devem ser confirmados numa única fonte de dados.",
-      "Qualquer mudança de preço deve atualizar a página, CTAs e dados estruturados relevantes."
+      "Planos de 1, 3, 6 e 12 meses, a partir de €12,99.",
+      "O plano de 12 meses custa €49,99 para 1 dispositivo, cerca de €4,17 por mês.",
+      "Teste grátis de 24 horas disponível pelo WhatsApp."
     ],
-    steps: ["Comparar duração", "Confirmar preço real", "Ver condições", "Contactar antes do pagamento"]
+    steps: ["Escolher a duração", "Escolher os dispositivos", "Enviar pedido no WhatsApp", "Receber o link de pagamento"]
   },
   "/dispositivos/": {
     depth: "core",

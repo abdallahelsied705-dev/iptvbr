@@ -116,7 +116,7 @@ export default function HomePage() {
         <div className="container">
           <SectionLabel>IPTVBR · PLANOS</SectionLabel>
           <h2>Planos IPTV para a <span className="ref-accent">tua forma de ver.</span></h2>
-          <p className="ref-section-intro">Escolhe a duração e o número de dispositivos. Mantemos os preços atualmente configurados no site e apresentamos tudo de forma clara.</p>
+          <p className="ref-section-intro">Escolhe a duração e o número de dispositivos. Preços finais em euros e teste grátis de 24 horas.</p>
           <PricingMatrix />
         </div>
       </section>
@@ -235,7 +235,7 @@ export default function HomePage() {
               <div><span className="ref-mini-icon"><BadgeCheck /></span><strong>Planos flexíveis</strong><span>Escolhe a duração ideal</span></div>
             </div>
             <div className="ref-sports-price">
-              <div><span>PLANOS A PARTIR DE</span><strong><small>€</small>16,99</strong><em>Preço total · 1 dispositivo</em></div>
+              <div><span>PLANOS A PARTIR DE</span><strong><small>€</small>12,99</strong><em>Preço total · 1 dispositivo</em></div>
               <div className="ref-sports-actions"><Link href="#planos" className="ref-button">Ver todos os planos <ArrowRight size={16} /></Link><Link href="/dispositivos/">Ver dispositivos</Link></div>
             </div>
           </div>
@@ -297,7 +297,7 @@ export default function HomePage() {
             <SectionLabel>COMEÇA AGORA</SectionLabel>
             <h2>Pronto para melhorar a tua <span className="ref-accent">experiência de TV?</span></h2>
             <p>Escolhe um plano ou fala diretamente connosco para orientação.</p>
-            <div className="ref-actions"><WhatsAppButton message="Olá! Quero ajuda para escolher o melhor plano IPTVBR para Portugal." /><Link href="#planos" className="ref-button ref-button-outline">Ver planos</Link></div>
+            <div className="ref-actions"><WhatsAppButton /><Link href="#planos" className="ref-button ref-button-outline">Ver planos</Link></div>
           </div>
           <div className="ref-news">
             <div className="ref-news-head"><SectionLabel>GUIAS & ATUALIZAÇÕES</SectionLabel><h2>Últimos conteúdos</h2></div>

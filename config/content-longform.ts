@@ -12,7 +12,7 @@ export const longformContent: Record<string, LongformContent> = {
     sections: [
       { heading: "Começa pelo sintoma que estás a ver", paragraphs: ["Quando o IPTV deixa de funcionar, começa por descrever exatamente o sintoma: a aplicação não abre, a lista não aparece, um canal não inicia ou a reprodução interrompe-se.", "O mesmo resultado pode ter causas diferentes. Separar o sintoma evita reinstalações e alterações aleatórias."], links: [link("Centro de suporte", "/suporte/"), link("Problemas de aplicação", "/suporte/problemas-app/")] },
       { heading: "Verificações por camadas", paragraphs: ["Confirma primeiro a ligação de rede e o comportamento de outros serviços no mesmo dispositivo. Depois verifica a aplicação e, por fim, os dados de configuração. Se o problema ocorrer apenas num dispositivo, essa pista também é importante.", "Mantém uma alteração de cada vez e regista o resultado. Isso torna o diagnóstico mais curto e repetível."], links: [link("Velocidade da Internet", "/guias/velocidade-internet-iptv/"), link("Buffering", "/suporte/buffering/")] },
-      { heading: "Quando pedir ajuda", paragraphs: ["Se as verificações básicas não resolverem o problema, envia pelo canal privado apenas o contexto necessário para descrever o caso. Nunca publiques credenciais, URLs pessoais ou outros dados sensíveis.", "O WhatsApp é o canal de contacto definido para o projeto e pode ser usado para continuar o diagnóstico com mais contexto."] }
+      { heading: "Quando pedir ajuda", paragraphs: ["Se as verificações básicas não resolverem o problema, envia pelo canal privado apenas o contexto necessário para descrever o caso. Nunca publiques credenciais, URLs pessoais ou outros dados sensíveis.", "O WhatsApp é o nosso canal de suporte e pode ser usado para continuar o diagnóstico com mais contexto."] }
     ],
     faq: [
       { question: "O que devo testar primeiro?", answer: "Identifica o sintoma e verifica rede, aplicação, dispositivo e configuração separadamente." },
@@ -180,7 +180,7 @@ export const longformContent: Record<string, LongformContent> = {
         paragraphs: [
           "Uma decisão informada começa por confirmar o que está efetivamente incluído na oferta. Duração do plano, preço, método de pagamento, compatibilidade com o teu dispositivo, aplicação utilizada e condições de suporte devem ser claros antes de qualquer pagamento.",
           "Também é importante separar afirmações verificáveis de slogans. Números de canais, volume de VOD, uptime, número de dispositivos simultâneos ou garantias específicas não devem ser tratados como factos sem confirmação do serviço.",
-          "No projeto IPTVBR, os benchmarks usados durante o planeamento servem apenas para orientar a estratégia. Não são automaticamente transformados em características comerciais."
+          "Na IPTVBR, os planos mostram a duração e o preço final de forma clara, e há um teste grátis de 24 horas para confirmares tudo no teu dispositivo antes de pagar."
         ],
         links: [
           link("Consultar preços", "/precos/"),
@@ -204,9 +204,9 @@ export const longformContent: Record<string, LongformContent> = {
       {
         heading: "Como funciona o percurso comercial atual",
         paragraphs: [
-          "O fluxo definido para o projeto encaminha o visitante para o WhatsApp antes do pagamento. Isto permite confirmar as condições comerciais vigentes e esclarecer dúvidas antes de receber o link de pagamento.",
-          "Essa etapa deve permanecer clara na interface. A página não deve sugerir um checkout interno se esse checkout não existir. Da mesma forma, qualquer preço ou condição apresentados como oferta devem vir da fonte comercial confirmada do projeto.",
-          "Quando os dados reais forem preenchidos no Business Truth, a mesma fonte poderá alimentar os preços, cartões, mensagens e contexto comercial sem duplicar valores em várias áreas."
+          "O pedido é feito pelo WhatsApp antes do pagamento. Isto permite confirmar as condições comerciais vigentes e esclarecer dúvidas antes de receber o link de pagamento.",
+          "Não há checkout escondido nem surpresas: escolhes o plano no site, confirmas pelo WhatsApp e só depois recebes o link de pagamento.",
+          "Os preços mostrados no site são os mesmos que recebes na mensagem do WhatsApp, por isso sabes exatamente o que vais pagar antes de avançar."
         ],
         links: [
           link("Comprar IPTV", "/comprar-iptv/"),
@@ -229,8 +229,8 @@ export const longformContent: Record<string, LongformContent> = {
     faq: [
       { question: "O que é IPTV?", answer: "É uma tecnologia que permite distribuir vídeo através de redes IP. A tecnologia, por si só, não confirma os direitos de distribuição de um conteúdo específico." },
       { question: "Que dispositivo devo escolher?", answer: "Começa pelo dispositivo que já tens. Depois confirma a aplicação e o método de configuração que são realmente suportados." },
-      { question: "Como funciona o pagamento no projeto?", answer: "O fluxo atual passa primeiro pelo WhatsApp, onde as condições comerciais podem ser confirmadas antes do envio do link de pagamento." },
-      { question: "Os preços apresentados já estão confirmados?", answer: "Os valores de benchmark usados no projeto ainda não devem ser tratados como oferta comercial verificada até serem confirmados no Business Truth." }
+      { question: "Como funciona o pagamento?", answer: "Envias o pedido pelo WhatsApp com o plano escolhido, confirmamos os detalhes e recebes o link de pagamento." },
+      { question: "Quanto custa o IPTV da IPTVBR?", answer: "Os planos começam em €12,99 por 1 mês e o plano de 12 meses custa €49,99 para 1 dispositivo. Podes ver todos os preços na página de preços." }
     ]
   },
 
@@ -261,10 +261,10 @@ export const longformContent: Record<string, LongformContent> = {
         links: [link("Contactar pelo WhatsApp", "/contacto/"), link("Consultar o processo de compra", "/comprar-iptv/")]
       },
       {
-        heading: "O que não deve ser assumido",
+        heading: "Experimenta antes de subscrever",
         paragraphs: [
-          "Uma página comercial não deve inventar períodos de teste, número de dispositivos simultâneos, garantias de uptime, quantidade de canais, catálogo VOD ou política de reembolso. Esses dados dependem do serviço real e devem entrar na página apenas depois de confirmação.",
-          "Os benchmarks de concorrentes foram úteis para a estratégia e posicionamento, mas não são uma substituição pelos dados empresariais do próprio serviço."
+          "Antes de escolheres um plano podes pedir um teste grátis de 24 horas pelo WhatsApp e confirmar a qualidade e a compatibilidade no teu próprio dispositivo.",
+          "Se tiveres dúvidas sobre dispositivos, número de ecrãs ou condições, fala connosco antes do pagamento e esclarecemos tudo."
         ],
         links: [link("Ver abordagem de transparência", "/sobre-nos/"), link("Política de reembolso", "/politica-reembolso/")]
       }
@@ -272,7 +272,7 @@ export const longformContent: Record<string, LongformContent> = {
     faq: [
       { question: "Como funciona a subscrição?", answer: "O fluxo atual começa no WhatsApp, onde as condições comerciais são confirmadas antes do pagamento." },
       { question: "Posso confirmar o dispositivo antes de comprar?", answer: "Sim. O percurso recomendado começa por identificar o dispositivo e a aplicação necessários e confirmar a compatibilidade real." },
-      { question: "Existe um período de teste?", answer: "A disponibilidade do teste ainda não está confirmada no Business Truth do projeto." },
+      { question: "Existe um período de teste?", answer: "Sim. Podes pedir um teste grátis de 24 horas pelo WhatsApp antes de escolheres um plano." },
       { question: "Qual é a política de reembolso?", answer: "Os termos finais de reembolso ainda precisam de ser confirmados antes de serem apresentados como condição comercial." }
     ]
   },
@@ -307,7 +307,7 @@ export const longformContent: Record<string, LongformContent> = {
     faq: [
       { question: "Onde faço o pagamento?", answer: "O fluxo atual encaminha o utilizador para o WhatsApp, onde as condições são confirmadas antes de receber o link de pagamento." },
       { question: "Preciso de saber o meu dispositivo?", answer: "É altamente recomendável confirmar o dispositivo antes de avançar, porque a aplicação e o método de configuração podem variar." },
-      { question: "O site apresenta preços reais?", answer: "A estrutura da página está preparada para isso, mas os benchmarks atuais só podem ser publicados como preços depois da confirmação comercial." }
+      { question: "Os preços do site são finais?", answer: "Sim. Os preços mostrados são finais, em euros, e são os mesmos que recebes na mensagem do WhatsApp." }
     ]
   },
 
@@ -317,15 +317,15 @@ export const longformContent: Record<string, LongformContent> = {
         heading: "Como deve ser apresentada uma tabela de preços IPTV",
         paragraphs: [
           "Uma boa página de preços reduz comparação mental. O utilizador deve conseguir identificar rapidamente duração, preço e condições principais de cada plano, sem depender de uma sequência de pop-ups ou mensagens promocionais.",
-          "No IPTVBR, os valores usados durante o planeamento continuam isolados como benchmark. A página não deve apresentar esses números como oferta final enquanto não houver confirmação empresarial."
+          "Na IPTVBR, cada plano mostra a duração, o preço total e o custo aproximado por mês. Escolhe também o número de dispositivos e o preço atualiza automaticamente."
         ],
         links: [link("Subscrição IPTV", "/subscricao-iptv/"), link("Comprar IPTV", "/comprar-iptv/")]
       },
       {
-        heading: "Benchmark de mercado não é preço IPTVBR",
+        heading: "Qual é o plano com melhor valor?",
         paragraphs: [
-          "Durante a fase de planeamento, os preços dos concorrentes podem ajudar a compreender o intervalo de mercado, comparar durações e estudar a apresentação das ofertas. Mas estes dados não substituem o preço real do projeto.",
-          "Por isso, a camada Business Truth foi desenhada para separar o benchmark interno da oferta comercial apresentada ao utilizador. Quando o preço for confirmado, o valor pode ser atualizado numa fonte central e reutilizado nos cartões, mensagens e contexto comercial necessários."
+          "Quanto maior a duração, menor o custo por mês. O plano de 1 mês custa €12,99, enquanto o plano de 12 meses custa €49,99, o que dá cerca de €4,17 por mês para 1 dispositivo.",
+          "Se ainda não tens a certeza, começa pelo teste grátis de 24 horas e escolhe o plano depois de experimentares o serviço no teu dispositivo."
         ]
       },
       {
@@ -338,8 +338,8 @@ export const longformContent: Record<string, LongformContent> = {
       }
     ],
     faq: [
-      { question: "Estes preços são finais?", answer: "Não. Os valores atuais no projeto são benchmarks até a oferta comercial real ser confirmada." },
-      { question: "É possível alterar o preço sem editar todas as páginas?", answer: "Sim. A arquitetura usa uma fonte central de Business Truth para evitar que os preços sejam repetidos em vários ficheiros." },
+      { question: "Estes preços são finais?", answer: "Sim. Os preços são finais, em euros, e dependem da duração e do número de dispositivos escolhidos." },
+      { question: "Posso usar em mais de um dispositivo?", answer: "Sim. Escolhe 1, 2, 3 ou 4 dispositivos na tabela de preços e o valor de cada plano é atualizado automaticamente." },
       { question: "Existem descontos reais?", answer: "Não apresentamos um desconto a menos que exista uma oferta comercial real e confirmada." }
     ]
   },
