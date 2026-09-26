@@ -27,21 +27,21 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_PT",
     siteName: siteConfig.name,
-    title: siteConfig.defaultTitle,
-    description: siteConfig.defaultDescription,
+    title: "IPTVBR Portugal | Canais, desporto e cinema",
+    description: "Mais de 45.000 canais em direto, filmes e séries, teste grátis 24h, planos e apoio em português.",
     url: siteConfig.url + "/",
     images: [{
-      url: "/images/social/iptvbr-social-share.png",
+      url: "/og/share",
       width: 1200,
       height: 630,
-      alt: "IPTVBR Portugal — planos, aplicações e guias IPTV"
+      alt: "IPTVBR Portugal — canais, desporto e cinema com teste grátis 24h"
     }]
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.defaultTitle,
-    description: siteConfig.defaultDescription,
-    images: ["/images/social/iptvbr-social-share.png"]
+    title: "IPTVBR Portugal | Canais, desporto e cinema",
+    description: "Mais de 45.000 canais em direto, filmes e séries, teste grátis 24h.",
+    images: ["/og/share"]
   },
   verification: process.env.GOOGLE_SITE_VERIFICATION
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }

@@ -70,12 +70,12 @@ export const metadata: Metadata = {
     type: "website",
     locale: "pt_PT",
     siteName: "IPTVBR",
-    title: "IPTV Portugal: +45.000 Canais ao Vivo | IPTVBR",
-    description: "Mais de 45.000 canais ao vivo em Portugal, dispositivos compatíveis, aplicações, instalação e suporte em português.",
+    title: "IPTVBR Portugal | Canais, desporto e cinema",
+    description: "Mais de 45.000 canais em direto, filmes e séries, teste grátis 24h, planos e apoio em português.",
     url: "https://www.iptvbr.pt/",
-    images: [{ url: "/images/social/iptvbr-social-share.png", width: 1200, height: 630, alt: "IPTVBR Portugal — planos, aplicações e guias IPTV" }],
+    images: [{ url: "/og/share", width: 1200, height: 630, alt: "IPTVBR Portugal — canais, desporto e cinema com teste grátis 24h" }],
   },
-  twitter: { card: "summary_large_image", images: ["/images/social/iptvbr-social-share.png"] },
+  twitter: { card: "summary_large_image", title: "IPTVBR Portugal | Canais, desporto e cinema", description: "Mais de 45.000 canais em direto, filmes e séries, teste grátis 24h.", images: ["/og/share"] },
 };
 
 function SectionLabel({ children, dark = false }: { children: ReactNode; dark?: boolean }) {
