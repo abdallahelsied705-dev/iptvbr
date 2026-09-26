@@ -73,9 +73,9 @@ export const metadata: Metadata = {
     title: "IPTVBR Portugal | Canais, desporto e cinema",
     description: "Mais de 45.000 canais em direto, filmes e séries, teste grátis 24h, planos e apoio em português.",
     url: "https://www.iptvbr.pt/",
-    images: [{ url: "/og/share", width: 1200, height: 630, alt: "IPTVBR Portugal — canais, desporto e cinema com teste grátis 24h" }],
+    images: [{ url: "/images/social/iptvbr-preview-card-2026.jpg", width: 1200, height: 630, type: "image/jpeg", alt: "IPTVBR Portugal — canais, desporto e cinema com teste grátis 24h" }],
   },
-  twitter: { card: "summary_large_image", title: "IPTVBR Portugal | Canais, desporto e cinema", description: "Mais de 45.000 canais em direto, filmes e séries, teste grátis 24h.", images: ["/og/share"] },
+  twitter: { card: "summary_large_image", title: "IPTVBR Portugal | Canais, desporto e cinema", description: "Mais de 45.000 canais em direto, filmes e séries, teste grátis 24h.", images: ["/images/social/iptvbr-preview-card-2026.jpg"] },
 };
 
 function SectionLabel({ children, dark = false }: { children: ReactNode; dark?: boolean }) {

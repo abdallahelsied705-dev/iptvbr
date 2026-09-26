@@ -31,9 +31,10 @@ export const metadata: Metadata = {
     description: "Mais de 45.000 canais em direto, filmes e séries, teste grátis 24h, planos e apoio em português.",
     url: siteConfig.url + "/",
     images: [{
-      url: "/og/share",
+      url: "/images/social/iptvbr-preview-card-2026.jpg",
       width: 1200,
       height: 630,
+      type: "image/jpeg",
       alt: "IPTVBR Portugal — canais, desporto e cinema com teste grátis 24h"
     }]
   },
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "IPTVBR Portugal | Canais, desporto e cinema",
     description: "Mais de 45.000 canais em direto, filmes e séries, teste grátis 24h.",
-    images: ["/og/share"]
+    images: ["/images/social/iptvbr-preview-card-2026.jpg"]
   },
   verification: process.env.GOOGLE_SITE_VERIFICATION
     ? { google: process.env.GOOGLE_SITE_VERIFICATION }
