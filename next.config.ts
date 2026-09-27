@@ -22,7 +22,14 @@ const nextConfig: NextConfig = {
     ];
   },
   async redirects() {
-    return [];
+    return [
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "iptvbr.pt" }],
+        destination: "https://www.iptvbr.pt/:path*",
+        permanent: true,
+      },
+    ];
   }
 };
 
